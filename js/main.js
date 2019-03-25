@@ -1,45 +1,72 @@
-(function($){
-    $('.article img:not(".not-gallery-item")').each(function () {
-        // wrap images with link and add caption if possible
-        if ($(this).parent('a').length === 0) {
-            $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
-            if (this.alt) {
-                $(this).after('<div class="has-text-centered is-size-6 has-text-grey caption">' + this.alt + '</div>');
-            }
-        }
-    });
+$(document).ready(function() {
 
-    if (typeof(moment) === 'function') {
-        $('.article-meta time').each(function () {
-            $(this).text(moment($(this).attr('datetime')).fromNow());
-        });
+  $('body').removeClass('no-js');
+
+  $('a.blog-button').click(function() {
+    if ($('.panel-cover').hasClass('panel-cover--collapsed')) return;
+    currentWidth = $('.panel-cover').width();
+    if (currentWidth < 960) {
+      $('.panel-cover').addClass('panel-cover--collapsed');
+      $('.content-wrapper').addClass('animated slideInRight');
+    } else {
+      $('.panel-cover').css('max-width',currentWidth);
+      $('.panel-cover').animate({'max-width': '465px', 'width': '26%'}, 400, swing = 'swing', function() {} );
     }
+  });
 
-    function adjustNavbar() {
-        const navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
-        if ($(document).outerWidth() < navbarWidth) {
-            $('.navbar-main .navbar-menu').addClass('is-flex-start');
-        } else {
-            $('.navbar-main .navbar-menu').removeClass('is-flex-start');
-        }
+  if (window.location.hash && window.location.hash == "#blog") {
+    $('.panel-cover').addClass('panel-cover--collapsed');
+  }
+
+  if (window.location.pathname.substring(0, 5) == "/tag/") {
+    $('.panel-cover').addClass('panel-cover--collapsed');
+  }
+  
+  if (window.location.pathname.substring(0, 6) == "/page/") {
+    $('.panel-cover').addClass('panel-cover--collapsed');
+  }
+
+  $('.btn-mobile-menu__icon').click(function() {
+    if ($('.navigation-wrapper').css('display') == "block") {
+      $('.navigation-wrapper').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $('.navigation-wrapper').toggleClass('visible animated bounceOutUp');
+      });
+      $('.navigation-wrapper').toggleClass('animated bounceInDown animated bounceOutUp');
+
+    } else {
+      $('.navigation-wrapper').toggleClass('visible animated bounceInDown');
     }
-    adjustNavbar();
-    $(window).resize(adjustNavbar);
+    $('.btn-mobile-menu__icon').toggleClass('fa fa-list fa fa-angle-up animated fadeIn');
+  });
 
-    var $toc = $('#toc');
-    if ($toc.length > 0) {
-    var $mask = $('<div>');
-        $mask.attr('id', 'toc-mask');
+  $('.navigation-wrapper .blog-button').click(function() {
+    if ($('.navigation-wrapper').css('display') == "block") {
+      $('.navigation-wrapper').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $('.navigation-wrapper').toggleClass('visible animated bounceOutUp');
+      });
 
-        $('body').append($mask);
-
-        function toggleToc() {
-            $toc.toggleClass('is-active');
-            $mask.toggleClass('is-active');
-        }
-
-        $toc.on('click', toggleToc);
-        $mask.on('click', toggleToc);
-        $('.navbar-main .catalogue').on('click', toggleToc);
+      $('.navigation-wrapper').toggleClass('animated bounceInDown animated bounceOutUp');
     }
-})(jQuery);
+    $('.btn-mobile-menu__icon').toggleClass('fa fa-list fa fa-angle-up animated fadeIn');
+  });
+
+  $("article.post-container--single a[href^=http]").attr("target", "_blank");
+  $("article.post-container--single a[href^=mailto]").attr("target", "_blank");
+  
+  
+  
+  $(function(){
+		
+		$('.img-click').click(function(){
+            document.getElementById("img-content").src=$(this).attr("data");
+			$('.img-background').fadeIn(200);
+			$('.img-border').fadeIn(400);
+            
+		});
+		$('.img-background').click(function(){
+			$('.img-background').fadeOut(200);
+			$('.img-border').fadeOut(200);
+		});
+        
+	});
+});
