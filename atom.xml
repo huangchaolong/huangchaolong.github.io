@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-13T03:03:38.628Z</updated>
+  <updated>2019-06-13T03:10:55.187Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,26 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/06/13/%E4%B8%8A%E7%8F%AD%E7%AC%AC%E4%B8%80%E5%A4%A9(1)/"/>
-    <id>http://yoursite.com/2019/06/13/上班第一天(1)/</id>
-    <published>2019-06-13T03:04:01.519Z</published>
-    <updated>2019-06-13T03:03:38.628Z</updated>
+    <title>第一天</title>
+    <link href="http://yoursite.com/2019/06/13/%E7%AC%AC%E4%B8%80%E5%A4%A9/"/>
+    <id>http://yoursite.com/2019/06/13/第一天/</id>
+    <published>2019-06-13T03:11:06.616Z</published>
+    <updated>2019-06-13T03:10:55.187Z</updated>
     
-    <content type="html"><![CDATA[<p>title:第一天<br>tags:工作</p><hr><p>静静悄悄</p>]]></content>
+    <content type="html"><![CDATA[<p>静静悄悄<br>s<br>s<br>s</p><hr>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;title:第一天&lt;br&gt;tags:工作&lt;/p&gt;
+        &lt;p&gt;静静悄悄&lt;br&gt;s&lt;br&gt;s&lt;br&gt;s&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;静静悄悄&lt;/p&gt;
 
       
     
     </summary>
     
+    
+      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
