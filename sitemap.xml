@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://huangchaolong.github.io/blog/wsl2%E5%9B%BA%E5%AE%9Aip/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/blog/zap/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/blog/%E9%9D%99%E9%9D%99%E6%82%84%E6%82%84/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/docs/go%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/jiahe/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/jiahe/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/blog/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/docs/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/tags/go/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/jiahe/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/tags/wsl/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/tags/zap/</loc>
+    <lastmod>2020-10-20T15:12:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/me/</loc>
+    <lastmod>2020-01-28T00:08:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangchaolong.github.io/</loc>
+    <lastmod>2020-01-26T04:15:05+09:00</lastmod>
+  </url>
+  
+</urlset>

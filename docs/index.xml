@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on hcl</title>
+    <link>https://huangchaolong.github.io/docs/</link>
+    <description>Recent content in Docs on hcl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
+    
+        <atom:link href="https://huangchaolong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>go安装及部署</title>
+        <link>https://huangchaolong.github.io/docs/go%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/docs/go%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/</guid>
+        <description>安装go程序
+cd wget https://studygolang.com/dl/golang/go1.17.3.linux-amd64.tar.gz sudo tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz 部署go环境
+cd vim /etc/profile export GOPATH=/home/hcl/go export GOBIN=/home/hcl/go/bin export GOROOT=/usr/local/go export PATH=$PATH:$GOROOT/bin:$GOPATH/bin export GOPROXY=https://goproxy.io,direct 创建文件
+mkdir -p gopath/bin 解压blog博客安装包
+解压到：/home/hcl cd blog rm -rf public 安装部署hugo
+sudo apt-get update sudo apt-get install hugo hugo hugo server //本地预览 hugo version //查看版本 </description>
+      </item>
+      
+    
+  </channel>
+</rss>

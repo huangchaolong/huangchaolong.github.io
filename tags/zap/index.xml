@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zap on hcl</title>
+    <link>https://huangchaolong.github.io/tags/zap/</link>
+    <description>Recent content in zap on hcl</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
+    
+        <atom:link href="https://huangchaolong.github.io/tags/zap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>zap格式化日志</title>
+        <link>https://huangchaolong.github.io/blog/zap/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/blog/zap/</guid>
+        <description>第三方包 1  go.uber.org/zap   zap记录日志  uber 开源的高性能日志库，面向高性能  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65  package boot import ( &amp;#34;fmt&amp;#34; &amp;#34;path&amp;#34; &amp;#34;time&amp;#34; &amp;#34;github.</description>
+      </item>
+      
+      <item>
+        <title>测试2</title>
+        <link>https://huangchaolong.github.io/blog/%E9%9D%99%E9%9D%99%E6%82%84%E6%82%84/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/blog/%E9%9D%99%E9%9D%99%E6%82%84%E6%82%84/</guid>
+        <description>？？？？？</description>
+      </item>
+      
+      <item>
+        <title>HDR-数据中心常规操作</title>
+        <link>https://huangchaolong.github.io/jiahe/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/jiahe/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
+        <description>##抽数
+su hdfs #查看定时任务是否执行
+通过命令查看：grep “查询的名称” 查询路径
+grep &amp;quot;test.txt&amp;quot; /var/log/cron #查看tomcat版本
+bin下执行./version.sh #删除日志sh
+export JAVA_HOME=/usr/local/java
+export PATH=$JAVA_HOME/bin:$PATH
+find /root/hdr/V5logs -name &amp;ldquo;*.log&amp;rdquo; -mtime +4 -exec rm -rf {} ;
+#定时任务设置
+crontab -e #设置定时任务时间以及每天导出日志文件到home/spark/logs文件下
+00 17 * * * /home/spark/sparkToSqlserverIncrement_crontab.sh &amp;gt;&amp;gt;/home/spark/logs/$(date +\%Y\%m\%d).log 2&amp;gt;&amp;amp;1 #定时任务查看
+crontab -l #查看进程 kill进程
+ps -ef|grep 8083 kill -9 进程 #查看sh文件格式
+:set ff #修改sh文件格式
+:set ff=unix #统一视图单点登录配置路径
+/usr/local/tomcats/tomcat-8086/webappsrcivcurity/singlelogin.jsp #统一视图：就诊视图-》医嘱-》执行记录：操作列，是否显示配置（0/1）
+CIV_CATEGARY_ORDER_SHOW_CONFIG #solr清空语句
+&amp;lt;delete&amp;gt;&amp;lt;query&amp;gt;*:*&amp;lt;/query&amp;gt;&amp;lt;/delete&amp;gt; &amp;lt;commit/&amp;gt; #定时任务：抽取V5的患者主索引到数据中心，并导出根据日期生成的log日志
+00 14 * * * /root/hdr/importDataToHbase/run-v5.</description>
+      </item>
+      
+      <item>
+        <title>TIDB-医共体数据中心常规操作</title>
+        <link>https://huangchaolong.github.io/jiahe/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/jiahe/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
+        <description>##医共体数据中心数据库地址：
+ 192.168.21.2:4000 数据库：jhygt 用户：dbadmin 密码：  #查看定时任务是否执行
+通过命令查看：grep “查询的名称” 查询路径
+ grep &amp;ldquo;test.txt&amp;rdquo; /var/log/cron  #集群操作
+ 启动集群 tiup cluster start tidb-formal (实例名) 查看集群 tiup cluster display tidb-formal (实例名) 关闭集群 tiup cluster stop tidb-formal (实例名)  #集群清单：
+ 192.168.21.2（对外：数据库） 192.168.21.3 192.168.21.4 192.168.21.5 192.168.21.6 192.168.21.7（集群中控台：在此进行集群操作）  #医共体数据中心主题库涉及表：
+ ST_TABLE_THEME_INFO ST_TABLE_THEME_TARGET_INFO  在手动运行中心主题库时候新增上：update
+#任务调度中心地址：
+http://192.168.21.13:8772/xxl-job-admin/toLogin admin/admin
+#医共体数据中心运营分析涉及表：
+ 指标配置表：DSV_KPI_SQL_CONFIG 指标记录表-日：DSV_KPI_DATA_DAY 指标记录表-月：DSV_KPI_DATA_MONTH 指标记录表-年：DSV_KPI_DATA_YEAR  使用文档：BI任务调度与配置V1.0-用户手册
+#医共体数据中心对外接口地址配置表：
+ DSV_NSI_MESSAGE  #大屏部署目录：
+cd/ cd /home/servers/local/apache-tomcat-8.</description>
+      </item>
+      
+    
+  </channel>
+</rss>

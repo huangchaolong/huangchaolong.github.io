@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=http://127.0.0.1:3334/i.html?openatlogin=false&host=&debug=&appversion=7.1.5&mas=&hideCheckUpdate=false&scholar=true&_=1660870379557?theme=undefined
+HostUrl=http://127.0.0.1:3334/yws/api/personal/sync?method=download&fileId=WEB656e67cc27ec11a71b5c0dcbc9a15c10&version=14634&cstk=PTWcKbzx&keyfrom=web
