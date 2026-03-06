@@ -1998,22 +1998,7 @@ COMMIT;
 
 ROLLBACK;
 </code></pre><hr />
-<h2 id="总结">总结</h2>
-<ol>
-<li>
-<p><strong>核心操作</strong>：库表管理（CREATE/ALTER/DROP）+ 数据 CRUD（INSERT/SELECT/UPDATE/DELETE）是日常高频操作，SELECT 需重点掌握条件、排序、分页；</p>
-</li>
-<li>
-<p><strong>避坑要点</strong>：UPDATE/DELETE 必须加 WHERE 条件，避免全表修改 / 删除；创建表时指定 utf8mb4 字符集防止中文乱码；</p>
-</li>
-<li>
-<p><strong>性能优化</strong>：常用字段加索引（普通索引 / 联合索引），避免 SELECT *，大表操作优先用 TRUNCATE 而非 DELETE。</p>
-</li>
-</ol>
-<p>如果需要针对某个具体场景（比如慢查询优化、事务实战）深入讲解，或者想要常用操作的速查表，都可以告诉我！</p>
-<blockquote>
-<p>（注：文档部分内容可能由 AI 生成）</p>
-</blockquote>
+<hr />
 
   </article>
 </div>
@@ -2107,7 +2092,6 @@ ROLLBACK;
         <li><a href="#3-事务操作">3. 事务操作</a></li>
       </ul>
     </li>
-    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
