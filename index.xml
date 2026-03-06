@@ -144,10 +144,10 @@ http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
       
       <item>
         <title>MYSQL常用操作</title>
-        <link>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</link>
+        <link>https://huangchaolong.github.io/docs/mysql-common-operations/</link>
         <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
         
-        <guid>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</guid>
+        <guid>https://huangchaolong.github.io/docs/mysql-common-operations/</guid>
         <description>&lt;hr /&gt;
 &lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
