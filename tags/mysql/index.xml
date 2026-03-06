@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MYSQL on huangchaolong</title>
-    <link>https://huangchaolong.github.io/tags/mysql/</link>
+    <link>http://localhost:43074/tags/mysql/</link>
     <description>Recent content in MYSQL on huangchaolong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
     
-        <atom:link href="https://huangchaolong.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:43074/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     
       
       <item>
         <title>MYSQL常用操作</title>
-        <link>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</link>
+        <link>http://localhost:43074/docs/mysql%E5%B8%B8%E7%94%A8/</link>
         <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
         
-        <guid>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</guid>
+        <guid>http://localhost:43074/docs/mysql%E5%B8%B8%E7%94%A8/</guid>
         <description>&lt;hr /&gt;
 &lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 16:17:00 +0800</lastBuildDate>
     
         <atom:link href="https://huangchaolong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -64,93 +64,6 @@ deleteall &amp;#39;HDR_ALLERGY&amp;#39;,&amp;#39;5196|418205134|2116915|1|135106
 #四、运行 抽取数据的sqoop语句    su hdfs&lt;br /&gt;
 #五、Hbase修改表名&lt;br /&gt;
 因为hbase中没有rename命令，所以更改表名比较复杂。重命名主要通过hbase的快照功能。&lt;/p&gt;</description>
-      </item>
-      
-      <item>
-        <title>MYSQL常用操作</title>
-        <link>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</link>
-        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
-        
-        <guid>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</guid>
-        <description>&lt;hr /&gt;
-&lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
-&lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 基础连接（默认端口3306）
-
-mysql -u root -p
-
-\# 指定端口/主机连接（远程连接）
-
-mysql -h 192.168.1.100 -P 3306 -u root -p
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;-u&lt;/code&gt;：指定用户名&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;-p&lt;/code&gt;：回车后输入密码（直接写密码：&lt;code&gt;-p123456&lt;/code&gt;，不推荐，会明文显示）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;-h&lt;/code&gt;：指定数据库主机（远程连接必填）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;-P&lt;/code&gt;：指定端口（默认 3306，非默认时必填）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;
-
-\-- 或
-
-quit;
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h2&gt;
-&lt;h3 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW DATABASES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建数据库&#34;&gt;2. 创建数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 基础创建（指定字符集和排序规则，避免中文乱码）
-
-CREATE DATABASE IF NOT EXISTS test\_db&amp;amp;#x20;
-
-DEFAULT CHARACTER SET utf8mb4&amp;amp;#x20;
-
-DEFAULT COLLATE utf8mb4\_unicode\_ci;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;IF NOT EXISTS&lt;/code&gt;：避免重复创建报错&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;utf8mb4&lt;/code&gt;：支持 emoji 和所有中文，推荐替代&lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;3-切换数据库&#34;&gt;3. 切换数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USE test\_db;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据库谨慎&#34;&gt;4. 删除数据库（谨慎！）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP DATABASE IF EXISTS test\_db;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-查看当前数据库&#34;&gt;5. 查看当前数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT DATABASE();
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;三数据表表管理&#34;&gt;三、数据表（表）管理&lt;/h2&gt;
-&lt;h3 id=&#34;1-查看当前库所有表&#34;&gt;1. 查看当前库所有表&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW TABLES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建表示例用户表&#34;&gt;2. 创建表（示例：用户表）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CREATE TABLE IF NOT EXISTS user (
-
-&amp;amp;#x20;   id INT PRIMARY KEY AUTO\_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
-
-&amp;amp;#x20;   username VARCHAR(50) NOT NULL UNIQUE COMMENT &amp;#39;用户名&amp;#39;,
-
-&amp;amp;#x20;   password VARCHAR(100) NOT NULL COMMENT &amp;#39;密码（建议加密存储）&amp;#39;,
-
-&amp;amp;#x20;   age TINYINT UNSIGNED DEFAULT 0 COMMENT &amp;#39;年龄&amp;#39;,
-
-&amp;amp;#x20;   create\_time DATETIME DEFAULT CURRENT\_TIMESTAMP COMMENT &amp;#39;创建时间&amp;#39;,
-
-&amp;amp;#x20;   update\_time DATETIME DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP COMMENT &amp;#39;更新时间&amp;#39;
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&amp;#39;用户表&amp;#39;;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;ENGINE=InnoDB&lt;/code&gt;：默认存储引擎，支持事务、外键、行锁&lt;/p&gt;</description>
       </item>
       
       <item>
@@ -227,6 +140,81 @@ http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
 &lt;p&gt;##医共体数据中心应用服务启动文档&lt;br /&gt;
 ##服务器IP地址：192.168.21.13&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>MYSQL常用操作</title>
+        <link>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</link>
+        <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
+        
+        <guid>https://huangchaolong.github.io/docs/mysql%E5%B8%B8%E7%94%A8/</guid>
+        <description>&lt;hr /&gt;
+&lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
+&lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 基础连接（默认端口3306）
+
+mysql -u root -p
+
+\# 指定端口/主机连接（远程连接）
+
+mysql -h 192.168.1.100 -P 3306 -u root -p
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-u&lt;/code&gt;：指定用户名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p&lt;/code&gt;：回车后输入密码（直接写密码：&lt;code&gt;-p123456&lt;/code&gt;，不推荐，会明文显示）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-h&lt;/code&gt;：指定数据库主机（远程连接必填）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-P&lt;/code&gt;：指定端口（默认 3306，非默认时必填）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;
+\-- 或
+quit;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h2&gt;
+&lt;h3 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW DATABASES;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建数据库&#34;&gt;2. 创建数据库&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 基础创建（指定字符集和排序规则，避免中文乱码）
+
+CREATE DATABASE IF NOT EXISTS test\_db&amp;amp;#x20;
+DEFAULT CHARACTER SET utf8mb4&amp;amp;#x20;
+DEFAULT COLLATE utf8mb4\_unicode\_ci;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IF NOT EXISTS&lt;/code&gt;：避免重复创建报错&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;utf8mb4&lt;/code&gt;：支持 emoji 和所有中文，推荐替代&lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-切换数据库&#34;&gt;3. 切换数据库&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USE test\_db;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据库谨慎&#34;&gt;4. 删除数据库（谨慎！）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP DATABASE IF EXISTS test\_db;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-查看当前数据库&#34;&gt;5. 查看当前数据库&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT DATABASE();
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;三数据表表管理&#34;&gt;三、数据表（表）管理&lt;/h2&gt;
+&lt;h3 id=&#34;1-查看当前库所有表&#34;&gt;1. 查看当前库所有表&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW TABLES;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建表示例用户表&#34;&gt;2. 创建表（示例：用户表）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CREATE TABLE IF NOT EXISTS user (
+
+&amp;amp;#x20;   id INT PRIMARY KEY AUTO\_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
+
+&amp;amp;#x20;   username VARCHAR(50) NOT NULL UNIQUE COMMENT &amp;#39;用户名&amp;#39;,
+
+&amp;amp;#x20;   password VARCHAR(100) NOT NULL COMMENT &amp;#39;密码（建议加密存储）&amp;#39;,
+
+&amp;amp;#x20;   age TINYINT UNSIGNED DEFAULT 0 COMMENT &amp;#39;年龄&amp;#39;,
+
+&amp;amp;#x20;   create\_time DATETIME DEFAULT CURRENT\_TIMESTAMP COMMENT &amp;#39;创建时间&amp;#39;,
+
+&amp;amp;#x20;   update\_time DATETIME DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP COMMENT &amp;#39;更新时间&amp;#39;
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&amp;#39;用户表&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ENGINE=InnoDB&lt;/code&gt;：默认存储引擎，支持事务、外键、行锁&lt;/p&gt;</description>
       </item>
       
     
