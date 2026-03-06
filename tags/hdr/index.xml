@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docs on huangchaolong</title>
-    <link>https://huangchaolong.github.io/docs/</link>
-    <description>Recent content in Docs on huangchaolong</description>
+    <title>HDR on huangchaolong</title>
+    <link>https://huangchaolong.github.io/tags/hdr/</link>
+    <description>Recent content in HDR on huangchaolong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
     
-        <atom:link href="https://huangchaolong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://huangchaolong.github.io/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
     
     
     
@@ -64,82 +64,6 @@ deleteall &amp;#39;HDR_ALLERGY&amp;#39;,&amp;#39;5196|418205134|2116915|1|135106
 #四、运行 抽取数据的sqoop语句    su hdfs&lt;br /&gt;
 #五、Hbase修改表名&lt;br /&gt;
 因为hbase中没有rename命令，所以更改表名比较复杂。重命名主要通过hbase的快照功能。&lt;/p&gt;</description>
-      </item>
-      
-      <item>
-        <title>TIDB-医共体数据中心常规操作</title>
-        <link>https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
-        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
-        
-        <guid>https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
-        <description>&lt;p&gt;##医共体数据中心数据库地址：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;192.168.21.2:4000&lt;/li&gt;
-&lt;li&gt;数据库：jhygt&lt;/li&gt;
-&lt;li&gt;用户：dbadmin&lt;/li&gt;
-&lt;li&gt;密码：123abc$%^&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#查看定时任务是否执行&lt;br /&gt;
-通过命令查看：grep “查询的名称”  查询路径&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;grep &amp;ldquo;test.txt&amp;rdquo; /var/log/cron&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#集群操作&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;启动集群 tiup cluster start tidb-formal      (实例名)&lt;/li&gt;
-&lt;li&gt;查看集群 tiup cluster display tidb-formal    (实例名)&lt;/li&gt;
-&lt;li&gt;关闭集群 tiup cluster stop tidb-formal       (实例名)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#集群清单：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;192.168.21.2（对外：数据库）&lt;/li&gt;
-&lt;li&gt;192.168.21.3&lt;/li&gt;
-&lt;li&gt;192.168.21.4&lt;/li&gt;
-&lt;li&gt;192.168.21.5&lt;/li&gt;
-&lt;li&gt;192.168.21.6&lt;/li&gt;
-&lt;li&gt;192.168.21.7（集群中控台：在此进行集群操作）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#医共体数据中心主题库涉及表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ST_TABLE_THEME_INFO&lt;/li&gt;
-&lt;li&gt;ST_TABLE_THEME_TARGET_INFO&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在手动运行中心主题库时候新增上：update&lt;/p&gt;
-&lt;p&gt;#任务调度中心地址：&lt;br /&gt;
-http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
-&lt;p&gt;#医共体数据中心运营分析涉及表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;指标配置表：DSV_KPI_SQL_CONFIG&lt;/li&gt;
-&lt;li&gt;指标记录表-日：DSV_KPI_DATA_DAY&lt;/li&gt;
-&lt;li&gt;指标记录表-月：DSV_KPI_DATA_MONTH&lt;/li&gt;
-&lt;li&gt;指标记录表-年：DSV_KPI_DATA_YEAR&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;使用文档：BI任务调度与配置V1.0-用户手册&lt;/p&gt;
-&lt;p&gt;#医共体数据中心对外接口地址配置表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DSV_NSI_MESSAGE&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#大屏部署目录：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd/
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL&lt;/li&gt;
-&lt;li&gt;医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#帆软激活码&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;b3b7d65f-b5e976977-76b7-3c474c474975&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#医共体数据中心：双向转诊记录表配置表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DUR_REFERRAL_INFO&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;#医共体全息视图：&lt;br /&gt;
-第三方调阅的可视化配置对应存储位置表：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;（全息配置表：EN_HOLOGRAM_VIEW_CONFIG；模块调阅url配置表：EN_IMPACTION_VIEW_URL）；
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;p&gt;##医共体数据中心应用服务启动文档&lt;br /&gt;
-##服务器IP地址：192.168.21.13&lt;/p&gt;</description>
       </item>
       
     

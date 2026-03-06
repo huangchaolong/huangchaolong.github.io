@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>404 Page not found – huangchaolong</title>
+    <title>Posts – huangchaolong</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://huangchaolong.github.io/\"");
     
-    var permalink = JSON.parse("\"https://huangchaolong.github.io/404.html\"");
+    var permalink = JSON.parse("\"https://huangchaolong.github.io/posts/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1072,21 +1072,22 @@
 <link rel="stylesheet" href="/css/main.min.css">
 
 
-    <meta name="description" content="" />
+    <link rel="alternate" type="application/rss&#43;xml" title="rss" href="https://huangchaolong.github.io/posts/index.xml">
+<meta name="description" content="" />
 <meta name="keywords" content="">
 <meta name="created" content="0001-01-01T00:00:00&#43;0000">
 <meta name="modified" content="0001-01-01T00:00:00&#43;0000">
 
 
 <meta property="og:site_name" content="huangchaolong">
-<meta property="og:title" content="404 Page not found">
-<meta property="og:url" content="https://huangchaolong.github.io/404.html">
+<meta property="og:title" content="Posts">
+<meta property="og:url" content="https://huangchaolong.github.io/posts/">
 <meta property="og:type" content="website">
 
 <meta name="generator" content="Hugo 0.157.0">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://huangchaolong.github.io/404.html">
+<link rel="canonical" href="https://huangchaolong.github.io/posts/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,8 +1111,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url" : "https://huangchaolong.github.io/404.html",
-    "name": "404 Page not found",
+    "url" : "https://huangchaolong.github.io/posts/",
+    "name": "Posts",
     "description": "hcl's blogs",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -1257,7 +1258,7 @@
           <span id="navMenuMobile" class="hide">
   <button id="navCollapseBtn" class="navbar__dropdown--title" aria-label="Section Menu" data-dir="ltr">
     
-      page
+      posts
     
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
   </button>
@@ -1373,7 +1374,7 @@
         
           
             
-              <a href="https://huangchaolong.github.io/404.html" data-lang="en" class="lang__dropdown--item active">English</a>
+              <a href="https://huangchaolong.github.io/posts/" data-lang="en" class="lang__dropdown--item active">English</a>
             
           
         
@@ -1486,10 +1487,426 @@
 </script>
 
         
+  <div class="top">
+  <div class="header__wrapper bgcolor__header">
+    <div class="divider">
+      <div class="lmr">
+        <h2 class="title">Posts</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="header__wrapper bgcolor__breadcrumb">
+    <div class="divider">
+      <div class="lmr flexbox">
         
-<main class="main">
-  Page not found
-</main>
+          <nav class="breadcrumb" aria-label="breadcrumbs" data-is-blog="false">
+  
+  <ol>
+    
+  
+  
+  
+  <li >
+    
+      <a href="https://huangchaolong.github.io/" class="capitalize">Home</a>
+    
+  </li>
+  
+  
+  <li  class="is-active" >
+    
+      <span>Posts</span>
+    
+  </li>
+  
+  </ol>
+  
+</nav>
+        
+        <div class="grow"></div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+  
+  
+<div class="mid">
+  <div class="divider">
+
+    <nav id="list-menu" class="l" data-dir="ltr">
+      
+        <div class="menu">
+  <h6 class="menu__label">
+    
+      
+    
+  </h6>
+  <ul>
+    
+    
+  </ul>
+</div>
+
+
+
+<script>
+  var menuTitle = document.querySelectorAll('.menu__title');
+  var modal = document.getElementById("myModal");
+  var drawer = document.getElementById('myDrawer');
+
+  var closeDrawer = function () {
+    setTimeout(function () {
+      modal.style.opacity = 0;
+      drawer.style.left = '-100%';
+      modal.style.left = '-100%';
+    }, 250);
+  }
+
+  menuTitle ? 
+  menuTitle.forEach(function(elem) {
+    elem.onclick = function() {
+      closeDrawer();
+      localStorage.setItem('isDrawerOpen', 'false');
+    }
+  }) : null;
+</script>
+      
+    </nav>
+
+    <article id="list-main" class="m" data-dir="ltr">
+      <div class="single" data-display="block">
+  
+
+  <article class="single__contents" data-dir="ltr">
+    
+  </article>
+</div>
+      
+      
+
+    </article>
+
+    <section id="list-side" class="r" data-dir="ltr">
+    </section>
+
+  </div>
+</div>
+
+<script>
+  'use strict';
+  
+  function wrap(el, wrapper) {
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+
+  (function () {
+    var singleContentsElem = document.querySelector('.single__contents');
+    singleContentsElem ? 
+    singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
+      var dataLang = elem.getAttribute('data-lang');
+      var dataLangWrapper = document.createElement('div');
+      var code = null;
+      var codeTitle = null;
+
+      if (dataLang && dataLang.includes(':')) {
+        code = dataLang.split(':')[0];
+        codeTitle = dataLang.split(':')[1];
+
+        dataLangWrapper.className = 'language-' + code;
+        dataLangWrapper.setAttribute('data-lang', codeTitle);
+
+        elem.className = 'language-' + code;
+        elem.setAttribute('data-lang', codeTitle);
+        elem.setAttribute('id', codeTitle);
+      }
+
+      if (!dataLang || codeTitle) {
+        wrap(elem.parentNode, dataLangWrapper);
+      }
+
+    }) : null;
+  })();
+  
+
+
+  
+  
+  var dollarCodeElem = document.querySelectorAll('div.language-\\$');
+  var gtCodeElem = document.querySelectorAll('div.language-\\>');
+  
+  dollarCodeElem ?
+  dollarCodeElem.forEach(function(elem) {
+    var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+    lnts ? 
+    lnts.forEach(function(lnt) {
+      lnt.innerHTML = '$<br/>';
+    }) : null;
+  }) : null;
+
+  gtCodeElem ?
+  gtCodeElem.forEach(function(elem) {
+    var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+    lnts ? 
+    lnts.forEach(function(lnt) {
+      lnt.innerHTML = '><br/>';
+    }) : null;
+  }) : null;
+  
+</script>
+
+
+
+
+<script defer src="/js/helper/getParents.min.js"></script>
+
+<script defer src="/js/helper/closest.min.js"></script>
+
+<script defer src="/js/helper/prev.min.js"></script>
+
+<script defer src="/js/helper/prop.min.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+    
+    
+    var tables = document.querySelectorAll('.single__contents > table');
+    for (let i = 0; i < tables.length; i++) {
+      var table = tables[i];
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentElement.replaceChild(wrapper, table);
+      wrapper.appendChild(table);
+    }
+    
+
+
+    
+    
+    
+    var lib = JSON.parse("null");
+
+    if (lib && lib.includes('mermaid')) {
+      var themeVariant = localStorage.getItem('theme') || 'light';
+
+      if (themeVariant === "dark") {
+        mermaid.initialize({ theme: 'dark' });
+      } else {
+        mermaid.initialize({ theme: 'default' });
+      }
+      
+      var mermaids = [];
+      [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+      mermaids.forEach(function(elem) {
+        var elemParentNode = elem.parentNode;
+
+        if (elemParentNode !== document.body) {
+          elemParentNode.parentNode.insertBefore(elem, elemParentNode);
+          elemParentNode.parentNode.removeChild(elemParentNode);
+        }
+
+        var newElemWrapper = document.createElement('div');
+        newElemWrapper.classList.add('mermaid');
+        newElemWrapper.innerHTML = elem.innerHTML;
+        elem.replaceWith(newElemWrapper);
+      });
+    }
+    
+    
+
+    
+    if (lib && lib.includes('katex')) {
+      var mathElements = document.getElementsByClassName('math');
+      var options = {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+      };
+
+      renderMathInElement(document.querySelector('.single__contents'), options);
+    }
+    
+
+
+    
+    if (lib && lib.includes('flowchartjs')) {
+      
+      var options = JSON.parse("null");
+      var jsonContent = null;
+
+      var flowchartPrefix = "language-flowchart";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + flowchartPrefix + "]"), function(x){
+          x.style.display = 'none'
+          x.parentNode.style.backgroundColor = "transparent"
+          jsonContent = x.innerText;
+
+          var node0 = document.createElement('div');
+          node0.id = 'flowchart' + index;
+          x.parentNode.insertBefore(node0, x);
+
+          var diagram = flowchart.parse(jsonContent);
+          diagram.drawSVG("flowchart"+index, options);
+
+          index +=1;
+      });      
+    }
+    
+
+
+    
+    if (lib && lib.includes('chart')) {
+      var borderColor = "#666";
+      var bgColor = "#ddd";
+      var borderWidth = 2;
+
+      Chart.defaults.global.elements.rectangle.borderWidth = borderWidth;
+      Chart.defaults.global.elements.rectangle.borderColor = borderColor;
+      Chart.defaults.global.elements.rectangle.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.line.borderWidth = borderWidth;
+      Chart.defaults.global.elements.line.borderColor = borderColor;
+      Chart.defaults.global.elements.line.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.point.borderWidth = borderWidth;
+      Chart.defaults.global.elements.point.borderColor = borderColor;
+      Chart.defaults.global.elements.point.backgroundColor = bgColor;
+
+      var chartPrefix = "language-chart";
+      var index = 0;
+      var jsonContent = null;
+
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        var node0 = document.createElement('canvas');
+        var source = null;
+        node0.height = 200;
+        node0.style.height = 200;
+        node0.id = 'myChart' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        var ctx = document.getElementById('myChart' + index).getContext('2d');
+        var myChart = new Chart(ctx, source);
+        index += 1;
+      });            
+    }
+    
+
+
+    
+    if (lib && lib.includes('viz')) {
+      var vizPrefix = "language-viz-";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        var engine;
+        x.getAttribute("class").split(" ").forEach(function (cls) {
+          if (cls.startsWith(vizPrefix)) {
+            engine = cls.substr(vizPrefix.length);
+          }
+        });
+        var viz = new Viz();
+        viz.renderSVGElement(x.innerText, { engine: engine })
+          .then(function (element) {
+            element.style.width = "100%";
+            x.parentNode.insertBefore(element, x);
+          })
+      });
+    }
+    
+    
+  });
+</script>
+
+<script>
+  var listMenu = document.getElementById('list-menu');
+  var listMain = document.getElementById('list-main');
+  var listSide = document.getElementById('list-side');
+  var switchElem = document.querySelector('.switch');
+  var wideViewAsDefault = JSON.parse("null");
+
+  enquire.register("screen and (max-width:1280px)", {
+    match: function () {
+      if (wideViewAsDefault) {
+        listMenu.className = 'l';
+        listMain.className = 'mr';
+        listSide.className = 'hide';
+      } else {
+        listMenu.className = 'l';
+        listMain.className = 'm';
+        listSide.className = 'r';
+      }
+    },
+    unmatch: function () {
+      if (wideViewAsDefault) {
+        listMenu.className = 'l';
+        listMain.className = 'mr';
+        listSide.className = 'hide';
+      } else {
+        listMenu.className = 'l';
+        listSide.className = 'r';
+        listMain.className = 'm';
+      }
+    },
+  }).register("screen and (max-width:960px)", {
+    match: function () {
+      listMenu.className = 'l';
+      listMain.className = 'mr';
+      listSide.className = 'hide';
+      switchElem.className = 'hide';
+    },
+    unmatch: function () {
+      if (wideViewAsDefault) {
+        listMenu.className = 'l';
+        listMain.className = 'mr';
+        listSide.className = 'hide';
+      } else {
+        listMenu.className = 'l';
+        listMain.className = 'm';
+        listSide.className = 'r';
+      }
+      
+      switchElem.className = 'switch';
+    },
+  }).register("screen and (max-width:600px)", {
+    match: function () {
+      listMenu.className = 'hide';
+      listMain.className = 'lmr';
+      listSide.className = 'hide';
+      switchElem.className = 'hide';
+    },
+    unmatch: function () {
+      listMenu.className = 'l';
+      listMain.className = 'mr';
+      listSide.className = 'hide';
+      switchElem.className = 'hide';
+    },
+  });
+</script>
 
         
 <div class="bot">
