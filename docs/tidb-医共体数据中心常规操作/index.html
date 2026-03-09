@@ -1114,7 +1114,7 @@
     "datePublished": "2020-10-20T15:12:15+09:00",
     "dateModified": "2020-10-20T15:12:15+09:00",
     "url" : "https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/",
-    "description": "\u003cp\u003e##医共体数据中心数据库地址：\u003c/p\u003e \u003cul\u003e \u003cli\u003e192.168.21.2:4000\u003c/li\u003e \u003cli\u003e数据库：jhygt\u003c/li\u003e \u003cli\u003e用户：dbadmin\u003c/li\u003e \u003cli\u003e密码：123abc$%^\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e#查看定时任务是否执行\u003cbr /\u003e 通过命令查看：grep “查询的名称”  查询路径\u003c/p\u003e \u003cul\u003e \u003cli\u003egrep \u0026ldquo;test.txt\u0026rdquo; /var/log/cron\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e#集群操作\u003c/p\u003e \u003cul\u003e \u003cli\u003e启动集群 tiup …\u003c/li\u003e\u003c/ul\u003e",
+    "description": "\u003ch6 id=\"医共体数据中心数据库地址\"\u003e医共体数据中心数据库地址：\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e- 192.168.21.2:4000 - 数据库：jhygt - 用户：dbadmin - 密码：123abc$%^ \u003c/code\u003e\u003c/pre\u003e\u003ch6 id=\"查看定时任务是否执行\"\u003e查看定时任务是否执行\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e通过命令查看：grep “查询的名称”  查询路径 grep \u0026#34;test.txt\u0026#34; /var/log/cron \u003c/code\u003e\u003c/pre\u003e\u003ch6 id=\"集群操作\"\u003e集群操作\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e- 启动集群 tiup …\u003c/code\u003e\u003c/pre\u003e",
     "keywords": ["TIDB"],
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -1212,6 +1212,29 @@
   <li class="active">
     <a href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/"
       class="menu__title active">TIDB-医共体数据中心常规操作</a>
+  </li>
+  
+
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
+    <a href="https://huangchaolong.github.io/docs/%E4%BA%92%E8%81%94%E7%BD%91%E5%8C%BB%E7%96%9794%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD/"
+      class="menu__title ">智慧医疗/互联网医疗 94 个核心术语（精简版）</a>
   </li>
   
 
@@ -1738,6 +1761,29 @@
   
   
   <li class="">
+    <a href="https://huangchaolong.github.io/docs/%E4%BA%92%E8%81%94%E7%BD%91%E5%8C%BB%E7%96%9794%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD/"
+      class="menu__title ">智慧医疗/互联网医疗 94 个核心术语（精简版）</a>
+  </li>
+  
+
+    
+      
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <li class="">
     <a href="https://huangchaolong.github.io/docs/mysql-common-operations/"
       class="menu__title ">MYSQL常用操作</a>
   </li>
@@ -1802,94 +1848,84 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <p>##医共体数据中心数据库地址：</p>
-<ul>
-<li>192.168.21.2:4000</li>
-<li>数据库：jhygt</li>
-<li>用户：dbadmin</li>
-<li>密码：123abc$%^</li>
-</ul>
-<p>#查看定时任务是否执行<br />
-通过命令查看：grep “查询的名称”  查询路径</p>
-<ul>
-<li>grep &ldquo;test.txt&rdquo; /var/log/cron</li>
-</ul>
-<p>#集群操作</p>
-<ul>
-<li>启动集群 tiup cluster start tidb-formal      (实例名)</li>
-<li>查看集群 tiup cluster display tidb-formal    (实例名)</li>
-<li>关闭集群 tiup cluster stop tidb-formal       (实例名)</li>
-</ul>
-<p>#集群清单：</p>
-<ul>
-<li>192.168.21.2（对外：数据库）</li>
-<li>192.168.21.3</li>
-<li>192.168.21.4</li>
-<li>192.168.21.5</li>
-<li>192.168.21.6</li>
-<li>192.168.21.7（集群中控台：在此进行集群操作）</li>
-</ul>
-<p>#医共体数据中心主题库涉及表：</p>
-<ul>
-<li>ST_TABLE_THEME_INFO</li>
-<li>ST_TABLE_THEME_TARGET_INFO</li>
-</ul>
-<p>在手动运行中心主题库时候新增上：update</p>
-<p>#任务调度中心地址：<br />
-http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin</p>
-<p>#医共体数据中心运营分析涉及表：</p>
-<ul>
-<li>指标配置表：DSV_KPI_SQL_CONFIG</li>
-<li>指标记录表-日：DSV_KPI_DATA_DAY</li>
-<li>指标记录表-月：DSV_KPI_DATA_MONTH</li>
-<li>指标记录表-年：DSV_KPI_DATA_YEAR</li>
-</ul>
-<p>使用文档：BI任务调度与配置V1.0-用户手册</p>
-<p>#医共体数据中心对外接口地址配置表：</p>
-<ul>
-<li>DSV_NSI_MESSAGE</li>
-</ul>
-<p>#大屏部署目录：</p>
+    <h6 id="医共体数据中心数据库地址">医共体数据中心数据库地址：</h6>
+<pre tabindex="0"><code>- 192.168.21.2:4000
+- 数据库：jhygt
+- 用户：dbadmin
+- 密码：123abc$%^
+</code></pre><h6 id="查看定时任务是否执行">查看定时任务是否执行</h6>
+<pre tabindex="0"><code>通过命令查看：grep “查询的名称”  查询路径
+grep &#34;test.txt&#34; /var/log/cron
+</code></pre><h6 id="集群操作">集群操作</h6>
+<pre tabindex="0"><code>- 启动集群 tiup cluster start tidb-formal      (实例名)
+- 查看集群 tiup cluster display tidb-formal    (实例名)
+- 关闭集群 tiup cluster stop tidb-formal       (实例名)
+</code></pre><h6 id="集群清单">集群清单：</h6>
+<pre tabindex="0"><code>- 192.168.21.2（对外：数据库）
+- 192.168.21.3
+- 192.168.21.4
+- 192.168.21.5
+- 192.168.21.6
+- 192.168.21.7（集群中控台：在此进行集群操作）
+</code></pre><h6 id="医共体数据中心主题库涉及表">医共体数据中心主题库涉及表：</h6>
+<pre tabindex="0"><code>- ST_TABLE_THEME_INFO
+- ST_TABLE_THEME_TARGET_INFO
+在手动运行中心主题库时候新增上：update
+</code></pre><h6 id="任务调度中心地址">任务调度中心地址：</h6>
+<pre tabindex="0"><code>http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin   
+</code></pre><h6 id="医共体数据中心运营分析涉及表">医共体数据中心运营分析涉及表：</h6>
+<pre tabindex="0"><code>- 指标配置表：DSV_KPI_SQL_CONFIG
+- 指标记录表-日：DSV_KPI_DATA_DAY
+- 指标记录表-月：DSV_KPI_DATA_MONTH
+- 指标记录表-年：DSV_KPI_DATA_YEAR
+
+使用文档：BI任务调度与配置V1.0-用户手册
+</code></pre><h6 id="医共体数据中心对外接口地址配置表">医共体数据中心对外接口地址配置表：</h6>
+<pre tabindex="0"><code>- DSV_NSI_MESSAGE
+</code></pre><h6 id="大屏部署目录">大屏部署目录：</h6>
 <pre tabindex="0"><code>cd/
-</code></pre><pre tabindex="0"><code>cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
-</code></pre><ul>
-<li>新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL</li>
-<li>医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA</li>
-</ul>
-<p>#帆软激活码</p>
-<ul>
-<li>b3b7d65f-b5e976977-76b7-3c474c474975</li>
-</ul>
-<p>#医共体数据中心：双向转诊记录表配置表：</p>
-<ul>
-<li>DUR_REFERRAL_INFO</li>
-</ul>
-<p>#医共体全息视图：<br />
-第三方调阅的可视化配置对应存储位置表：</p>
+cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
+</code></pre><pre tabindex="0"><code>- 新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL
+- 医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA
+</code></pre><h6 id="帆软激活码">帆软激活码</h6>
+<pre tabindex="0"><code>b3b7d65f-b5e976977-76b7-3c474c474975
+</code></pre><h6 id="医共体数据中心双向转诊记录表配置表">医共体数据中心：双向转诊记录表配置表：</h6>
+<pre tabindex="0"><code>DUR_REFERRAL_INFO
+</code></pre><h6 id="医共体全息视图">医共体全息视图：</h6>
+<p>第三方调阅的可视化配置对应存储位置表：</p>
 <pre tabindex="0"><code>（全息配置表：EN_HOLOGRAM_VIEW_CONFIG；模块调阅url配置表：EN_IMPACTION_VIEW_URL）；
 </code></pre><hr />
-<p>##医共体数据中心应用服务启动文档<br />
-##服务器IP地址：192.168.21.13</p>
-<p>注册中心，第一个启动:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/agent/XFoundationXRegistrationAgent-4.0.0.jar  &gt;  /home/servers/local/agent/log.txt &amp;
-</code></pre><p>网关服务:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/gateway/XDataIntelligenceXGateway-1.0.0.jar  &gt;  /home/servers/local/gateway/log.txt &amp;
-</code></pre><p>用户管理:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/userManage/XDataIntelligenceXUserManagement-1.0.0.jar &gt;  /home/servers/local/userManage/log.txt &amp;
-</code></pre><p>登录模块:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/base/XDataIntelligenceXBase-1.0.0.jar &gt;  /home/servers/local/base/log.txt &amp;
-</code></pre><p>全息病历:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/clinical/XDataIntelligenceXClinical-1.0.0.jar &gt;  /home/servers/local/clinical/log.txt &amp;
-</code></pre><p>主数据管理:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/mainData/XDataIntelligenceXMainData-1.0.0.jar &gt;  /home/servers/local/mainData/log.txt &amp;
-</code></pre><p>大屏模块:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/bigScreen/XDataIntelligenceXBigScreen-0.0.1-SNAPSHOT.jar &gt;  /home/servers/local/bigScreen/log.txt &amp;
-</code></pre><p>双向转诊:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/dualReferral/XDataIntelligenceXDualReferral-1.0.0.jar &gt;  /home/servers/local/dualReferral/log.txt &amp;
-</code></pre><p>数据对外服务:</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/dataServices/XDataIntelligenceXDataService-1.0.0.jar &gt;  /home/servers/local/dataServices/log.txt &amp;
-</code></pre><p>自动执行任务模块(两个按顺序执行):</p>
-<pre tabindex="0"><code>nohup java -jar /home/servers/local/job-admin/xxl-job-admin-2.2.1-SNAPSHOT.jar &gt;  /home/servers/local/job-admin/log.txt &amp;
+<h6 id="医共体数据中心应用服务启动文档">医共体数据中心应用服务启动文档</h6>
+<h6 id="服务器ip地址1921682113">服务器IP地址：192.168.21.13</h6>
+<pre tabindex="0"><code>注册中心，第一个启动:
+nohup java -jar /home/servers/local/agent/XFoundationXRegistrationAgent-4.0.0.jar  &gt;  /home/servers/local/agent/log.txt &amp;
+
+网关服务:
+nohup java -jar /home/servers/local/gateway/XDataIntelligenceXGateway-1.0.0.jar  &gt;  /home/servers/local/gateway/log.txt &amp;
+
+用户管理:
+nohup java -jar /home/servers/local/userManage/XDataIntelligenceXUserManagement-1.0.0.jar &gt;  /home/servers/local/userManage/log.txt &amp;
+
+登录模块:
+nohup java -jar /home/servers/local/base/XDataIntelligenceXBase-1.0.0.jar &gt;  /home/servers/local/base/log.txt &amp;
+
+全息病历:
+nohup java -jar /home/servers/local/clinical/XDataIntelligenceXClinical-1.0.0.jar &gt;  /home/servers/local/clinical/log.txt &amp;
+
+主数据管理:
+nohup java -jar /home/servers/local/mainData/XDataIntelligenceXMainData-1.0.0.jar &gt;  /home/servers/local/mainData/log.txt &amp;
+
+大屏模块:
+nohup java -jar /home/servers/local/bigScreen/XDataIntelligenceXBigScreen-0.0.1-SNAPSHOT.jar &gt;  /home/servers/local/bigScreen/log.txt &amp;
+
+双向转诊:
+nohup java -jar /home/servers/local/dualReferral/XDataIntelligenceXDualReferral-1.0.0.jar &gt;  /home/servers/local/dualReferral/log.txt &amp;
+
+数据对外服务:
+nohup java -jar /home/servers/local/dataServices/XDataIntelligenceXDataService-1.0.0.jar &gt;  /home/servers/local/dataServices/log.txt &amp;
+
+自动执行任务模块(两个按顺序执行):
+nohup java -jar /home/servers/local/job-admin/xxl-job-admin-2.2.1-SNAPSHOT.jar &gt;  /home/servers/local/job-admin/log.txt &amp;
 nohup java -jar /home/servers/local/job-exec/xxl-job-executor-sample-springboot-2.2.0.jar &gt;  /home/servers/local/job-exec/log.txt &amp;
 </code></pre><hr />
 <p>tomcat：</p>
@@ -1932,8 +1968,8 @@ sh shutdown.sh
     
     <div class="grow"></div>
     
-      <a href="https://huangchaolong.github.io/docs/mysql-common-operations/" title="MYSQL常用操作" class="pagination-single__right">
-        <div class="pagination-single__left-title">MYSQL常用操作</div>
+      <a href="https://huangchaolong.github.io/docs/%E4%BA%92%E8%81%94%E7%BD%91%E5%8C%BB%E7%96%9794%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD/" title="智慧医疗/互联网医疗 94 个核心术语（精简版）" class="pagination-single__right">
+        <div class="pagination-single__left-title">智慧医疗/互联网医疗 94 个核心术语（精简版）</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
@@ -1951,7 +1987,19 @@ sh shutdown.sh
         <div class="toc">
   <h6 class="toc__label">目录</h6>
   <div class="toc__body">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
       

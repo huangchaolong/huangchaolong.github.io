@@ -1588,81 +1588,58 @@
   <header>
     <h5 class="title h5"><a href='https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/'> TIDB-医共体数据中心常规操作</a></h5>
     <div class="subtitle caption">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">Oct 20, 2020 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 1 min read</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4H20V8H4z" opacity=".3"/><path d="M6 1H8V5H6zM16 1H18V5H16z"/><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V9h14V19z M19,7H5V5h14V7z"/></svg><time title="Written At">Oct 20, 2020 </time> &nbsp;&nbsp; <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M 9 1 L 9 3 L 15 3 L 15 1 L 9 1 z M 18.958984 2.7929688 L 17.666016 4.3183594 L 20.615234 6.8183594 L 21.908203 5.2929688 L 18.958984 2.7929688 z M 12 4 C 7.0225467 4 3 8.0225467 3 13 C 3 17.977453 7.0225467 22 12 22 C 16.977453 22 21 17.977453 21 13 C 21 8.0225467 16.977453 4 12 4 z M 12 6 C 15.910547 6 19 9.0894533 19 13 C 19 16.910547 15.910547 20 12 20 C 8.0894533 20 5 16.910547 5 13 C 5 9.0894533 8.0894533 6 12 6 z M 11 8 L 11 14 L 13 14 L 13 8 L 11 8 z"/></svg> <span title="Reading Time"> 2 min read</span>
     </div>
   </header>
   
   <div class="summary-card__content">
     <div class="summary-card__text p2">
       
-        <p>##医共体数据中心数据库地址：</p>
-<ul>
-<li>192.168.21.2:4000</li>
-<li>数据库：jhygt</li>
-<li>用户：dbadmin</li>
-<li>密码：123abc$%^</li>
-</ul>
-<p>#查看定时任务是否执行<br />
-通过命令查看：grep “查询的名称”  查询路径</p>
-<ul>
-<li>grep &ldquo;test.txt&rdquo; /var/log/cron</li>
-</ul>
-<p>#集群操作</p>
-<ul>
-<li>启动集群 tiup cluster start tidb-formal      (实例名)</li>
-<li>查看集群 tiup cluster display tidb-formal    (实例名)</li>
-<li>关闭集群 tiup cluster stop tidb-formal       (实例名)</li>
-</ul>
-<p>#集群清单：</p>
-<ul>
-<li>192.168.21.2（对外：数据库）</li>
-<li>192.168.21.3</li>
-<li>192.168.21.4</li>
-<li>192.168.21.5</li>
-<li>192.168.21.6</li>
-<li>192.168.21.7（集群中控台：在此进行集群操作）</li>
-</ul>
-<p>#医共体数据中心主题库涉及表：</p>
-<ul>
-<li>ST_TABLE_THEME_INFO</li>
-<li>ST_TABLE_THEME_TARGET_INFO</li>
-</ul>
-<p>在手动运行中心主题库时候新增上：update</p>
-<p>#任务调度中心地址：<br />
-http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin</p>
-<p>#医共体数据中心运营分析涉及表：</p>
-<ul>
-<li>指标配置表：DSV_KPI_SQL_CONFIG</li>
-<li>指标记录表-日：DSV_KPI_DATA_DAY</li>
-<li>指标记录表-月：DSV_KPI_DATA_MONTH</li>
-<li>指标记录表-年：DSV_KPI_DATA_YEAR</li>
-</ul>
-<p>使用文档：BI任务调度与配置V1.0-用户手册</p>
-<p>#医共体数据中心对外接口地址配置表：</p>
-<ul>
-<li>DSV_NSI_MESSAGE</li>
-</ul>
-<p>#大屏部署目录：</p>
+        <h6 id="医共体数据中心数据库地址">医共体数据中心数据库地址：</h6>
+<pre tabindex="0"><code>- 192.168.21.2:4000
+- 数据库：jhygt
+- 用户：dbadmin
+- 密码：123abc$%^
+</code></pre><h6 id="查看定时任务是否执行">查看定时任务是否执行</h6>
+<pre tabindex="0"><code>通过命令查看：grep “查询的名称”  查询路径
+grep &#34;test.txt&#34; /var/log/cron
+</code></pre><h6 id="集群操作">集群操作</h6>
+<pre tabindex="0"><code>- 启动集群 tiup cluster start tidb-formal      (实例名)
+- 查看集群 tiup cluster display tidb-formal    (实例名)
+- 关闭集群 tiup cluster stop tidb-formal       (实例名)
+</code></pre><h6 id="集群清单">集群清单：</h6>
+<pre tabindex="0"><code>- 192.168.21.2（对外：数据库）
+- 192.168.21.3
+- 192.168.21.4
+- 192.168.21.5
+- 192.168.21.6
+- 192.168.21.7（集群中控台：在此进行集群操作）
+</code></pre><h6 id="医共体数据中心主题库涉及表">医共体数据中心主题库涉及表：</h6>
+<pre tabindex="0"><code>- ST_TABLE_THEME_INFO
+- ST_TABLE_THEME_TARGET_INFO
+在手动运行中心主题库时候新增上：update
+</code></pre><h6 id="任务调度中心地址">任务调度中心地址：</h6>
+<pre tabindex="0"><code>http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin   
+</code></pre><h6 id="医共体数据中心运营分析涉及表">医共体数据中心运营分析涉及表：</h6>
+<pre tabindex="0"><code>- 指标配置表：DSV_KPI_SQL_CONFIG
+- 指标记录表-日：DSV_KPI_DATA_DAY
+- 指标记录表-月：DSV_KPI_DATA_MONTH
+- 指标记录表-年：DSV_KPI_DATA_YEAR
+
+使用文档：BI任务调度与配置V1.0-用户手册
+</code></pre><h6 id="医共体数据中心对外接口地址配置表">医共体数据中心对外接口地址配置表：</h6>
+<pre tabindex="0"><code>- DSV_NSI_MESSAGE
+</code></pre><h6 id="大屏部署目录">大屏部署目录：</h6>
 <pre tabindex="0"><code>cd/
-</code></pre><pre tabindex="0"><code>cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
-</code></pre><ul>
-<li>新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL</li>
-<li>医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA</li>
-</ul>
-<p>#帆软激活码</p>
-<ul>
-<li>b3b7d65f-b5e976977-76b7-3c474c474975</li>
-</ul>
-<p>#医共体数据中心：双向转诊记录表配置表：</p>
-<ul>
-<li>DUR_REFERRAL_INFO</li>
-</ul>
-<p>#医共体全息视图：<br />
-第三方调阅的可视化配置对应存储位置表：</p>
-<pre tabindex="0"><code>（全息配置表：EN_HOLOGRAM_VIEW_CONFIG；模块调阅url配置表：EN_IMPACTION_VIEW_URL）；
-</code></pre><hr />
-<p>##医共体数据中心应用服务启动文档<br />
-##服务器IP地址：192.168.21.13</p>
+cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
+</code></pre><pre tabindex="0"><code>- 新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL
+- 医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA
+</code></pre><h6 id="帆软激活码">帆软激活码</h6>
+<pre tabindex="0"><code>b3b7d65f-b5e976977-76b7-3c474c474975
+</code></pre><h6 id="医共体数据中心双向转诊记录表配置表">医共体数据中心：双向转诊记录表配置表：</h6>
+<pre tabindex="0"><code>DUR_REFERRAL_INFO
+</code></pre><h6 id="医共体全息视图">医共体全息视图：</h6>
+<p>第三方调阅的可视化配置对应存储位置表：</p>
       
     </div>
     
