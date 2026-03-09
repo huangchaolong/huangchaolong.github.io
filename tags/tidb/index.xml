@@ -2,70 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TIDB on huangchaolong</title>
-    <link>https://huangchaolong.github.io/tags/tidb/</link>
+    <link>http://localhost:1313/tags/tidb/</link>
     <description>Recent content in TIDB on huangchaolong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
     
-        <atom:link href="https://huangchaolong.github.io/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
-    
+        <atom:link href="http://localhost:1313/tags/tidb/index.xml" rel="self" type="application/rss+xml" />
     
     
-      
-      <item>
-        <title>TIDB-医共体数据中心常规操作</title>
-        <link>https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
-        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
-        
-        <guid>https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
-        <description>&lt;h6 id=&#34;医共体数据中心数据库地址&#34;&gt;医共体数据中心数据库地址：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 192.168.21.2:4000
-- 数据库：jhygt
-- 用户：dbadmin
-- 密码：123abc$%^
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看定时任务是否执行&#34;&gt;查看定时任务是否执行&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;通过命令查看：grep “查询的名称”  查询路径
-grep &amp;#34;test.txt&amp;#34; /var/log/cron
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;集群操作&#34;&gt;集群操作&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 启动集群 tiup cluster start tidb-formal      (实例名)
-- 查看集群 tiup cluster display tidb-formal    (实例名)
-- 关闭集群 tiup cluster stop tidb-formal       (实例名)
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;集群清单&#34;&gt;集群清单：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 192.168.21.2（对外：数据库）
-- 192.168.21.3
-- 192.168.21.4
-- 192.168.21.5
-- 192.168.21.6
-- 192.168.21.7（集群中控台：在此进行集群操作）
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心主题库涉及表&#34;&gt;医共体数据中心主题库涉及表：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- ST_TABLE_THEME_INFO
-- ST_TABLE_THEME_TARGET_INFO
-在手动运行中心主题库时候新增上：update
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;任务调度中心地址&#34;&gt;任务调度中心地址：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin   
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心运营分析涉及表&#34;&gt;医共体数据中心运营分析涉及表：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 指标配置表：DSV_KPI_SQL_CONFIG
-- 指标记录表-日：DSV_KPI_DATA_DAY
-- 指标记录表-月：DSV_KPI_DATA_MONTH
-- 指标记录表-年：DSV_KPI_DATA_YEAR
-
-使用文档：BI任务调度与配置V1.0-用户手册
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心对外接口地址配置表&#34;&gt;医共体数据中心对外接口地址配置表：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- DSV_NSI_MESSAGE
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;大屏部署目录&#34;&gt;大屏部署目录：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd/
-cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL
-- 医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;帆软激活码&#34;&gt;帆软激活码&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;b3b7d65f-b5e976977-76b7-3c474c474975
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心双向转诊记录表配置表&#34;&gt;医共体数据中心：双向转诊记录表配置表：&lt;/h6&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DUR_REFERRAL_INFO
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体全息视图&#34;&gt;医共体全息视图：&lt;/h6&gt;
-&lt;p&gt;第三方调阅的可视化配置对应存储位置表：&lt;/p&gt;</description>
-      </item>
+    
       
     
   </channel>
