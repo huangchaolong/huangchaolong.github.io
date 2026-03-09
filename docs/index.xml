@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 09 Mar 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 15:30:00 +0800</lastBuildDate>
     
         <atom:link href="https://huangchaolong.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -117,6 +117,67 @@ cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DUR_REFERRAL_INFO
 &lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体全息视图&#34;&gt;医共体全息视图：&lt;/h6&gt;
 &lt;p&gt;第三方调阅的可视化配置对应存储位置表：&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>Linux 防火墙核心操作</title>
+        <link>https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Mon, 09 Mar 2026 15:30:00 +0800</pubDate>
+        
+        <guid>https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;hr /&gt;
+&lt;h4 id=&#34;一前置说明&#34;&gt;一、前置说明&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;基于 &lt;strong&gt;CentOS 7+/RHEL 7+&lt;/strong&gt; 系统（默认 firewalld，非 iptables）。&lt;/li&gt;
+&lt;li&gt;所有命令需 &lt;strong&gt;root 权限&lt;/strong&gt;（前缀 &lt;code&gt;sudo&lt;/code&gt; 或切换 root）。&lt;/li&gt;
+&lt;li&gt;端口协议：&lt;code&gt;tcp&lt;/code&gt;（SSH/HTTP）或 &lt;code&gt;udp&lt;/code&gt;（DNS），按需指定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4 id=&#34;二核心操作命令&#34;&gt;二、核心操作命令&lt;/h4&gt;
+&lt;h6 id=&#34;1-查看防火墙状态&#34;&gt;1. 查看防火墙状态&lt;/h6&gt;
+&lt;pre&gt;&lt;code&gt;systemctl status firewalld
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;输出 &lt;code&gt;active (running)&lt;/code&gt; 已启动；&lt;code&gt;inactive (dead)&lt;/code&gt; 未启动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;2-启动防火墙未激活时&#34;&gt;2. 启动防火墙（未激活时）&lt;/h6&gt;
+&lt;pre&gt;&lt;code&gt;systemctl start firewalld
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;可选：开机自启（避免重启失效）&lt;br /&gt;
+systemctl enable firewalld&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;3-查看已开放端口&#34;&gt;3. 查看已开放端口&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;临时开放（重启防火墙失效）：&lt;br /&gt;
+firewall-cmd &amp;ndash;list-ports&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;永久开放（重启仍有效）：&lt;br /&gt;
+firewall-cmd &amp;ndash;list-ports &amp;ndash;permanent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;4-开放端口&#34;&gt;4. 开放端口&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;临时开放（示例：223/tcp）：&lt;/p&gt;
+&lt;p&gt;firewall-cmd &amp;ndash;add-port=223/tcp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;永久开放（示例：223/tcp）：&lt;/p&gt;
+&lt;p&gt;firewall-cmd &amp;ndash;add-port=223/tcp &amp;ndash;permanent&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;批量开放（示例：8000-8080/tcp）：&lt;/p&gt;
+&lt;p&gt;firewall-cmd &amp;ndash;add-port=8000-8080/tcp &amp;ndash;permanent&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;5-关闭端口&#34;&gt;5. 关闭端口&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;临时关闭（示例：80/tcp）：&lt;/p&gt;
+&lt;p&gt;firewall-cmd &amp;ndash;remove-port=80/tcp&lt;/p&gt;</description>
       </item>
       
       <item>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TIDB-医共体数据中心常规操作 – huangchaolong</title>
+    <title>Linux 防火墙核心操作 – huangchaolong</title>
     
 
 
@@ -30,7 +30,7 @@
     
     var baseurl = JSON.parse("\"https://huangchaolong.github.io/\"");
     
-    var permalink = JSON.parse("\"https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/\"");
+    var permalink = JSON.parse("\"https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/\"");
 
     
     var toggleSidebarElem = document.getElementById("toggle-sidebar");
@@ -1074,19 +1074,19 @@
 
     <meta name="description" content="" />
 <meta name="keywords" content="">
-<meta name="created" content="2020-10-20T15:12:15&#43;0900">
-<meta name="modified" content="2020-10-20T15:12:15&#43;0900">
+<meta name="created" content="2026-03-09T15:30:00&#43;0800">
+<meta name="modified" content="2026-03-09T15:30:00&#43;0800">
 
 
 <meta property="og:site_name" content="huangchaolong">
-<meta property="og:title" content="TIDB-医共体数据中心常规操作">
-<meta property="og:url" content="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/">
+<meta property="og:title" content="Linux 防火墙核心操作">
+<meta property="og:url" content="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/">
 <meta property="og:type" content="article">
 
 <meta name="generator" content="Hugo 0.157.0">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/">
 <link rel="manifest" href="/manifest.json">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -1110,11 +1110,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "TIDB-医共体数据中心常规操作",
-    "datePublished": "2020-10-20T15:12:15+09:00",
-    "dateModified": "2020-10-20T15:12:15+09:00",
-    "url" : "https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/",
-    "description": "\u003ch6 id=\"医共体数据中心数据库地址\"\u003e医共体数据中心数据库地址：\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e- 192.168.21.2:4000 - 数据库：jhygt - 用户：dbadmin - 密码：123abc$%^ \u003c/code\u003e\u003c/pre\u003e\u003ch6 id=\"查看定时任务是否执行\"\u003e查看定时任务是否执行\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e通过命令查看：grep “查询的名称”  查询路径 grep \u0026#34;test.txt\u0026#34; /var/log/cron \u003c/code\u003e\u003c/pre\u003e\u003ch6 id=\"集群操作\"\u003e集群操作\u003c/h6\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e- 启动集群 tiup …\u003c/code\u003e\u003c/pre\u003e",
+    "headline": "Linux 防火墙核心操作",
+    "datePublished": "2026-03-09T15:30:00+08:00",
+    "dateModified": "2026-03-09T15:30:00+08:00",
+    "url" : "https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/",
+    "description": "\u003chr /\u003e \u003ch4 id=\"一前置说明\"\u003e一、前置说明\u003c/h4\u003e \u003cul\u003e \u003cli\u003e基于 \u003cstrong\u003eCentOS 7+/RHEL 7+\u003c/strong\u003e 系统（默认 firewalld，非 iptables）。\u003c/li\u003e \u003cli\u003e所有命令需 \u003cstrong\u003eroot 权限\u003c/strong\u003e（前缀 \u003ccode\u003esudo\u003c/code\u003e 或切换 root）。\u003c/li\u003e \u003cli\u003e端口协议：\u003ccode\u003etcp\u003c/code\u003e（SSH/HTTP）或 \u003ccode\u003eudp\u003c/code\u003e（DNS），按需指定。\u003c/li\u003e \u003c/ul\u003e \u003chr /\u003e \u003ch4 id=\"二核心操作命令\"\u003e二、核心操作命令\u003c/h4\u003e \u003ch6 id=\"1-查看防火墙状态\"\u003e1. 查看防火墙状态\u003c/h6\u003e \u003cpre\u003e\u003ccode\u003esystemctl status …\u003c/code\u003e\u003c/pre\u003e",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://huangchaolong.github.io/"
@@ -1163,7 +1163,7 @@
     <div class="menu">
   <h6 class="menu__label">
     
-      TIDB-医共体数据中心常规操作
+      Linux 防火墙核心操作
     
   </h6>
   <ul>
@@ -1208,9 +1208,9 @@
   
   
   
-  <li class="active">
+  <li class="">
     <a href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/"
-      class="menu__title active">TIDB-医共体数据中心常规操作</a>
+      class="menu__title ">TIDB-医共体数据中心常规操作</a>
   </li>
   
 
@@ -1231,9 +1231,9 @@
   
   
   
-  <li class="">
+  <li class="active">
     <a href="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/"
-      class="menu__title ">Linux 防火墙核心操作</a>
+      class="menu__title active">Linux 防火墙核心操作</a>
   </li>
   
 
@@ -1536,7 +1536,7 @@
         
           
             
-              <a href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/" data-lang="en" class="lang__dropdown--item active">English</a>
+              <a href="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/" data-lang="en" class="lang__dropdown--item active">English</a>
             
           
         
@@ -1653,7 +1653,7 @@
   <div class="header__wrapper bgcolor__header">
     <div class="divider">
       <div class="lmr">
-        <h2 class="title">TIDB-医共体数据中心常规操作</h2>
+        <h2 class="title">Linux 防火墙核心操作</h2>
       </div>
     </div>
   </div>
@@ -1687,7 +1687,7 @@
   
   <li  class="is-active" >
     
-      <span>TIDB-医共体数据中心常规操作</span>
+      <span>Linux 防火墙核心操作</span>
     
   </li>
   
@@ -1714,7 +1714,7 @@
         <div class="menu">
   <h6 class="menu__label">
     
-      TIDB-医共体数据中心常规操作
+      Linux 防火墙核心操作
     
   </h6>
   <ul>
@@ -1759,9 +1759,9 @@
   
   
   
-  <li class="active">
+  <li class="">
     <a href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/"
-      class="menu__title active">TIDB-医共体数据中心常规操作</a>
+      class="menu__title ">TIDB-医共体数据中心常规操作</a>
   </li>
   
 
@@ -1782,9 +1782,9 @@
   
   
   
-  <li class="">
+  <li class="active">
     <a href="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/"
-      class="menu__title ">Linux 防火墙核心操作</a>
+      class="menu__title active">Linux 防火墙核心操作</a>
   </li>
   
 
@@ -1893,109 +1893,88 @@
   
 
   <article class="single__contents" data-dir="ltr">
-    <h6 id="医共体数据中心数据库地址">医共体数据中心数据库地址：</h6>
-<pre tabindex="0"><code>- 192.168.21.2:4000
-- 数据库：jhygt
-- 用户：dbadmin
-- 密码：123abc$%^
-</code></pre><h6 id="查看定时任务是否执行">查看定时任务是否执行</h6>
-<pre tabindex="0"><code>通过命令查看：grep “查询的名称”  查询路径
-grep &#34;test.txt&#34; /var/log/cron
-</code></pre><h6 id="集群操作">集群操作</h6>
-<pre tabindex="0"><code>- 启动集群 tiup cluster start tidb-formal      (实例名)
-- 查看集群 tiup cluster display tidb-formal    (实例名)
-- 关闭集群 tiup cluster stop tidb-formal       (实例名)
-</code></pre><h6 id="集群清单">集群清单：</h6>
-<pre tabindex="0"><code>- 192.168.21.2（对外：数据库）
-- 192.168.21.3
-- 192.168.21.4
-- 192.168.21.5
-- 192.168.21.6
-- 192.168.21.7（集群中控台：在此进行集群操作）
-</code></pre><h6 id="医共体数据中心主题库涉及表">医共体数据中心主题库涉及表：</h6>
-<pre tabindex="0"><code>- ST_TABLE_THEME_INFO
-- ST_TABLE_THEME_TARGET_INFO
-在手动运行中心主题库时候新增上：update
-</code></pre><h6 id="任务调度中心地址">任务调度中心地址：</h6>
-<pre tabindex="0"><code>http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin   
-</code></pre><h6 id="医共体数据中心运营分析涉及表">医共体数据中心运营分析涉及表：</h6>
-<pre tabindex="0"><code>- 指标配置表：DSV_KPI_SQL_CONFIG
-- 指标记录表-日：DSV_KPI_DATA_DAY
-- 指标记录表-月：DSV_KPI_DATA_MONTH
-- 指标记录表-年：DSV_KPI_DATA_YEAR
-
-使用文档：BI任务调度与配置V1.0-用户手册
-</code></pre><h6 id="医共体数据中心对外接口地址配置表">医共体数据中心对外接口地址配置表：</h6>
-<pre tabindex="0"><code>- DSV_NSI_MESSAGE
-</code></pre><h6 id="大屏部署目录">大屏部署目录：</h6>
-<pre tabindex="0"><code>cd/
-cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
-</code></pre><pre tabindex="0"><code>- 新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL
-- 医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA
-</code></pre><h6 id="帆软激活码">帆软激活码</h6>
-<pre tabindex="0"><code>b3b7d65f-b5e976977-76b7-3c474c474975
-</code></pre><h6 id="医共体数据中心双向转诊记录表配置表">医共体数据中心：双向转诊记录表配置表：</h6>
-<pre tabindex="0"><code>DUR_REFERRAL_INFO
-</code></pre><h6 id="医共体全息视图">医共体全息视图：</h6>
-<p>第三方调阅的可视化配置对应存储位置表：</p>
-<pre tabindex="0"><code>（全息配置表：EN_HOLOGRAM_VIEW_CONFIG；模块调阅url配置表：EN_IMPACTION_VIEW_URL）；
-</code></pre><hr />
-<h6 id="医共体数据中心应用服务启动文档">医共体数据中心应用服务启动文档</h6>
-<h6 id="服务器ip地址1921682113">服务器IP地址：192.168.21.13</h6>
-<pre tabindex="0"><code>注册中心，第一个启动:
-nohup java -jar /home/servers/local/agent/XFoundationXRegistrationAgent-4.0.0.jar  &gt;  /home/servers/local/agent/log.txt &amp;
-
-网关服务:
-nohup java -jar /home/servers/local/gateway/XDataIntelligenceXGateway-1.0.0.jar  &gt;  /home/servers/local/gateway/log.txt &amp;
-
-用户管理:
-nohup java -jar /home/servers/local/userManage/XDataIntelligenceXUserManagement-1.0.0.jar &gt;  /home/servers/local/userManage/log.txt &amp;
-
-登录模块:
-nohup java -jar /home/servers/local/base/XDataIntelligenceXBase-1.0.0.jar &gt;  /home/servers/local/base/log.txt &amp;
-
-全息病历:
-nohup java -jar /home/servers/local/clinical/XDataIntelligenceXClinical-1.0.0.jar &gt;  /home/servers/local/clinical/log.txt &amp;
-
-主数据管理:
-nohup java -jar /home/servers/local/mainData/XDataIntelligenceXMainData-1.0.0.jar &gt;  /home/servers/local/mainData/log.txt &amp;
-
-大屏模块:
-nohup java -jar /home/servers/local/bigScreen/XDataIntelligenceXBigScreen-0.0.1-SNAPSHOT.jar &gt;  /home/servers/local/bigScreen/log.txt &amp;
-
-双向转诊:
-nohup java -jar /home/servers/local/dualReferral/XDataIntelligenceXDualReferral-1.0.0.jar &gt;  /home/servers/local/dualReferral/log.txt &amp;
-
-数据对外服务:
-nohup java -jar /home/servers/local/dataServices/XDataIntelligenceXDataService-1.0.0.jar &gt;  /home/servers/local/dataServices/log.txt &amp;
-
-自动执行任务模块(两个按顺序执行):
-nohup java -jar /home/servers/local/job-admin/xxl-job-admin-2.2.1-SNAPSHOT.jar &gt;  /home/servers/local/job-admin/log.txt &amp;
-nohup java -jar /home/servers/local/job-exec/xxl-job-executor-sample-springboot-2.2.0.jar &gt;  /home/servers/local/job-exec/log.txt &amp;
-</code></pre><hr />
-<p>tomcat：</p>
-<pre tabindex="0"><code>cd /home/servers/local/apache-tomcat-8.5.76/bin/
-sh startup.sh
-</code></pre><p>nginx:</p>
-<pre tabindex="0"><code>cd /usr/local/nginx/sbin
-./nginx
-</code></pre><hr />
-<p>停止操作-jar包:</p>
-<pre tabindex="0"><code>ps -ef|grep java
-kill -9 进程号(进程号为上一个命令查出的第二列的数字,需要关掉哪个模块，就输入哪个的进程号,模块根据最后一列jar包模块确认)
-</code></pre><p>停止操作-tomcat：：</p>
-<pre tabindex="0"><code>cd /home/servers/local/apache-tomcat-8.5.76/bin/
-sh shutdown.sh
-</code></pre><p>停止操作-nginx:：</p>
-<pre tabindex="0"><code>cd /usr/local/nginx/sbin
-./nginx -s stop
-</code></pre><hr />
-<p>部署前端(启动时不用执行,部署前端包时执行)：<br />
-解压：unzip -o</p>
-<pre tabindex="0"><code>/home/servers/local/dist/5.18-1.zip -d /home/servers/local/dist/xdata-intelligence-view
-</code></pre><p>复制：\cp -rf</p>
-<pre tabindex="0"><code>/home/servers/local/dist/xdata-intelligence-view/dist/. /home/servers/local/dist/xdata-intelligence-view
-</code></pre><hr />
+    <hr />
+<h4 id="一前置说明">一、前置说明</h4>
+<ul>
+<li>基于 <strong>CentOS 7+/RHEL 7+</strong> 系统（默认 firewalld，非 iptables）。</li>
+<li>所有命令需 <strong>root 权限</strong>（前缀 <code>sudo</code> 或切换 root）。</li>
+<li>端口协议：<code>tcp</code>（SSH/HTTP）或 <code>udp</code>（DNS），按需指定。</li>
+</ul>
+<hr />
+<h4 id="二核心操作命令">二、核心操作命令</h4>
+<h6 id="1-查看防火墙状态">1. 查看防火墙状态</h6>
+<pre><code>systemctl status firewalld
+</code></pre>
+<ul>
+<li>输出 <code>active (running)</code> 已启动；<code>inactive (dead)</code> 未启动。</li>
+</ul>
+<h6 id="2-启动防火墙未激活时">2. 启动防火墙（未激活时）</h6>
+<pre><code>systemctl start firewalld
+</code></pre>
+<ul>
+<li>可选：开机自启（避免重启失效）<br />
+systemctl enable firewalld</li>
+</ul>
+<h6 id="3-查看已开放端口">3. 查看已开放端口</h6>
+<ul>
+<li>
+<p>临时开放（重启防火墙失效）：<br />
+firewall-cmd &ndash;list-ports</p>
+</li>
+<li>
+<p>永久开放（重启仍有效）：<br />
+firewall-cmd &ndash;list-ports &ndash;permanent</p>
+</li>
+</ul>
+<h6 id="4-开放端口">4. 开放端口</h6>
+<ul>
+<li>
+<p>临时开放（示例：223/tcp）：</p>
+<p>firewall-cmd &ndash;add-port=223/tcp</p>
+</li>
+<li>
+<p>永久开放（示例：223/tcp）：</p>
+<p>firewall-cmd &ndash;add-port=223/tcp &ndash;permanent</p>
+</li>
+<li>
+<p>批量开放（示例：8000-8080/tcp）：</p>
+<p>firewall-cmd &ndash;add-port=8000-8080/tcp &ndash;permanent</p>
+</li>
+</ul>
+<h6 id="5-关闭端口">5. 关闭端口</h6>
+<ul>
+<li>
+<p>临时关闭（示例：80/tcp）：</p>
+<p>firewall-cmd &ndash;remove-port=80/tcp</p>
+</li>
+<li>
+<p>永久关闭（示例：80/tcp）：</p>
+<p>firewall-cmd &ndash;remove-port=80/tcp &ndash;permanent</p>
+</li>
+</ul>
+<h6 id="6-生效配置关键步骤">6. 生效配置（关键步骤）</h6>
+<pre><code>firewall-cmd --reload  # 重载规则
+systemctl restart firewalld  # 重启防火墙确保生效
+</code></pre>
+<hr />
+<h4 id="三常见问题与注意事项">三、常见问题与注意事项</h4>
+<ol>
+<li>命令修正：原 <code>firewll-cmd</code> 拼写错误→正确 <code>firewall-cmd</code>。</li>
+<li>端口开放后无法访问：</li>
+</ol>
+<ul>
+<li>确认协议正确（UDP 端口需指定 <code>udp</code>）；</li>
+<li>云服务器需同步开放安全组（阿里云 / 腾讯云等双重配置）。</li>
+</ul>
+<ol>
+<li>关闭防火墙（不推荐）：<br />
+systemctl stop firewalld &amp;&amp; systemctl disable firewalld</li>
+<li>验证端口状态：<br />
+firewall-cmd &ndash;query-port=223/tcp  # yes=开放，no=未开放</li>
+</ol>
+<blockquote>
+<p>（注：文档部分内容可能由 AI 生成）</p>
+</blockquote>
 
   </article>
 </div>
@@ -2004,17 +1983,17 @@ sh shutdown.sh
 <nav class="pagination-single">
   
     
-      <a href="https://huangchaolong.github.io/docs/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/" title="HDR-数据中心常规操作" class="pagination-single__left">
+      <a href="https://huangchaolong.github.io/docs/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/" title="TIDB-医共体数据中心常规操作" class="pagination-single__left">
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
         </div>
-        <div class="pagination-single__right-title">HDR-数据中心常规操作</div>
+        <div class="pagination-single__right-title">TIDB-医共体数据中心常规操作</div>
       </a>
     
     <div class="grow"></div>
     
-      <a href="https://huangchaolong.github.io/docs/linux%E9%98%B2%E7%81%AB%E5%A2%99%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/" title="Linux 防火墙核心操作" class="pagination-single__right">
-        <div class="pagination-single__left-title">Linux 防火墙核心操作</div>
+      <a href="https://huangchaolong.github.io/docs/%E4%BA%92%E8%81%94%E7%BD%91%E5%8C%BB%E7%96%9794%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD/" title="智慧医疗94个核心术语" class="pagination-single__right">
+        <div class="pagination-single__left-title">智慧医疗94个核心术语</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>
@@ -2038,7 +2017,9 @@ sh shutdown.sh
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#一前置说明">一、前置说明</a></li>
+            <li><a href="#二核心操作命令">二、核心操作命令</a></li>
+            <li><a href="#三常见问题与注意事项">三、常见问题与注意事项</a></li>
           </ul>
         </li>
       </ul>
