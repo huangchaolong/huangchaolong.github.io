@@ -152,11 +152,9 @@ http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
 &lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 基础连接（默认端口3306）
-
 mysql -u root -p
 
 \# 指定端口/主机连接（远程连接）
-
 mysql -h 192.168.1.100 -P 3306 -u root -p
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;-u&lt;/code&gt;：指定用户名&lt;/li&gt;
@@ -165,9 +163,7 @@ mysql -h 192.168.1.100 -P 3306 -u root -p
 &lt;li&gt;&lt;code&gt;-P&lt;/code&gt;：指定端口（默认 3306，非默认时必填）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;
-\-- 或
-quit;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;\-- 或 quit;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
 &lt;h2 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h2&gt;
 &lt;h3 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h3&gt;
@@ -200,21 +196,197 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CREATE TABLE IF NOT EXISTS user (
 
 &amp;amp;#x20;   id INT PRIMARY KEY AUTO\_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
-
 &amp;amp;#x20;   username VARCHAR(50) NOT NULL UNIQUE COMMENT &amp;#39;用户名&amp;#39;,
-
 &amp;amp;#x20;   password VARCHAR(100) NOT NULL COMMENT &amp;#39;密码（建议加密存储）&amp;#39;,
-
 &amp;amp;#x20;   age TINYINT UNSIGNED DEFAULT 0 COMMENT &amp;#39;年龄&amp;#39;,
-
 &amp;amp;#x20;   create\_time DATETIME DEFAULT CURRENT\_TIMESTAMP COMMENT &amp;#39;创建时间&amp;#39;,
-
 &amp;amp;#x20;   update\_time DATETIME DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP COMMENT &amp;#39;更新时间&amp;#39;
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&amp;#39;用户表&amp;#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;ENGINE=InnoDB&lt;/code&gt;：默认存储引擎，支持事务、外键、行锁&lt;/p&gt;</description>
+&lt;li&gt;&lt;code&gt;ENGINE=InnoDB&lt;/code&gt;：默认存储引擎，支持事务、外键、行锁&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AUTO_INCREMENT&lt;/code&gt;：自增主键&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT CURRENT_TIMESTAMP&lt;/code&gt;：默认当前时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ON UPDATE CURRENT_TIMESTAMP&lt;/code&gt;：更新时自动刷新时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-查看表结构&#34;&gt;3. 查看表结构&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 方式1：简易版
+DESC user;
+\-- 方式2：详细版（含注释）
+SHOW CREATE TABLE user;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-修改表常用&#34;&gt;4. 修改表（常用）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 添加字段
+ALTER TABLE user ADD COLUMN email VARCHAR(100) DEFAULT NULL COMMENT &amp;#39;邮箱&amp;#39; AFTER age;
+
+\-- 2. 修改字段类型/属性
+ALTER TABLE user MODIFY COLUMN email VARCHAR(150) NOT NULL COMMENT &amp;#39;邮箱（非空）&amp;#39;;
+
+\-- 3. 重命名字段
+ALTER TABLE user CHANGE COLUMN email user\_email VARCHAR(150) DEFAULT NULL COMMENT &amp;#39;用户邮箱&amp;#39;;
+
+\-- 4. 删除字段
+ALTER TABLE user DROP COLUMN user\_email;
+
+\-- 5. 重命名表
+ALTER TABLE user RENAME TO sys\_user;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-删除表谨慎&#34;&gt;5. 删除表（谨慎！）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP TABLE IF EXISTS user;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;四数据增删改查crud&#34;&gt;四、数据增删改查（CRUD）&lt;/h2&gt;
+&lt;h3 id=&#34;1-新增数据insert&#34;&gt;1. 新增数据（INSERT）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 方式1：指定字段（推荐，字段顺序可调整）
+INSERT INTO user (username, password, age)&amp;amp;#x20;
+VALUES (&amp;#39;zhangsan&amp;#39;, &amp;#39;123456&amp;#39;, 20), (&amp;#39;lisi&amp;#39;, &amp;#39;654321&amp;#39;, 25);
+
+\-- 方式2：不指定字段（需按表字段顺序）
+INSERT INTO user VALUES (NULL, &amp;#39;wangwu&amp;#39;, &amp;#39;888888&amp;#39;, 30, NOW(), NOW());
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;自增主键可填&lt;code&gt;NULL&lt;/code&gt;，会自动生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-查询数据select&#34;&gt;2. 查询数据（SELECT）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 查询所有字段（生产环境避免\*，指定字段）
+SELECT \* FROM user;
+
+\-- 2. 指定字段查询
+SELECT id, username, age FROM user;
+
+\-- 3. 条件查询
+SELECT \* FROM user WHERE age &amp;gt; 20 AND username LIKE &amp;#39;z%&amp;#39;;
+
+\-- 4. 排序
+SELECT \* FROM user ORDER BY age DESC, create\_time ASC;
+
+\-- 5. 分页（MySQL特有，LIMIT 起始位置, 条数）
+SELECT \* FROM user LIMIT 0, 10; -- 第1页，每页10条
+SELECT \* FROM user LIMIT 10, 10; -- 第2页
+
+\-- 6. 去重
+SELECT DISTINCT age FROM user;
+
+\-- 7. 聚合查询
+SELECT COUNT(\*) AS total, MAX(age) AS max\_age, AVG(age) AS avg\_age FROM user;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 条件修改（必须加WHERE，否则全表更新！）
+UPDATE user SET password = &amp;#39;999999&amp;#39;, age = 22 WHERE id = 1;
+
+\-- 全表更新（谨慎！）
+UPDATE user SET update\_time = NOW();
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据delete&#34;&gt;4. 删除数据（DELETE）&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 条件删除（必须加WHERE，否则全表删除！）
+DELETE FROM user WHERE id = 3;
+
+\-- 全表删除（清空表，自增主键不重置）
+DELETE FROM user;
+
+\-- 清空表（自增主键重置，速度更快）
+TRUNCATE TABLE user;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DELETE&lt;/code&gt;：可回滚，自增主键不重置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TRUNCATE&lt;/code&gt;：不可回滚，自增主键重置，适合清空大表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-核心时间函数&#34;&gt;5. 核心时间函数&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 核心时间函数（按用途）
+DELETE FROM user WHERE id = 3;
+
+\-- 高频实战 SQL
+-- 1. 查询今天的订单
+SELECT * FROM orders WHERE DATE(create_time) = CURDATE();
+
+-- 2. 查询近7天订单
+SELECT * FROM orders WHERE create_time &amp;gt;= DATE_SUB(CURDATE(), INTERVAL 6 DAY);
+
+-- 3. 格式化时间展示
+SELECT DATE_FORMAT(create_time, &amp;#39;%Y年%m月%d日&amp;#39;) FROM orders;
+
+-- 4. 计算支付耗时（分钟）
+SELECT TIMESTAMPDIFF(MINUTE, create_time, pay_time) FROM orders;
+
+-- 5. 获取当月第一天/最后一天
+SELECT DATE_FORMAT(CURDATE(), &amp;#39;%Y-%m-01&amp;#39;), LAST_DAY(CURDATE());
+
+
+| 函数/语法 | 作用 | 极简示例 |
+| --- | --- | --- |
+|NOW()/CURDATE()|获取当前时间（日期 + 时间 / 仅日期）|NOW() → 2026-03-09 15:30:20|
+|DATE_FORMAT (日期，格式)|格式化时间|DATE_FORMAT(NOW(), &amp;#39;%Y-%m-%d&amp;#39;)|
+|DATE_ADD/DATE_SUB|时间加减|DATE_ADD(NOW(), INTERVAL 7 DAY)|
+|DATEDIFF/TIMESTAMPDIFF|计算时间差|DATE_ADD(NOW(), INTERVAL 7 DAY)|
+|DATEDIFF/TIMESTAMPDIFF|计算时间差（天 / 多单位|DATEDIFF(&amp;#39;2026-03-10&amp;#39;, NOW())|
+|YEAR()/MONTH()/DAY()|提取年 / 月 / 日|YEAR(NOW()) → 2026|
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;五索引管理优化查询&#34;&gt;五、索引管理（优化查询）&lt;/h2&gt;
+&lt;h3 id=&#34;1-创建索引&#34;&gt;1. 创建索引&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 普通索引（最常用）
+CREATE INDEX idx\_user\_username ON user(username);
+
+\-- 2. 唯一索引（字段值唯一）
+CREATE UNIQUE INDEX idx\_user\_email ON user(email);
+
+\-- 3. 联合索引（多个字段）
+CREATE INDEX idx\_user\_age\_create\_time ON user(age, create\_time);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-查看索引&#34;&gt;2. 查看索引&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW INDEX FROM user;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-删除索引&#34;&gt;3. 删除索引&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP INDEX idx\_user\_username ON user;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;六权限与用户管理&#34;&gt;六、权限与用户管理&lt;/h2&gt;
+&lt;h3 id=&#34;1-创建用户&#34;&gt;1. 创建用户&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 创建用户（允许本地连接）
+CREATE USER &amp;#39;test\_user&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;123456&amp;#39;;
+
+\-- 允许远程连接（% 表示所有主机）
+CREATE USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;123456&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-授权&#34;&gt;2. 授权&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 授予test\_db库所有权限给test\_user（远程连接）
+GRANT ALL PRIVILEGES ON test\_db.\* TO &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
+
+\-- 仅授予查询/插入权限
+GRANT SELECT, INSERT ON test\_db.user TO &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
+
+\-- 刷新权限（授权后必须执行）
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-撤销权限&#34;&gt;3. 撤销权限&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;REVOKE INSERT ON test\_db.user FROM &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-修改密码&#34;&gt;4. 修改密码&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ALTER USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;new\_password&amp;#39;;
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-删除用户&#34;&gt;5. 删除用户&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;h2 id=&#34;七常用运维操作&#34;&gt;七、常用运维操作&lt;/h2&gt;
+&lt;h3 id=&#34;1-查看运行状态&#34;&gt;1. 查看运行状态&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 查看MySQL版本
+SELECT VERSION();
+
+\-- 查看当前连接数
+SHOW STATUS LIKE &amp;#39;Threads\_connected&amp;#39;;
+
+\-- 查看慢查询配置
+SHOW VARIABLES LIKE &amp;#39;slow\_query%&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-导入--导出数据&#34;&gt;2. 导入 / 导出数据&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 导出整个数据库（终端执行）
+mysqldump -u root -p test\_db &amp;gt; test\_db\_backup.sql
+
+\# 导出指定表
+mysqldump -u root -p test\_db user &amp;gt; user\_backup.sql
+
+\# 导入数据（先创建空库）
+mysql -u root -p test\_db &amp;lt; test\_db\_backup.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-事务操作&#34;&gt;3. 事务操作&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 开启事务
+START TRANSACTION;
+
+\-- 执行操作
+UPDATE user SET age = 21 WHERE id = 1;
+INSERT INTO user (username, password) VALUES (&amp;#39;zhaoliu&amp;#39;, &amp;#39;777777&amp;#39;);
+
+\-- 提交事务
+COMMIT;
+
+\-- 回滚（出错时）
+ROLLBACK;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;hr /&gt;</description>
       </item>
       
     
