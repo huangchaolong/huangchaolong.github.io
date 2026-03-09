@@ -322,6 +322,230 @@ TRUNCATE TABLE user;
 &lt;p&gt;&lt;strong&gt;DATE_FORMAT (日期，格式)&lt;/strong&gt;：将时间转为指定格式（高频）&lt;/p&gt;</description>
       </item>
       
+      <item>
+        <title></title>
+        <link>https://huangchaolong.github.io/docs/oracle-common-operations/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://huangchaolong.github.io/docs/oracle-common-operations/</guid>
+        <description>&lt;p&gt;title: &amp;ldquo;Oracle 数据库核心操作&amp;rdquo;  # 页面标题​&lt;br /&gt;
+date: 2026-03-06T16:17:00+08:00  # 与文件修改时间一致​&lt;br /&gt;
+draft: false  # 必须设为 false，否则不会生成静态文件&lt;/p&gt;
+&lt;h1 id=&#34;oracle-数据库核心操作&#34;&gt;Oracle 数据库核心操作&lt;/h1&gt;
+&lt;p&gt;一、基础查询操作&lt;/p&gt;
+&lt;h4 id=&#34;1-基础查询最常用&#34;&gt;1. 基础查询（最常用）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 查询表中所有列
+
+SELECT \* FROM emp;
+
+\-- 查询指定列，并重命名列名（别名）
+
+SELECT empno AS 员工编号, ename AS 员工姓名, sal AS 工资 FROM emp;
+
+\-- 条件查询（WHERE）
+
+SELECT ename, sal FROM emp WHERE sal &amp;gt; 3000 AND deptno = 10;
+
+\-- 排序（ORDER BY，ASC升序/ DESC降序，默认升序）
+
+SELECT ename, sal FROM emp ORDER BY sal DESC;
+
+\-- 去重查询（DISTINCT）
+
+SELECT DISTINCT deptno FROM emp;
+
+\-- 分页查询（Oracle 特有，ROWNUM）
+
+\-- 示例：查询第6-10条数据（先查前10条，再筛选大于5条）
+
+SELECT \* FROM (
+
+&amp;amp;#x20;   SELECT a.\*, ROWNUM rn FROM (
+
+&amp;amp;#x20;       SELECT ename, sal FROM emp ORDER BY sal DESC
+
+&amp;amp;#x20;   ) a WHERE ROWNUM &amp;lt;= 10
+
+) WHERE rn &amp;gt; 5;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-聚合查询统计分析&#34;&gt;2. 聚合查询（统计分析）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 求和、平均值、最大值、最小值、计数
+
+SELECT&amp;amp;#x20;
+
+&amp;amp;#x20;   COUNT(\*) AS 总人数,
+
+&amp;amp;#x20;   SUM(sal) AS 工资总和,
+
+&amp;amp;#x20;   AVG(sal) AS 平均工资,
+
+&amp;amp;#x20;   MAX(sal) AS 最高工资,
+
+&amp;amp;#x20;   MIN(sal) AS 最低工资
+
+FROM emp&amp;amp;#x20;
+
+WHERE deptno = 20;
+
+\-- 分组查询（GROUP BY）
+
+SELECT deptno AS 部门编号, COUNT(\*) AS 部门人数&amp;amp;#x20;
+
+FROM emp&amp;amp;#x20;
+
+GROUP BY deptno
+
+HAVING COUNT(\*) &amp;gt; 5; -- 分组后筛选（区别于WHERE，WHERE是分组前筛选）
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;二表管理操作&#34;&gt;二、表管理操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建表&#34;&gt;1. 创建表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 基础建表语法（含常用字段类型、主键、非空约束）
+
+CREATE TABLE emp\_copy (
+
+&amp;amp;#x20;   empno NUMBER(4) PRIMARY KEY, -- 数字类型，长度4，主键（唯一且非空）
+
+&amp;amp;#x20;   ename VARCHAR2(20) NOT NULL, -- 字符串类型，长度20，非空
+
+&amp;amp;#x20;   sal NUMBER(7,2), -- 数字类型，总长度7，小数位2（如 12345.67）
+
+&amp;amp;#x20;   hiredate DATE, -- 日期类型
+
+&amp;amp;#x20;   deptno NUMBER(2)
+
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-修改表&#34;&gt;2. 修改表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 添加列
+
+ALTER TABLE emp\_copy ADD (phone VARCHAR2(11));
+
+\-- 修改列类型/长度
+
+ALTER TABLE emp\_copy MODIFY (phone VARCHAR2(15));
+
+\-- 删除列
+
+ALTER TABLE emp\_copy DROP COLUMN phone;
+
+\-- 添加主键约束（如果建表时未加）
+
+ALTER TABLE emp\_copy ADD CONSTRAINT pk\_empno PRIMARY KEY (empno);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-删除--清空表&#34;&gt;3. 删除 / 清空表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 删除表（结构+数据，不可恢复）
+
+DROP TABLE emp\_copy;
+
+\-- 清空表数据（可回滚，速度慢）
+
+DELETE FROM emp\_copy;
+
+\-- 清空表数据（不可回滚，速度快，适合大数据量）
+
+TRUNCATE TABLE emp\_copy;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;三数据操作增删改&#34;&gt;三、数据操作（增删改）&lt;/h3&gt;
+&lt;h4 id=&#34;1-插入数据&#34;&gt;1. 插入数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 插入指定列
+
+INSERT INTO emp\_copy (empno, ename, sal, hiredate)&amp;amp;#x20;
+
+VALUES (1001, &amp;#39;张三&amp;#39;, 5000, SYSDATE); -- SYSDATE 是Oracle系统当前日期
+
+\-- 插入所有列（列顺序需与表结构一致）
+
+INSERT INTO emp\_copy VALUES (1002, &amp;#39;李四&amp;#39;, 6000, TO\_DATE(&amp;#39;2024-01-01&amp;#39;, &amp;#39;YYYY-MM-DD&amp;#39;), 20);
+
+\-- 批量插入（从现有表复制数据）
+
+INSERT INTO emp\_copy (empno, ename, sal)
+
+SELECT empno, ename, sal FROM emp WHERE deptno = 10;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-修改数据&#34;&gt;2. 修改数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 修改指定数据（务必加WHERE，否则修改全表）
+
+UPDATE emp\_copy&amp;amp;#x20;
+
+SET sal = 5500, deptno = 30&amp;amp;#x20;
+
+WHERE empno = 1001;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-删除数据&#34;&gt;3. 删除数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 删除指定数据（加WHERE，否则删除全表）
+
+DELETE FROM emp\_copy WHERE empno = 1002;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;四用户与权限管理运维常用&#34;&gt;四、用户与权限管理（运维常用）&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建用户&#34;&gt;1. 创建用户&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 创建用户并指定表空间（默认表空间可根据实际调整）
+
+CREATE USER test\_user IDENTIFIED BY 123456&amp;amp;#x20;
+
+DEFAULT TABLESPACE users&amp;amp;#x20;
+
+TEMPORARY TABLESPACE temp;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-授权&#34;&gt;2. 授权&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 授予连接数据库权限
+
+GRANT CONNECT TO test\_user;
+
+\-- 授予操作表的权限（增删改查）
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON scott.emp TO test\_user;
+
+\-- 授予DBA权限（最高权限，谨慎使用）
+
+GRANT DBA TO test\_user;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-撤销权限&#34;&gt;3. 撤销权限&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;REVOKE DELETE ON scott.emp FROM test\_user;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-修改用户密码&#34;&gt;4. 修改用户密码&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ALTER USER test\_user IDENTIFIED BY 654321;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;五其他高频操作&#34;&gt;五、其他高频操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-查看表结构&#34;&gt;1. 查看表结构&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 查看表的字段、类型、约束等信息
+
+DESC emp; -- 简写，等价于 DESCRIBE emp
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-事务控制&#34;&gt;2. 事务控制&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 提交事务（确认修改，永久生效）
+
+COMMIT;
+
+\-- 回滚事务（撤销未提交的修改）
+
+ROLLBACK;
+
+\-- 设置保存点（部分回滚）
+
+SAVEPOINT sp1;
+
+ROLLBACK TO sp1;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-查看当前用户--数据库信息&#34;&gt;3. 查看当前用户 / 数据库信息&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 查看当前登录用户
+
+SELECT USER FROM DUAL;
+
+\-- 查看数据库版本
+
+SELECT \* FROM v\$version;
+
+\-- 查看表空间使用情况
+
+SELECT tablespace\_name, sum(bytes)/1024/1024 AS 大小MB&amp;amp;#x20;
+
+FROM dba\_data\_files&amp;amp;#x20;
+
+GROUP BY tablespace\_name;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;六高频时间函数日常开发必备&#34;&gt;六、高频时间函数（日常开发必备）&lt;/h3&gt;
+&lt;h4 id=&#34;1-获取系统时间最常用&#34;&gt;1. 获取系统时间（最常用）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 获取当前系统日期（仅日期，无时分秒）
+
+SELECT SYSDATE FROM DUAL; -- 示例结果：2026/3/9
+
+\-- 获取当前系统时间戳（含日期+时分秒+毫秒）
+
+SELECT SYSTIMESTAMP FROM DUAL; -- 示例结果：2026-03-09 15:20:30.123456 +08:00
+
+\-- 获取当前会话的日期（与SYSDATE一致，仅作用域不同）
+
+SELECT CURRENT\_DATE FROM DUAL;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-日期格式转换to_dateto_char&#34;&gt;2. 日期格式转换（TO_DATE/TO_CHAR）&lt;/h4&gt;
+&lt;p&gt;这是处理日期最核心的两个函数，用于&lt;strong&gt;字符串转日期&lt;/strong&gt;和&lt;strong&gt;日期转字符串&lt;/strong&gt;，避免格式不匹配导致的报错。&lt;/p&gt;</description>
+      </item>
+      
     
   </channel>
 </rss>
