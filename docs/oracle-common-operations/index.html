@@ -1114,7 +1114,7 @@
     "datePublished": "2026-03-06T16:17:00+08:00",
     "dateModified": "2026-03-06T16:17:00+08:00",
     "url" : "https://huangchaolong.github.io/docs/oracle-common-operations/",
-    "description": "\u003chr /\u003e \u003ch1 id=\"oracle-数据库核心操作\"\u003eOracle 数据库核心操作\u003c/h1\u003e \u003cp\u003e一、基础查询操作\u003c/p\u003e \u003ch4 id=\"1-基础查询最常用\"\u003e1. 基础查询（最常用）\u003c/h4\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e\\-- 查询表中所有列  SELECT \\* FROM emp;  \\-- 查询指定列，并重命名列名（别名）  SELECT empno AS 员工编号, ename AS 员工姓名, sal AS 工资 FROM emp;  \\-- 条件查询（WHERE） …\u003c/code\u003e\u003c/pre\u003e",
+    "description": "\u003chr /\u003e \u003ch1 id=\"oracle-数据库核心操作\"\u003eOracle 数据库核心操作\u003c/h1\u003e \u003cp\u003e一、基础查询操作\u003c/p\u003e \u003ch4 id=\"1-基础查询最常用\"\u003e1. 基础查询（最常用）\u003c/h4\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e\\-- 查询表中所有列 SELECT \\* FROM emp;  \\-- 查询指定列，并重命名列名（别名） SELECT empno AS 员工编号, ename AS 员工姓名, sal AS 工资 FROM emp;  \\-- 条件查询（WHERE） …\u003c/code\u003e\u003c/pre\u003e",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://huangchaolong.github.io/"
@@ -1760,62 +1760,53 @@
 <p>一、基础查询操作</p>
 <h4 id="1-基础查询最常用">1. 基础查询（最常用）</h4>
 <pre tabindex="0"><code>\-- 查询表中所有列
-
 SELECT \* FROM emp;
 
 \-- 查询指定列，并重命名列名（别名）
-
 SELECT empno AS 员工编号, ename AS 员工姓名, sal AS 工资 FROM emp;
 
 \-- 条件查询（WHERE）
-
 SELECT ename, sal FROM emp WHERE sal &gt; 3000 AND deptno = 10;
 
 \-- 排序（ORDER BY，ASC升序/ DESC降序，默认升序）
-
 SELECT ename, sal FROM emp ORDER BY sal DESC;
 
 \-- 去重查询（DISTINCT）
-
 SELECT DISTINCT deptno FROM emp;
 
 \-- 分页查询（Oracle 特有，ROWNUM）
-
 \-- 示例：查询第6-10条数据（先查前10条，再筛选大于5条）
 
 SELECT \* FROM (
-
-&amp;#x20;   SELECT a.\*, ROWNUM rn FROM (
-
-&amp;#x20;       SELECT ename, sal FROM emp ORDER BY sal DESC
-
-&amp;#x20;   ) a WHERE ROWNUM &lt;= 10
+SELECT a.\*, ROWNUM rn FROM (
+    SELECT ename, sal FROM emp ORDER BY sal DESC
+) a WHERE ROWNUM &lt;= 10
 
 ) WHERE rn &gt; 5;
 </code></pre><h4 id="2-聚合查询统计分析">2. 聚合查询（统计分析）</h4>
 <pre tabindex="0"><code>\-- 求和、平均值、最大值、最小值、计数
 
-SELECT&amp;#x20;
+SELECT
 
-&amp;#x20;   COUNT(\*) AS 总人数,
+COUNT(\*) AS 总人数,
 
-&amp;#x20;   SUM(sal) AS 工资总和,
+SUM(sal) AS 工资总和,
 
-&amp;#x20;   AVG(sal) AS 平均工资,
+AVG(sal) AS 平均工资,
 
-&amp;#x20;   MAX(sal) AS 最高工资,
+MAX(sal) AS 最高工资,
 
-&amp;#x20;   MIN(sal) AS 最低工资
+MIN(sal) AS 最低工资
 
-FROM emp&amp;#x20;
+FROM emp;
 
 WHERE deptno = 20;
 
 \-- 分组查询（GROUP BY）
 
-SELECT deptno AS 部门编号, COUNT(\*) AS 部门人数&amp;#x20;
+SELECT deptno AS 部门编号, COUNT(\*) AS 部门人数;
 
-FROM emp&amp;#x20;
+FROM emp;
 
 GROUP BY deptno
 
@@ -1826,94 +1817,78 @@ HAVING COUNT(\*) &gt; 5; -- 分组后筛选（区别于WHERE，WHERE是分组前
 
 CREATE TABLE emp\_copy (
 
-&amp;#x20;   empno NUMBER(4) PRIMARY KEY, -- 数字类型，长度4，主键（唯一且非空）
+empno NUMBER(4) PRIMARY KEY, -- 数字类型，长度4，主键（唯一且非空）
 
-&amp;#x20;   ename VARCHAR2(20) NOT NULL, -- 字符串类型，长度20，非空
+ename VARCHAR2(20) NOT NULL, -- 字符串类型，长度20，非空
 
-&amp;#x20;   sal NUMBER(7,2), -- 数字类型，总长度7，小数位2（如 12345.67）
+sal NUMBER(7,2), -- 数字类型，总长度7，小数位2（如 12345.67）
 
-&amp;#x20;   hiredate DATE, -- 日期类型
+hiredate DATE, -- 日期类型
 
-&amp;#x20;   deptno NUMBER(2)
+deptno NUMBER(2)
 
 );
 </code></pre><h4 id="2-修改表">2. 修改表</h4>
 <pre tabindex="0"><code>\-- 添加列
-
 ALTER TABLE emp\_copy ADD (phone VARCHAR2(11));
 
 \-- 修改列类型/长度
-
 ALTER TABLE emp\_copy MODIFY (phone VARCHAR2(15));
 
 \-- 删除列
-
 ALTER TABLE emp\_copy DROP COLUMN phone;
 
 \-- 添加主键约束（如果建表时未加）
-
 ALTER TABLE emp\_copy ADD CONSTRAINT pk\_empno PRIMARY KEY (empno);
 </code></pre><h4 id="3-删除--清空表">3. 删除 / 清空表</h4>
 <pre tabindex="0"><code>\-- 删除表（结构+数据，不可恢复）
-
 DROP TABLE emp\_copy;
 
 \-- 清空表数据（可回滚，速度慢）
-
 DELETE FROM emp\_copy;
 
 \-- 清空表数据（不可回滚，速度快，适合大数据量）
-
 TRUNCATE TABLE emp\_copy;
 </code></pre><h3 id="三数据操作增删改">三、数据操作（增删改）</h3>
 <h4 id="1-插入数据">1. 插入数据</h4>
 <pre tabindex="0"><code>\-- 插入指定列
-
-INSERT INTO emp\_copy (empno, ename, sal, hiredate)&amp;#x20;
+INSERT INTO emp\_copy (empno, ename, sal, hiredate);
 
 VALUES (1001, &#39;张三&#39;, 5000, SYSDATE); -- SYSDATE 是Oracle系统当前日期
 
 \-- 插入所有列（列顺序需与表结构一致）
-
 INSERT INTO emp\_copy VALUES (1002, &#39;李四&#39;, 6000, TO\_DATE(&#39;2024-01-01&#39;, &#39;YYYY-MM-DD&#39;), 20);
 
 \-- 批量插入（从现有表复制数据）
-
 INSERT INTO emp\_copy (empno, ename, sal)
 
 SELECT empno, ename, sal FROM emp WHERE deptno = 10;
 </code></pre><h4 id="2-修改数据">2. 修改数据</h4>
 <pre tabindex="0"><code>\-- 修改指定数据（务必加WHERE，否则修改全表）
+UPDATE emp\_copy;
 
-UPDATE emp\_copy&amp;#x20;
-
-SET sal = 5500, deptno = 30&amp;#x20;
+SET sal = 5500, deptno = 30;
 
 WHERE empno = 1001;
 </code></pre><h4 id="3-删除数据">3. 删除数据</h4>
 <pre tabindex="0"><code>\-- 删除指定数据（加WHERE，否则删除全表）
-
 DELETE FROM emp\_copy WHERE empno = 1002;
 </code></pre><h3 id="四用户与权限管理运维常用">四、用户与权限管理（运维常用）</h3>
 <h4 id="1-创建用户">1. 创建用户</h4>
 <pre tabindex="0"><code>\-- 创建用户并指定表空间（默认表空间可根据实际调整）
+CREATE USER test\_user IDENTIFIED BY 123456;
 
-CREATE USER test\_user IDENTIFIED BY 123456&amp;#x20;
-
-DEFAULT TABLESPACE users&amp;#x20;
+DEFAULT TABLESPACE users;
 
 TEMPORARY TABLESPACE temp;
 </code></pre><h4 id="2-授权">2. 授权</h4>
 <pre tabindex="0"><code>\-- 授予连接数据库权限
-
 GRANT CONNECT TO test\_user;
 
 \-- 授予操作表的权限（增删改查）
-
 GRANT SELECT, INSERT, UPDATE, DELETE ON scott.emp TO test\_user;
 
 \-- 授予DBA权限（最高权限，谨慎使用）
-
 GRANT DBA TO test\_user;
 </code></pre><h4 id="3-撤销权限">3. 撤销权限</h4>
 <pre tabindex="0"><code>REVOKE DELETE ON scott.emp FROM test\_user;
@@ -1922,55 +1897,44 @@ GRANT DBA TO test\_user;
 </code></pre><h3 id="五其他高频操作">五、其他高频操作</h3>
 <h4 id="1-查看表结构">1. 查看表结构</h4>
 <pre tabindex="0"><code>\-- 查看表的字段、类型、约束等信息
-
 DESC emp; -- 简写，等价于 DESCRIBE emp
 </code></pre><h4 id="2-事务控制">2. 事务控制</h4>
 <pre tabindex="0"><code>\-- 提交事务（确认修改，永久生效）
-
 COMMIT;
 
 \-- 回滚事务（撤销未提交的修改）
-
 ROLLBACK;
 
 \-- 设置保存点（部分回滚）
-
 SAVEPOINT sp1;
 
 ROLLBACK TO sp1;
 </code></pre><h4 id="3-查看当前用户--数据库信息">3. 查看当前用户 / 数据库信息</h4>
 <pre tabindex="0"><code>\-- 查看当前登录用户
-
 SELECT USER FROM DUAL;
 
 \-- 查看数据库版本
-
 SELECT \* FROM v\$version;
 
 \-- 查看表空间使用情况
+SELECT tablespace\_name, sum(bytes)/1024/1024 AS 大小MB;
 
-SELECT tablespace\_name, sum(bytes)/1024/1024 AS 大小MB&amp;#x20;
-
-FROM dba\_data\_files&amp;#x20;
+FROM dba\_data\_files;
 
 GROUP BY tablespace\_name;
 </code></pre><h3 id="六高频时间函数日常开发必备">六、高频时间函数（日常开发必备）</h3>
 <h4 id="1-获取系统时间最常用">1. 获取系统时间（最常用）</h4>
 <pre tabindex="0"><code>\-- 获取当前系统日期（仅日期，无时分秒）
-
 SELECT SYSDATE FROM DUAL; -- 示例结果：2026/3/9
 
 \-- 获取当前系统时间戳（含日期+时分秒+毫秒）
-
 SELECT SYSTIMESTAMP FROM DUAL; -- 示例结果：2026-03-09 15:20:30.123456 +08:00
 
 \-- 获取当前会话的日期（与SYSDATE一致，仅作用域不同）
-
 SELECT CURRENT\_DATE FROM DUAL;
 </code></pre><h4 id="2-日期格式转换to_dateto_char">2. 日期格式转换（TO_DATE/TO_CHAR）</h4>
 <p>这是处理日期最核心的两个函数，用于<strong>字符串转日期</strong>和<strong>日期转字符串</strong>，避免格式不匹配导致的报错。</p>
 <pre tabindex="0"><code>\-- 1. TO\_DATE：字符串 → 日期（指定格式解析）
-
 \-- 语法：TO\_DATE(字符串, 格式模板)
 
 SELECT TO\_DATE(&#39;2026-03-09&#39;, &#39;YYYY-MM-DD&#39;) AS 转换结果 FROM DUAL; -- 结果：2026/3/9
@@ -1978,7 +1942,6 @@ SELECT TO\_DATE(&#39;2026-03-09&#39;, &#39;YYYY-MM-DD&#39;) AS 转换结果 FROM
 SELECT TO\_DATE(&#39;20260309 15:30:45&#39;, &#39;YYYYMMDD HH24:MI:SS&#39;) AS 转换结果 FROM DUAL; -- 含时分秒
 
 \-- 2. TO\_CHAR：日期 → 字符串（指定格式输出）
-
 \-- 语法：TO\_CHAR(日期, 格式模板)
 
 SELECT TO\_CHAR(SYSDATE, &#39;YYYY-MM-DD&#39;) AS 日期格式 FROM DUAL; -- 结果：2026-03-09
@@ -1988,49 +1951,47 @@ SELECT TO\_CHAR(SYSDATE, &#39;YYYY-MM-DD HH24:MI:SS&#39;) AS 完整时间 FROM D
 SELECT TO\_CHAR(SYSDATE, &#39;YYYY年MM月DD日&#39;) AS 中文格式 FROM DUAL; -- 结果：2026年03月09日
 
 \-- 常用格式模板说明：
-
 \-- YYYY：4位年 | MM：2位月 | DD：2位日 | HH24：24小时制 | HH12：12小时制
 
 \-- MI：分钟 | SS：秒 | D：周几（1=周日，7=周六） | DAY：星期名称（如星期一）
 </code></pre><h4 id="3-日期计算加减--间隔">3. 日期计算（加减 / 间隔）</h4>
 <p>Oracle 中日期可直接与数字（代表天数）加减，也可通过 <code>ADD_MONTHS</code> 等函数处理月 / 年维度的计算。</p>
 <pre tabindex="0"><code>\-- 1. 基础加减（按天计算）
+SELECT;
 
-SELECT&amp;#x20;
+SYSDATE AS 当前时间,
 
-&amp;#x20;   SYSDATE AS 当前时间,
+SYSDATE + 1 AS 明天此时,
 
-&amp;#x20;   SYSDATE + 1 AS 明天此时,
+SYSDATE - 7 AS 7天前,
 
-&amp;#x20;   SYSDATE - 7 AS 7天前,
-
-&amp;#x20;   SYSDATE + 0.5 AS 12小时后 -- 0.5天 = 12小时
+SYSDATE + 0.5 AS 12小时后 -- 0.5天 = 12小时
 
 FROM DUAL;
 
 \-- 2. 按月/年计算（ADD\_MONTHS）
 
-SELECT&amp;#x20;
+SELECT;
 
-&amp;#x20;   ADD\_MONTHS(SYSDATE, 1) AS 1个月后, -- 第二个参数：正数加，负数减
+ADD\_MONTHS(SYSDATE, 1) AS 1个月后, -- 第二个参数：正数加，负数减
 
-&amp;#x20;   ADD\_MONTHS(SYSDATE, -3) AS 3个月前,
+ADD\_MONTHS(SYSDATE, -3) AS 3个月前,
 
-&amp;#x20;   ADD\_MONTHS(SYSDATE, 12) AS 1年后
+ADD\_MONTHS(SYSDATE, 12) AS 1年后
 
 FROM DUAL;
 
 \-- 3. 计算两个日期的间隔
 
-SELECT&amp;#x20;
+SELECT;
 
-&amp;#x20;   -- 两个日期相减 = 间隔天数（含小数，代表时分秒）
+-- 两个日期相减 = 间隔天数（含小数，代表时分秒）
 
-&amp;#x20;   TO\_DATE(&#39;2026-04-01&#39;, &#39;YYYY-MM-DD&#39;) - SYSDATE AS 间隔天数,
+TO\_DATE(&#39;2026-04-01&#39;, &#39;YYYY-MM-DD&#39;) - SYSDATE AS 间隔天数,
 
-&amp;#x20;   -- 取整数天数（TRUNC截断小数）
+-- 取整数天数（TRUNC截断小数）
 
-&amp;#x20;   TRUNC(TO\_DATE(&#39;2026-04-01&#39;, &#39;YYYY-MM-DD&#39;) - SYSDATE) AS 整间隔天数
+TRUNC(TO\_DATE(&#39;2026-04-01&#39;, &#39;YYYY-MM-DD&#39;) - SYSDATE) AS 整间隔天数
 
 FROM DUAL;
 
@@ -2041,48 +2002,48 @@ SELECT NEXT\_DAY(SYSDATE, &#39;星期一&#39;) AS 下周一 FROM DUAL; -- 第二
 <p>从日期 / 时间戳中提取年、月、日、时、分、秒等具体元素，便于统计分析。</p>
 <pre tabindex="0"><code>SELECT
 
-&amp;#x20;   EXTRACT(YEAR FROM SYSDATE) AS 年, -- 结果：2026
+EXTRACT(YEAR FROM SYSDATE) AS 年, -- 结果：2026
 
-&amp;#x20;   EXTRACT(MONTH FROM SYSDATE) AS 月, -- 结果：3
+EXTRACT(MONTH FROM SYSDATE) AS 月, -- 结果：3
 
-&amp;#x20;   EXTRACT(DAY FROM SYSDATE) AS 日, -- 结果：9
+EXTRACT(DAY FROM SYSDATE) AS 日, -- 结果：9
 
-&amp;#x20;   EXTRACT(HOUR FROM SYSTIMESTAMP) AS 小时, -- 结果：15（需用SYSTIMESTAMP，SYSDATE无小时提取）
+EXTRACT(HOUR FROM SYSTIMESTAMP) AS 小时, -- 结果：15（需用SYSTIMESTAMP，SYSDATE无小时提取）
 
-&amp;#x20;   EXTRACT(MINUTE FROM SYSTIMESTAMP) AS 分钟
+EXTRACT(MINUTE FROM SYSTIMESTAMP) AS 分钟
 
 FROM DUAL;
 </code></pre><h4 id="5-日期截断trunc">5. 日期截断（TRUNC）</h4>
 <p>将日期截断到指定精度（如年、月、日），常用于按周期统计（如月初、年初）。</p>
 <pre tabindex="0"><code>SELECT
 
-&amp;#x20;   TRUNC(SYSDATE) AS 今天零点, -- 结果：2026/3/9 00:00:00
+TRUNC(SYSDATE) AS 今天零点, -- 结果：2026/3/9 00:00:00
 
-&amp;#x20;   TRUNC(SYSDATE, &#39;MM&#39;) AS 本月初, -- 结果：2026/3/1 00:00:00
+TRUNC(SYSDATE, &#39;MM&#39;) AS 本月初, -- 结果：2026/3/1 00:00:00
 
-&amp;#x20;   TRUNC(SYSDATE, &#39;YYYY&#39;) AS 本年初, -- 结果：2026/1/1 00:00:00
+TRUNC(SYSDATE, &#39;YYYY&#39;) AS 本年初, -- 结果：2026/1/1 00:00:00
 
-&amp;#x20;   TRUNC(SYSDATE, &#39;DD&#39;) AS 当日起始 -- 等价于TRUNC(SYSDATE)
+TRUNC(SYSDATE, &#39;DD&#39;) AS 当日起始 -- 等价于TRUNC(SYSDATE)
 
 FROM DUAL;
 </code></pre><h4 id="6-实际业务场景示例">6. 实际业务场景示例</h4>
 <pre tabindex="0"><code>\-- 示例1：查询近30天内入职的员工
 
-SELECT ename, hiredate&amp;#x20;
+SELECT ename, hiredate;
 
-FROM emp&amp;#x20;
+FROM emp;
 
 WHERE hiredate &gt;= TRUNC(SYSDATE - 30);
 
 \-- 示例2：统计2026年每个月的工资总和
 
-SELECT&amp;#x20;
+SELECT;
 
-&amp;#x20;   TO\_CHAR(hiredate, &#39;YYYY-MM&#39;) AS 月份,
+TO\_CHAR(hiredate, &#39;YYYY-MM&#39;) AS 月份,
 
-&amp;#x20;   SUM(sal) AS 工资总和
+SUM(sal) AS 工资总和
 
-FROM emp&amp;#x20;
+FROM emp;
 
 WHERE EXTRACT(YEAR FROM hiredate) = 2026
 
