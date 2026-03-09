@@ -149,8 +149,8 @@ http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
         
         <guid>https://huangchaolong.github.io/docs/mysql-common-operations/</guid>
         <description>&lt;hr /&gt;
-&lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
-&lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
+&lt;h3 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 基础连接（默认端口3306）
 mysql -u root -p
 
@@ -162,13 +162,13 @@ mysql -h 192.168.1.100 -P 3306 -u root -p
 &lt;li&gt;&lt;code&gt;-h&lt;/code&gt;：指定数据库主机（远程连接必填）&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;-P&lt;/code&gt;：指定端口（默认 3306，非默认时必填）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h3&gt;
+&lt;h4 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;-- 或 quit;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h2&gt;
-&lt;h3 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h3&gt;
+&lt;h3 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h3&gt;
+&lt;h4 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW DATABASES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建数据库&#34;&gt;2. 创建数据库&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-创建数据库&#34;&gt;2. 创建数据库&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 基础创建（指定字符集和排序规则，避免中文乱码）
 
 CREATE DATABASE IF NOT EXISTS test_db
@@ -182,17 +182,17 @@ DEFAULT COLLATE utf8mb4_unicode_ci;
 &lt;p&gt;&lt;code&gt;utf8mb4&lt;/code&gt;：支持 emoji 和所有中文，推荐替代&lt;code&gt;utf8&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;3-切换数据库&#34;&gt;3. 切换数据库&lt;/h3&gt;
+&lt;h4 id=&#34;3-切换数据库&#34;&gt;3. 切换数据库&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USE test_db;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据库谨慎&#34;&gt;4. 删除数据库（谨慎！）&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-删除数据库谨慎&#34;&gt;4. 删除数据库（谨慎！）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP DATABASE IF EXISTS test_db;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-查看当前数据库&#34;&gt;5. 查看当前数据库&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;5-查看当前数据库&#34;&gt;5. 查看当前数据库&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT DATABASE();
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;三数据表表管理&#34;&gt;三、数据表（表）管理&lt;/h2&gt;
-&lt;h3 id=&#34;1-查看当前库所有表&#34;&gt;1. 查看当前库所有表&lt;/h3&gt;
+&lt;h3 id=&#34;三数据表表管理&#34;&gt;三、数据表（表）管理&lt;/h3&gt;
+&lt;h4 id=&#34;1-查看当前库所有表&#34;&gt;1. 查看当前库所有表&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW TABLES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建表示例用户表&#34;&gt;2. 创建表（示例：用户表）&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-创建表示例用户表&#34;&gt;2. 创建表（示例：用户表）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CREATE TABLE IF NOT EXISTS user (
 
    id INT PRIMARY KEY AUTO_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
@@ -209,12 +209,12 @@ DEFAULT COLLATE utf8mb4_unicode_ci;
 &lt;li&gt;&lt;code&gt;DEFAULT CURRENT_TIMESTAMP&lt;/code&gt;：默认当前时间&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ON UPDATE CURRENT_TIMESTAMP&lt;/code&gt;：更新时自动刷新时间&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;3-查看表结构&#34;&gt;3. 查看表结构&lt;/h3&gt;
+&lt;h4 id=&#34;3-查看表结构&#34;&gt;3. 查看表结构&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：简易版
 DESC user;
 -- 方式2：详细版（含注释）
 SHOW CREATE TABLE user;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-修改表常用&#34;&gt;4. 修改表（常用）&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-修改表常用&#34;&gt;4. 修改表（常用）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 1. 添加字段
 ALTER TABLE user ADD COLUMN email VARCHAR(100) DEFAULT NULL COMMENT &amp;#39;邮箱&amp;#39; AFTER age;
 
@@ -229,11 +229,11 @@ ALTER TABLE user DROP COLUMN user_email;
 
 -- 5. 重命名表
 ALTER TABLE user RENAME TO sys_user;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-删除表谨慎&#34;&gt;5. 删除表（谨慎！）&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;5-删除表谨慎&#34;&gt;5. 删除表（谨慎！）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP TABLE IF EXISTS user;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;四数据增删改查crud&#34;&gt;四、数据增删改查（CRUD）&lt;/h2&gt;
-&lt;h3 id=&#34;1-新增数据insert&#34;&gt;1. 新增数据（INSERT）&lt;/h3&gt;
+&lt;h3 id=&#34;四数据增删改查crud&#34;&gt;四、数据增删改查（CRUD）&lt;/h3&gt;
+&lt;h4 id=&#34;1-新增数据insert&#34;&gt;1. 新增数据（INSERT）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：指定字段（推荐，字段顺序可调整）
 INSERT INTO user (username, password, age)
 VALUES (&amp;#39;zhangsan&amp;#39;, &amp;#39;123456&amp;#39;, 20), (&amp;#39;lisi&amp;#39;, &amp;#39;654321&amp;#39;, 25);
@@ -243,7 +243,7 @@ INSERT INTO user VALUES (NULL, &amp;#39;wangwu&amp;#39;, &amp;#39;888888&amp;#39
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;自增主键可填&lt;code&gt;NULL&lt;/code&gt;，会自动生成&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;2-查询数据select&#34;&gt;2. 查询数据（SELECT）&lt;/h3&gt;
+&lt;h4 id=&#34;2-查询数据select&#34;&gt;2. 查询数据（SELECT）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 1. 查询所有字段（生产环境避免*，指定字段）
 SELECT * FROM user;
 
@@ -270,7 +270,7 @@ UPDATE user SET password = &amp;#39;999999&amp;#39;, age = 22 WHERE id = 1;
 
 -- 全表更新（谨慎！）
 UPDATE user SET update_time = NOW();
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据delete&#34;&gt;4. 删除数据（DELETE）&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-删除数据delete&#34;&gt;4. 删除数据（DELETE）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 条件删除（必须加WHERE，否则全表删除！）
 DELETE FROM user WHERE id = 3;
 
@@ -283,8 +283,8 @@ TRUNCATE TABLE user;
 &lt;li&gt;&lt;code&gt;DELETE&lt;/code&gt;：可回滚，自增主键不重置&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;TRUNCATE&lt;/code&gt;：不可回滚，自增主键重置，适合清空大表&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;5核心时间函数按用途分类&#34;&gt;5.核心时间函数（按用途分类）&lt;/h3&gt;
-&lt;h4 id=&#34;1-获取当前时间&#34;&gt;1. 获取当前时间&lt;/h4&gt;
+&lt;h4 id=&#34;5核心时间函数按用途分类&#34;&gt;5.核心时间函数（按用途分类）&lt;/h4&gt;
+&lt;h5 id=&#34;1-获取当前时间&#34;&gt;1. 获取当前时间&lt;/h5&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -316,7 +316,7 @@ TRUNCATE TABLE user;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;2-日期格式化--解析&#34;&gt;2. 日期格式化 / 解析&lt;/h4&gt;
+&lt;h5 id=&#34;2-日期格式化--解析&#34;&gt;2. 日期格式化 / 解析&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;DATE_FORMAT (日期，格式)&lt;/strong&gt;：将时间转为指定格式（高频）&lt;/p&gt;</description>
@@ -329,8 +329,7 @@ TRUNCATE TABLE user;
         
         <guid>https://huangchaolong.github.io/docs/oracle-common-operations/</guid>
         <description>&lt;hr /&gt;
-&lt;h1 id=&#34;oracle-数据库核心操作&#34;&gt;Oracle 数据库核心操作&lt;/h1&gt;
-&lt;p&gt;一、基础查询操作&lt;/p&gt;
+&lt;h3 id=&#34;一基础查询操作&#34;&gt;一、基础查询操作&lt;/h3&gt;
 &lt;h4 id=&#34;1-基础查询最常用&#34;&gt;1. 基础查询（最常用）&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 查询表中所有列
 SELECT * FROM emp;
@@ -507,6 +506,251 @@ SELECT SYSTIMESTAMP FROM DUAL; -- 示例结果：2026-03-09 15:20:30.123456 +08:
 SELECT CURRENT_DATE FROM DUAL;
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-日期格式转换to_dateto_char&#34;&gt;2. 日期格式转换（TO_DATE/TO_CHAR）&lt;/h4&gt;
 &lt;p&gt;这是处理日期最核心的两个函数，用于&lt;strong&gt;字符串转日期&lt;/strong&gt;和&lt;strong&gt;日期转字符串&lt;/strong&gt;，避免格式不匹配导致的报错。&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>SQL Server 数据库核心操作</title>
+        <link>https://huangchaolong.github.io/docs/sqlsever-common-operations/</link>
+        <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
+        
+        <guid>https://huangchaolong.github.io/docs/sqlsever-common-operations/</guid>
+        <description>&lt;hr /&gt;
+&lt;h3 id=&#34;一基础查询操作&#34;&gt;一、基础查询操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-基础查询最常用&#34;&gt;1. 基础查询（最常用）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 查询表中所有列
+SELECT * FROM emp;
+
+-- 查询指定列，并重命名列名（别名）
+SELECT empno AS 员工编号, ename AS 员工姓名, sal AS 工资 FROM emp;
+
+-- 条件查询（WHERE）
+SELECT ename, sal FROM emp WHERE sal &amp;gt; 3000 AND deptno = 10;
+
+-- 排序（ORDER BY，ASC升序/ DESC降序，默认升序）
+SELECT ename, sal FROM emp ORDER BY sal DESC;
+
+-- 去重查询（DISTINCT）
+SELECT DISTINCT deptno FROM emp;
+
+-- 分页查询（SQL Server 2012+ 推荐用 OFFSET FETCH，兼容旧版用 TOP+ROW_NUMBER）
+-- 方式1：新版分页（第6-10条数据）
+SELECT empno, ename, sal FROM emp ORDER BY sal DESC OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;
+
+-- 方式2：旧版分页（兼容SQL Server 2008及以下）
+SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY sal DESC) AS rn, empno, ename, sal FROM emp) t WHERE rn BETWEEN 6 AND 10;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-聚合查询统计分析&#34;&gt;2. 聚合查询（统计分析）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 求和、平均值、最大值、最小值、计数
+SELECT COUNT(*) AS 总人数, SUM(sal) AS 工资总和, AVG(sal) AS 平均工资,
+MAX(sal) AS 最高工资, MIN(sal) AS 最低工资 FROM emp WHERE deptno = 20;
+
+-- 分组查询（GROUP BY）
+SELECT deptno AS 部门编号, COUNT(*) AS 部门人数 FROM emp GROUP BY deptno
+HAVING COUNT(*) &amp;gt; 5; -- 分组后筛选（区别于WHERE，WHERE是分组前筛选）
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;二表管理操作&#34;&gt;二、表管理操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建表&#34;&gt;1. 创建表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 基础建表语法（含常用字段类型、主键、非空约束）
+CREATE TABLE emp_copy (
+empno INT PRIMARY KEY, -- 整数类型，主键（唯一且非空）
+ename VARCHAR(20) NOT NULL, -- 字符串类型，长度20，非空
+sal DECIMAL(7,2), -- 小数类型，总长度7，小数位2（如 12345.67）
+hiredate DATE, -- 日期类型（仅日期）
+deptno TINYINT, -- tinyint 范围 0-255，适合部门编号
+create_time DATETIME DEFAULT GETDATE() -- 带默认值的时间字段
+
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-修改表&#34;&gt;2. 修改表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 添加列
+ALTER TABLE emp_copy ADD phone VARCHAR(11);
+
+-- 修改列类型/长度
+ALTER TABLE emp_copy ALTER COLUMN phone VARCHAR(15);
+
+-- 删除列
+ALTER TABLE emp_copy DROP COLUMN phone;
+
+-- 添加主键约束（如果建表时未加）
+ALTER TABLE emp_copy ADD CONSTRAINT pk_empno PRIMARY KEY (empno);
+
+-- 添加唯一约束
+ALTER TABLE emp_copy ADD CONSTRAINT uk_ename UNIQUE (ename);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-删除--清空表&#34;&gt;3. 删除 / 清空表&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 删除表（结构+数据，需先删除依赖约束）
+DROP TABLE emp_copy;
+
+-- 清空表数据（可回滚，速度慢，日志量大）
+DELETE FROM emp_copy;
+
+-- 清空表数据（不可回滚，速度快，适合大数据量）
+TRUNCATE TABLE emp_copy;
+
+-- 注意：如果表有外键约束，TRUNCATE 会失败，需先禁用约束或删除外键
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;三数据操作增删改&#34;&gt;三、数据操作（增删改）&lt;/h3&gt;
+&lt;h4 id=&#34;1-插入数据&#34;&gt;1. 插入数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 插入指定列
+INSERT INTO emp_copy (empno, ename, sal, hiredate) VALUES (1001, &amp;#39;张三&amp;#39;, 5000.00, GETDATE());
+
+-- 插入多行数据（SQL Server 2008+ 支持）
+INSERT INTO emp_copy (empno, ename, sal, hiredate, deptno)
+VALUES (1002, &amp;#39;李四&amp;#39;, 6000.00, &amp;#39;2024-01-01&amp;#39;, 20), (1003, &amp;#39;王五&amp;#39;, 5500.00, &amp;#39;2024-02-15&amp;#39;, 30);
+
+-- 批量插入（从现有表复制数据）
+INSERT INTO emp_copy (empno, ename, sal) SELECT empno, ename, sal FROM emp WHERE deptno = 10;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-修改数据&#34;&gt;2. 修改数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 修改指定数据（务必加WHERE，否则修改全表）
+UPDATE emp_copy SET sal = 5500.00, deptno = 30 WHERE empno = 1001;
+
+-- 批量修改（根据关联表数据更新）
+UPDATE a SET a.sal = a.sal * 1.1 FROM emp_copy a JOIN dept d ON a.deptno = d.deptno
+WHERE d.dname = &amp;#39;销售部&amp;#39;; -- 工资上涨10%
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-删除数据&#34;&gt;3. 删除数据&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 删除指定数据（加WHERE，否则删除全表）
+DELETE FROM emp_copy WHERE empno = 1002;
+
+-- 关联删除（根据关联表条件删除）
+DELETE a FROM emp_copy a JOIN dept d ON a.deptno = d.deptno WHERE d.dname = &amp;#39;临时部门&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;四用户与权限管理运维常用&#34;&gt;四、用户与权限管理（运维常用）&lt;/h3&gt;
+&lt;h4 id=&#34;1-创建登录名与数据库用户&#34;&gt;1. 创建登录名与数据库用户&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- SQL Server 区分「登录名（服务器级）」和「数据库用户（数据库级）」
+-- 1. 创建服务器登录名（Windows身份验证）
+CREATE LOGIN [WIN-PCusername] FROM WINDOWS;
+
+-- 2. 创建SQL Server身份验证登录名
+CREATE LOGIN test_login WITH PASSWORD = &amp;#39;123456aA!&amp;#39;, DEFAULT_DATABASE = test_db;
+
+-- 3. 创建数据库用户（关联登录名）
+USE test_db; CREATE USER test_user FOR LOGIN test_login;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-授权&#34;&gt;2. 授权&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 授予数据库级角色（常用快速授权）
+
+USE test_db;
+EXEC sp_addrolemember &amp;#39;db_datareader&amp;#39;, &amp;#39;test_user&amp;#39;; -- 只读权限（查询所有表）
+EXEC sp_addrolemember &amp;#39;db_datawriter&amp;#39;, &amp;#39;test_user&amp;#39;; -- 只写权限（增删改所有表）
+
+-- 授予具体表的操作权限
+GRANT SELECT, INSERT, UPDATE ON emp_copy TO test_user;
+
+-- 授予执行存储过程权限
+GRANT EXECUTE ON proc_get_emp TO test_user;
+
+-- 授予管理员权限（谨慎使用）
+EXEC sp_addsrvrolemember &amp;#39;test_login&amp;#39;, &amp;#39;sysadmin&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-撤销权限&#34;&gt;3. 撤销权限&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 撤销表的删除权限
+REVOKE DELETE ON emp_copy FROM test_user;
+
+-- 移除数据库角色
+EXEC sp_droprolemember &amp;#39;db_datawriter&amp;#39;, &amp;#39;test_user&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-修改登录名密码--删除用户&#34;&gt;4. 修改登录名密码 / 删除用户&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 修改登录名密码
+ALTER LOGIN test_login WITH PASSWORD = &amp;#39;654321aA!&amp;#39;;
+
+-- 删除数据库用户
+USE test_db; DROP USER test_user;
+
+-- 删除服务器登录名
+DROP LOGIN test_login;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;五其他高频操作&#34;&gt;五、其他高频操作&lt;/h3&gt;
+&lt;h4 id=&#34;1-查看表结构&#34;&gt;1. 查看表结构&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：查询系统视图（详细字段信息）
+SELECT COLUMN_NAME AS 列名, DATA_TYPE AS 数据类型, CHARACTER_MAXIMUM_LENGTH AS 长度,
+IS_NULLABLE AS 是否允许空, COLUMN_DEFAULT AS 默认值
+FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = &amp;#39;emp_copy&amp;#39;;
+
+-- 方式2：在SSMS中简写（需开启SQLCMD模式）
+sp_help &amp;#39;emp_copy&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-事务控制&#34;&gt;2. 事务控制&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 开始事务
+
+BEGIN TRANSACTION;
+UPDATE emp_copy SET sal = 6000 WHERE empno = 1001; -- 执行操作
+COMMIT TRANSACTION; -- 提交事务（确认修改，永久生效）
+ROLLBACK TRANSACTION; -- 回滚事务（撤销未提交的修改）
+
+-- 带保存点的事务
+BEGIN TRANSACTION;
+UPDATE emp_copy SET sal = 6500 WHERE empno = 1001;
+SAVE TRANSACTION sp1; -- 设置保存点
+UPDATE emp_copy SET sal = 7000 WHERE empno = 1002;
+ROLLBACK TRANSACTION sp1; -- 回滚到保存点
+COMMIT TRANSACTION;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-查看当前用户--数据库信息&#34;&gt;3. 查看当前用户 / 数据库信息&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 查看当前登录用户
+SELECT SUSER_SNAME();
+
+-- 查看当前数据库
+SELECT DB_NAME();
+
+-- 查看数据库版本
+SELECT @@VERSION;
+
+-- 查看表空间使用情况（SQL Server 用文件组/数据文件）
+SELECT name AS 数据文件名, physical_name AS 文件路径, size/128 AS 大小MB,
+
+file_id AS 文件ID FROM sys.database_files;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;六高频时间函数日常开发必备&#34;&gt;六、高频时间函数（日常开发必备）&lt;/h3&gt;
+&lt;h4 id=&#34;1-获取系统时间最常用&#34;&gt;1. 获取系统时间（最常用）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 获取当前日期时间（含时分秒，精度到毫秒）
+SELECT GETDATE() AS 当前时间;
+
+-- 获取当前日期时间（SQL Server 2008+，推荐，精度更高）
+SELECT SYSDATETIME() AS 高精度时间;
+
+-- 获取当前日期（仅日期，无时分秒）
+SELECT CAST(GETDATE() AS DATE) AS 当前日期;
+
+SELECT CONVERT(DATE, GETDATE()) AS 当前日期; -- 等价于上面
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;2-日期格式转换convertformat&#34;&gt;2. 日期格式转换（CONVERT/FORMAT）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：CONVERT（性能高，支持标准格式）
+SELECT CONVERT(VARCHAR(10), GETDATE(), 23) AS 日期格式; -- 2026-03-09（ISO标准）
+SELECT CONVERT(VARCHAR(19), GETDATE(), 120) AS 完整时间; -- 2026-03-09 15:45:30
+SELECT CONVERT(VARCHAR(20), GETDATE(), 111) AS 日式格式; -- 2026/03/09
+
+-- 方式2：FORMAT（SQL Server 2012+，灵活自定义格式）
+SELECT FORMAT(GETDATE(), &amp;#39;yyyy-MM-dd&amp;#39;) AS 日期格式;
+SELECT FORMAT(GETDATE(), &amp;#39;yyyy年MM月dd日 HH:mm:ss&amp;#39;) AS 中文格式;
+SELECT FORMAT(GETDATE(), &amp;#39;HH:mm:ss&amp;#39;) AS 时分秒;
+
+-- 常用格式代码：23=yyyy-MM-dd | 120=yyyy-MM-dd HH:mm:ss | 111=yyyy/MM/dd | 108=HH:mm:ss
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;3-日期计算dateadddatediff&#34;&gt;3. 日期计算（DATEADD/DATEDIFF）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 1. DATEADD：日期加减（语法：DATEADD(单位, 数值, 日期)）
+SELECT GETDATE() AS 当前时间,
+DATEADD(DAY, 1, GETDATE()) AS 明天此时,
+DATEADD(WEEK, -1, GETDATE()) AS 1周前,
+DATEADD(MONTH, 3, GETDATE()) AS 3个月后,
+DATEADD(HOUR, 2, GETDATE()) AS 2小时后;
+
+-- 2. DATEDIFF：计算两个日期的间隔
+SELECT DATEDIFF(DAY, &amp;#39;2026-01-01&amp;#39;, GETDATE()) AS 间隔天数,
+DATEDIFF(MONTH, &amp;#39;2026-01-01&amp;#39;, GETDATE()) AS 间隔月数,
+DATEDIFF(HOUR, &amp;#39;2026-03-09 10:00:00&amp;#39;, GETDATE()) AS 间隔小时数;
+
+-- 3. 计算当月天数
+SELECT DAY(EOMONTH(GETDATE())) AS 当月天数; -- EOMONTH 返回当月最后一天
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;4-提取日期元素datepartyearmonthday&#34;&gt;4. 提取日期元素（DATEPART/YEAR/MONTH/DAY）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT YEAR(GETDATE()) AS 年, MONTH(GETDATE()) AS 月, DAY(GETDATE()) AS 日,
+DATEPART(HOUR, GETDATE()) AS 小时, DATEPART(MINUTE, GETDATE()) AS 分钟,
+DATEPART(WEEKDAY, GETDATE()) AS 星期几; -- 1=周日，7=周六
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;5-日期截断datefrompartscast&#34;&gt;5. 日期截断（DATEFROMPARTS/CAST）&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT CAST(GETDATE() AS DATE) AS 今天零点,
+DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1) AS 本月初,
+DATEFROMPARTS(YEAR(GETDATE()), 1, 1) AS 本年初,
+DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), 0) AS 当日起始;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;6-实际业务场景示例&#34;&gt;6. 实际业务场景示例&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 示例1：查询近30天内入职的员工
+SELECT ename, hiredate FROM emp WHERE hiredate &amp;gt;= DATEADD(DAY, -30, CAST(GETDATE() AS DATE));
+
+-- 示例2：统计2026年每个月的工资总和
+SELECT FORMAT(hiredate, &amp;#39;yyyy-MM&amp;#39;) AS 月份, SUM(sal) AS 工资总和
+
+FROM emp WHERE YEAR(hiredate) = 2026 GROUP BY FORMAT(hiredate, &amp;#39;yyyy-MM&amp;#39;) ORDER BY 月份;
+
+-- 示例3：查询本月入职的员工数
+SELECT COUNT(*) AS 本月入职人数 FROM emp&amp;amp;#x20;
+
+WHERE MONTH(hiredate) = MONTH(GETDATE()) AND YEAR(hiredate) = YEAR(GETDATE());
+&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（注：文档部分内容可能由 AI 生成）&lt;/p&gt;</description>
       </item>
       
     
