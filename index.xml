@@ -323,14 +323,12 @@ TRUNCATE TABLE user;
       </item>
       
       <item>
-        <title></title>
+        <title>Oracle 数据库核心操作</title>
         <link>https://huangchaolong.github.io/docs/oracle-common-operations/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
         
         <guid>https://huangchaolong.github.io/docs/oracle-common-operations/</guid>
-        <description>&lt;p&gt;title: &amp;ldquo;Oracle 数据库核心操作&amp;rdquo;  # 页面标题​&lt;br /&gt;
-date: 2026-03-06T16:17:00+08:00  # 与文件修改时间一致​&lt;br /&gt;
-draft: false  # 必须设为 false，否则不会生成静态文件&lt;/p&gt;
+        <description>&lt;hr /&gt;
 &lt;h1 id=&#34;oracle-数据库核心操作&#34;&gt;Oracle 数据库核心操作&lt;/h1&gt;
 &lt;p&gt;一、基础查询操作&lt;/p&gt;
 &lt;h4 id=&#34;1-基础查询最常用&#34;&gt;1. 基础查询（最常用）&lt;/h4&gt;
