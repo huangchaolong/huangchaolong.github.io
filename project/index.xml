@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on huangchaolong</title>
+    <link>https://huangchaolong.github.io/project/</link>
+    <description>Recent content in Projects on huangchaolong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 06 Mar 2026 16:17:00 +0800</lastBuildDate>
+    
+        <atom:link href="https://huangchaolong.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>深睿医疗-项目经理落地执行手册</title>
+        <link>https://huangchaolong.github.io/project/%E6%B7%B1%E7%9D%BF%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E8%90%BD%E5%9C%B0%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E6%89%A7%E8%A1%8C%E6%89%8B%E5%86%8C/</link>
+        <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
+        
+        <guid>https://huangchaolong.github.io/project/%E6%B7%B1%E7%9D%BF%E5%8C%BB%E7%96%97%E9%A1%B9%E7%9B%AE%E8%90%BD%E5%9C%B0%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E6%89%A7%E8%A1%8C%E6%89%8B%E5%86%8C/</guid>
+        <description>&lt;hr /&gt;
+&lt;h4 id=&#34;一项目核心目标pm-必明确&#34;&gt;一、项目核心目标（PM 必明确）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;按期完成深睿 MetAI/TrioData X 与院内系统对接，无业务中断&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;满足临床科室核心需求（影像 AI 辅助诊断、报告结构化、科研数据支撑）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过合规验收（三类证核查、数据安全等保、流程留痕）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;控制成本在预算内，算力 / 存储资源利用率≥80%&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;二项目组织架构责任到人避免推诿&#34;&gt;二、项目组织架构（责任到人，避免推诿）&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;角色&lt;/th&gt;
+          &lt;th&gt;职责范围&lt;/th&gt;
+          &lt;th&gt;对接方（院内）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;项目经理（你）&lt;/td&gt;
+          &lt;td&gt;整体统筹、进度管控、风险协调、预算把控&lt;/td&gt;
+          &lt;td&gt;院领导、信息科主任&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;深睿技术对接人&lt;/td&gt;
+          &lt;td&gt;接口开发、部署实施、技术问题响应&lt;/td&gt;
+          &lt;td&gt;医院 IT 工程师&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;医院 IT 工程师&lt;/td&gt;
+          &lt;td&gt;现有系统（PACS/RIS/EMR）权限配置、网络支持&lt;/td&gt;
+          &lt;td&gt;深睿技术、科室护士长&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;临床科室负责人&lt;/td&gt;
+          &lt;td&gt;需求确认、测试验收、医生培训组织&lt;/td&gt;
+          &lt;td&gt;你、深睿产品顾问&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;院感 / 合规专员&lt;/td&gt;
+          &lt;td&gt;数据安全审核、流程合规性验证&lt;/td&gt;
+          &lt;td&gt;你、深睿合规负责人&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;三关键里程碑与进度计划60-天标准版&#34;&gt;三、关键里程碑与进度计划（60 天标准版）&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;阶段&lt;/th&gt;
+          &lt;th&gt;时间节点&lt;/th&gt;
+          &lt;th&gt;核心任务&lt;/th&gt;
+          &lt;th&gt;交付物&lt;/th&gt;
+          &lt;th&gt;风险点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;需求调研与方案确认&lt;/td&gt;
+          &lt;td&gt;D1-D7&lt;/td&gt;
+          &lt;td&gt;1. 临床需求访谈（放射科 / 心血管科等） IT 架构调研（存储 / 带宽 / GPU）&amp;gt;3. 方案评审签字&lt;/td&gt;
+          &lt;td&gt;需求规格说明书、部署架构图&lt;/td&gt;
+          &lt;td&gt;临床需求不明确 → 提前组织科室研讨会，形成书面确认&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;接口开发与环境准备&lt;/td&gt;
+          &lt;td&gt;D8-D20&lt;/td&gt;
+          &lt;td&gt;1. 深睿系统部署环境搭建2. DICOM/HL7 接口联调测试环境部署&lt;/td&gt;
+          &lt;td&gt;接口联调报告、测试环境验收单&lt;/td&gt;
+          &lt;td&gt;原有 PACS 版本兼容问题 → 提前提供 PACS 版本清单给深睿预测试&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;测试与优化&lt;/td&gt;
+          &lt;td&gt;D21-D40&lt;/td&gt;
+          &lt;td&gt;1. 小批量病例测试（≥50 例） 报告回写测试、质控流程验证。性能压力测试（并发≥100）&lt;/td&gt;
+          &lt;td&gt;测试报告、优化方案&lt;/td&gt;
+          &lt;td&gt;诊断准确率不达标 → 协调深睿算法团队针对性优化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;培训与试运行&lt;/td&gt;
+          &lt;td&gt;D41-D50&lt;/td&gt;
+          &lt;td&gt;1. 医生操作培训（线上 + 线下）&amp;gt;2. 运维人员培训 10 天试运行&lt;/td&gt;
+          &lt;td&gt;培训签到表、试运行日志&lt;/td&gt;
+          &lt;td&gt;医生上手慢 → 制作简易操作手册，安排深睿工程师驻场指导&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;正式上线与验收&lt;/td&gt;
+          &lt;td&gt;D51-D60&lt;/td&gt;
+          &lt;td&gt;1. 正式环境切换. 7×24 小时运维保障。项目验收签字&lt;/td&gt;
+          &lt;td&gt;验收报告、项目总结报告&lt;/td&gt;
+          &lt;td&gt;业务中断风险 → 制定回滚方案，选择非高峰时段切换&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;四it-对接核心管控点pm-重点盯防&#34;&gt;四、IT 对接核心管控点（PM 重点盯防）&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数据对接&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;要求深睿提供《接口对接规范手册》，明确 DICOM 标签映射、HL7 消息格式&lt;/p&gt;</description>
+      </item>
+      
+    
+  </channel>
+</rss>
