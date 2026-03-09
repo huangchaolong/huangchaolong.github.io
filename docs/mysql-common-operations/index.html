@@ -1844,35 +1844,116 @@ TRUNCATE TABLE user;
 <li><code>DELETE</code>：可回滚，自增主键不重置</li>
 <li><code>TRUNCATE</code>：不可回滚，自增主键重置，适合清空大表</li>
 </ul>
-<h3 id="5-核心时间函数">5. 核心时间函数</h3>
-<pre tabindex="0"><code>\-- 核心时间函数（按用途）
-DELETE FROM user WHERE id = 3;
+<h3 id="5核心时间函数按用途分类">5.核心时间函数（按用途分类）</h3>
+<h4 id="1-获取当前时间">1. 获取当前时间</h4>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>作用</th>
+          <th>示例结果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>NOW()</td>
+          <td>获取当前日期 + 时间（常用）</td>
+          <td>2026-03-09 15:30:20</td>
+      </tr>
+      <tr>
+          <td>CURDATE()</td>
+          <td>仅当前日期</td>
+          <td>2026-03-09</td>
+      </tr>
+      <tr>
+          <td>CURTIME()</td>
+          <td>仅当前时间</td>
+          <td>15:30:20</td>
+      </tr>
+      <tr>
+          <td>SYSDATE()</td>
+          <td>执行函数时的时间（区别 NOW ()）</td>
+          <td>2026-03-09 15:30:20</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="2-日期格式化--解析">2. 日期格式化 / 解析</h4>
+<ul>
+<li>
+<p><strong>DATE_FORMAT (日期，格式)</strong>：将时间转为指定格式（高频）</p>
+<p>格式符：<code>%Y</code>(4 位年)、<code>%m</code>(2 位月)、<code>%d</code>(2 位日)、<code>%H</code>(24 小时)、<code>%i</code>(分)、<code>%s</code>(秒)</p>
+</li>
+<li>
+<p><strong>STR_TO_DATE (字符串，格式)</strong>：将字符串转为日期类型</p>
+</li>
+</ul>
+<h4 id="3-日期计算--提取">3. 日期计算 / 提取</h4>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>作用</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DATE_ADD (日期，INTERVAL 数值 单位)</td>
+          <td>加时间</td>
+          <td>DATE_ADD (NOW (), INTERVAL 7 DAY)（加 7 天）</td>
+      </tr>
+      <tr>
+          <td>DATE_SUB (日期，INTERVAL 数值 单位)</td>
+          <td>减时间</td>
+          <td>DATE_SUB (NOW (), INTERVAL 1 MONTH)（减 1 月）</td>
+      </tr>
+      <tr>
+          <td>DATEDIFF (日期 1, 日期 2)</td>
+          <td>计算两个日期天数差</td>
+          <td>DATEDIFF(&lsquo;2026-03-10&rsquo;, &lsquo;2026-03-01&rsquo;) → 9</td>
+      </tr>
+      <tr>
+          <td>TIMESTAMPDIFF (单位，日期 1, 日期 2)</td>
+          <td>精准计算时间差</td>
+          <td>TIMESTAMPDIFF(HOUR, &lsquo;2026-03-09 10:00&rsquo;, NOW())</td>
+      </tr>
+      <tr>
+          <td>YEAR()/MONTH()/DAY()/HOUR()</td>
+          <td>提取年 / 月 / 日 / 小时</td>
+          <td>YEAR(NOW()) → 2026</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="6战-sql-示例直接套用">6.战 SQL 示例（直接套用）</h3>
+<p>假设存在 <code>orders</code> 表，含字段 <code>order_id</code>(订单 ID)、<code>create_time</code>(创建时间，datetime 类型)、<code>pay_time</code>(支付时间)。</p>
+<h4 id="1-基础查询格式化时间">1. 基础查询：格式化时间</h4>
+<pre tabindex="0"><code>\-- 将创建时间格式化为「2026年03月09日 15:30」
 
-\-- 高频实战 SQL
--- 1. 查询今天的订单
-SELECT * FROM orders WHERE DATE(create_time) = CURDATE();
+SELECT order\_id, DATE\_FORMAT(create\_time, &#39;%Y年%m月%d日 %H:%i&#39;) AS create\_time&amp;#x20;
 
--- 2. 查询近7天订单
-SELECT * FROM orders WHERE create_time &gt;= DATE_SUB(CURDATE(), INTERVAL 6 DAY);
+FROM orders;
 
--- 3. 格式化时间展示
-SELECT DATE_FORMAT(create_time, &#39;%Y年%m月%d日&#39;) FROM orders;
+\-- 将字符串「2026-03-09」转为日期类型
 
--- 4. 计算支付耗时（分钟）
-SELECT TIMESTAMPDIFF(MINUTE, create_time, pay_time) FROM orders;
+SELECT STR\_TO\_DATE(&#39;2026-03-09&#39;, &#39;%Y-%m-%d&#39;) AS date;
+</code></pre><h4 id="2-时间范围查询高频">2. 时间范围查询（高频）</h4>
+<pre tabindex="0"><code>\-- 查询今天创建的订单
 
--- 5. 获取当月第一天/最后一天
-SELECT DATE_FORMAT(CURDATE(), &#39;%Y-%m-01&#39;), LAST_DAY(CURDATE());
+SELECT \* FROM orders WHERE DATE(create\_time) = CURDATE();
 
+\-- 查询近7天（含今天）的订单
 
-| 函数/语法 | 作用 | 极简示例 |
-| --- | --- | --- |
-|NOW()/CURDATE()|获取当前时间（日期 + 时间 / 仅日期）|NOW() → 2026-03-09 15:30:20|
-|DATE_FORMAT (日期，格式)|格式化时间|DATE_FORMAT(NOW(), &#39;%Y-%m-%d&#39;)|
-|DATE_ADD/DATE_SUB|时间加减|DATE_ADD(NOW(), INTERVAL 7 DAY)|
-|DATEDIFF/TIMESTAMPDIFF|计算时间差|DATE_ADD(NOW(), INTERVAL 7 DAY)|
-|DATEDIFF/TIMESTAMPDIFF|计算时间差（天 / 多单位|DATEDIFF(&#39;2026-03-10&#39;, NOW())|
-|YEAR()/MONTH()/DAY()|提取年 / 月 / 日|YEAR(NOW()) → 2026|
+SELECT \* FROM orders WHERE create\_time &gt;= DATE\_SUB(CURDATE(), INTERVAL 6 DAY);
+
+\-- 查询2026年3月的订单
+
+SELECT \* FROM orders WHERE YEAR(create\_time)=2026 AND MONTH(create\_time)=3;
+
+\-- 查询昨天00:00到23:59的订单
+
+SELECT \* FROM orders&amp;#x20;
+
+WHERE create\_time BETWEEN DATE\_SUB(CURDATE(), INTERVAL 1 DAY) AND CURDATE() - INTERVAL 1 SECOND;
 </code></pre><hr />
 <h2 id="五索引管理优化查询">五、索引管理（优化查询）</h2>
 <h3 id="1-创建索引">1. 创建索引</h3>
@@ -2008,7 +2089,19 @@ ROLLBACK;
         <li><a href="#1-新增数据insert">1. 新增数据（INSERT）</a></li>
         <li><a href="#2-查询数据select">2. 查询数据（SELECT）</a></li>
         <li><a href="#4-删除数据delete">4. 删除数据（DELETE）</a></li>
-        <li><a href="#5-核心时间函数">5. 核心时间函数</a></li>
+        <li><a href="#5核心时间函数按用途分类">5.核心时间函数（按用途分类）</a>
+          <ul>
+            <li><a href="#1-获取当前时间">1. 获取当前时间</a></li>
+            <li><a href="#2-日期格式化--解析">2. 日期格式化 / 解析</a></li>
+            <li><a href="#3-日期计算--提取">3. 日期计算 / 提取</a></li>
+          </ul>
+        </li>
+        <li><a href="#6战-sql-示例直接套用">6.战 SQL 示例（直接套用）</a>
+          <ul>
+            <li><a href="#1-基础查询格式化时间">1. 基础查询：格式化时间</a></li>
+            <li><a href="#2-时间范围查询高频">2. 时间范围查询（高频）</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#五索引管理优化查询">五、索引管理（优化查询）</a>

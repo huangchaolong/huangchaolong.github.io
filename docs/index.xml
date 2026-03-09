@@ -283,110 +283,43 @@ TRUNCATE TABLE user;
 &lt;li&gt;&lt;code&gt;DELETE&lt;/code&gt;：可回滚，自增主键不重置&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;TRUNCATE&lt;/code&gt;：不可回滚，自增主键重置，适合清空大表&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;5-核心时间函数&#34;&gt;5. 核心时间函数&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 核心时间函数（按用途）
-DELETE FROM user WHERE id = 3;
-
-\-- 高频实战 SQL
--- 1. 查询今天的订单
-SELECT * FROM orders WHERE DATE(create_time) = CURDATE();
-
--- 2. 查询近7天订单
-SELECT * FROM orders WHERE create_time &amp;gt;= DATE_SUB(CURDATE(), INTERVAL 6 DAY);
-
--- 3. 格式化时间展示
-SELECT DATE_FORMAT(create_time, &amp;#39;%Y年%m月%d日&amp;#39;) FROM orders;
-
--- 4. 计算支付耗时（分钟）
-SELECT TIMESTAMPDIFF(MINUTE, create_time, pay_time) FROM orders;
-
--- 5. 获取当月第一天/最后一天
-SELECT DATE_FORMAT(CURDATE(), &amp;#39;%Y-%m-01&amp;#39;), LAST_DAY(CURDATE());
-
-
-| 函数/语法 | 作用 | 极简示例 |
-| --- | --- | --- |
-|NOW()/CURDATE()|获取当前时间（日期 + 时间 / 仅日期）|NOW() → 2026-03-09 15:30:20|
-|DATE_FORMAT (日期，格式)|格式化时间|DATE_FORMAT(NOW(), &amp;#39;%Y-%m-%d&amp;#39;)|
-|DATE_ADD/DATE_SUB|时间加减|DATE_ADD(NOW(), INTERVAL 7 DAY)|
-|DATEDIFF/TIMESTAMPDIFF|计算时间差|DATE_ADD(NOW(), INTERVAL 7 DAY)|
-|DATEDIFF/TIMESTAMPDIFF|计算时间差（天 / 多单位|DATEDIFF(&amp;#39;2026-03-10&amp;#39;, NOW())|
-|YEAR()/MONTH()/DAY()|提取年 / 月 / 日|YEAR(NOW()) → 2026|
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;五索引管理优化查询&#34;&gt;五、索引管理（优化查询）&lt;/h2&gt;
-&lt;h3 id=&#34;1-创建索引&#34;&gt;1. 创建索引&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 普通索引（最常用）
-CREATE INDEX idx\_user\_username ON user(username);
-
-\-- 2. 唯一索引（字段值唯一）
-CREATE UNIQUE INDEX idx\_user\_email ON user(email);
-
-\-- 3. 联合索引（多个字段）
-CREATE INDEX idx\_user\_age\_create\_time ON user(age, create\_time);
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-查看索引&#34;&gt;2. 查看索引&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW INDEX FROM user;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-删除索引&#34;&gt;3. 删除索引&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP INDEX idx\_user\_username ON user;
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;六权限与用户管理&#34;&gt;六、权限与用户管理&lt;/h2&gt;
-&lt;h3 id=&#34;1-创建用户&#34;&gt;1. 创建用户&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 创建用户（允许本地连接）
-CREATE USER &amp;#39;test\_user&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;123456&amp;#39;;
-
-\-- 允许远程连接（% 表示所有主机）
-CREATE USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;123456&amp;#39;;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-授权&#34;&gt;2. 授权&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 授予test\_db库所有权限给test\_user（远程连接）
-GRANT ALL PRIVILEGES ON test\_db.\* TO &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
-
-\-- 仅授予查询/插入权限
-GRANT SELECT, INSERT ON test\_db.user TO &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
-
-\-- 刷新权限（授权后必须执行）
-FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-撤销权限&#34;&gt;3. 撤销权限&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;REVOKE INSERT ON test\_db.user FROM &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
-FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-修改密码&#34;&gt;4. 修改密码&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ALTER USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;new\_password&amp;#39;;
-FLUSH PRIVILEGES;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-删除用户&#34;&gt;5. 删除用户&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP USER &amp;#39;test\_user&amp;#39;@&amp;#39;%&amp;#39;;
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;h2 id=&#34;七常用运维操作&#34;&gt;七、常用运维操作&lt;/h2&gt;
-&lt;h3 id=&#34;1-查看运行状态&#34;&gt;1. 查看运行状态&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 查看MySQL版本
-SELECT VERSION();
-
-\-- 查看当前连接数
-SHOW STATUS LIKE &amp;#39;Threads\_connected&amp;#39;;
-
-\-- 查看慢查询配置
-SHOW VARIABLES LIKE &amp;#39;slow\_query%&amp;#39;;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-导入--导出数据&#34;&gt;2. 导入 / 导出数据&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 导出整个数据库（终端执行）
-mysqldump -u root -p test\_db &amp;gt; test\_db\_backup.sql
-
-\# 导出指定表
-mysqldump -u root -p test\_db user &amp;gt; user\_backup.sql
-
-\# 导入数据（先创建空库）
-mysql -u root -p test\_db &amp;lt; test\_db\_backup.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-事务操作&#34;&gt;3. 事务操作&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 开启事务
-START TRANSACTION;
-
-\-- 执行操作
-UPDATE user SET age = 21 WHERE id = 1;
-INSERT INTO user (username, password) VALUES (&amp;#39;zhaoliu&amp;#39;, &amp;#39;777777&amp;#39;);
-
-\-- 提交事务
-COMMIT;
-
-\-- 回滚（出错时）
-ROLLBACK;
-&lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
-&lt;hr /&gt;</description>
+&lt;h3 id=&#34;5核心时间函数按用途分类&#34;&gt;5.核心时间函数（按用途分类）&lt;/h3&gt;
+&lt;h4 id=&#34;1-获取当前时间&#34;&gt;1. 获取当前时间&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;函数&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例结果&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;NOW()&lt;/td&gt;
+          &lt;td&gt;获取当前日期 + 时间（常用）&lt;/td&gt;
+          &lt;td&gt;2026-03-09 15:30:20&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CURDATE()&lt;/td&gt;
+          &lt;td&gt;仅当前日期&lt;/td&gt;
+          &lt;td&gt;2026-03-09&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CURTIME()&lt;/td&gt;
+          &lt;td&gt;仅当前时间&lt;/td&gt;
+          &lt;td&gt;15:30:20&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;SYSDATE()&lt;/td&gt;
+          &lt;td&gt;执行函数时的时间（区别 NOW ()）&lt;/td&gt;
+          &lt;td&gt;2026-03-09 15:30:20&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;2-日期格式化--解析&#34;&gt;2. 日期格式化 / 解析&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DATE_FORMAT (日期，格式)&lt;/strong&gt;：将时间转为指定格式（高频）&lt;/p&gt;</description>
       </item>
       
     
