@@ -1114,7 +1114,7 @@
     "datePublished": "2026-03-06T16:17:00+08:00",
     "dateModified": "2026-03-06T16:17:00+08:00",
     "url" : "https://huangchaolong.github.io/docs/mysql-common-operations/",
-    "description": "\u003chr /\u003e \u003ch2 id=\"一基础连接操作\"\u003e一、基础连接操作\u003c/h2\u003e \u003ch3 id=\"1-本地连接-mysql\"\u003e1. 本地连接 MySQL\u003c/h3\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e\\# 基础连接（默认端口3306） mysql -u root -p  \\# 指定端口/主机连接（远程连接） mysql -h 192.168.1.100 -P 3306 -u root -p \u003c/code\u003e\u003c/pre\u003e\u003cul\u003e \u003cli\u003e\u003ccode\u003e-u\u003c/code\u003e：指定用户名\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-p\u003c/code\u003e：回车后输入密码（直接写密码：\u003ccode\u003e-p123456\u003c/code\u003e，不推荐，会明文显示）\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-h …\u003c/code\u003e\u003c/li\u003e\u003c/ul\u003e",
+    "description": "\u003chr /\u003e \u003ch2 id=\"一基础连接操作\"\u003e一、基础连接操作\u003c/h2\u003e \u003ch3 id=\"1-本地连接-mysql\"\u003e1. 本地连接 MySQL\u003c/h3\u003e \u003cpre tabindex=\"0\"\u003e\u003ccode\u003e# 基础连接（默认端口3306） mysql -u root -p  # 指定端口/主机连接（远程连接） mysql -h 192.168.1.100 -P 3306 -u root -p \u003c/code\u003e\u003c/pre\u003e\u003cul\u003e \u003cli\u003e\u003ccode\u003e-u\u003c/code\u003e：指定用户名\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-p\u003c/code\u003e：回车后输入密码（直接写密码：\u003ccode\u003e-p123456\u003c/code\u003e，不推荐，会明文显示）\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-h\u003c/code\u003e：指 …\u003c/li\u003e\u003c/ul\u003e",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://huangchaolong.github.io/"
@@ -1758,10 +1758,10 @@
     <hr />
 <h2 id="一基础连接操作">一、基础连接操作</h2>
 <h3 id="1-本地连接-mysql">1. 本地连接 MySQL</h3>
-<pre tabindex="0"><code>\# 基础连接（默认端口3306）
+<pre tabindex="0"><code># 基础连接（默认端口3306）
 mysql -u root -p
 
-\# 指定端口/主机连接（远程连接）
+# 指定端口/主机连接（远程连接）
 mysql -h 192.168.1.100 -P 3306 -u root -p
 </code></pre><ul>
 <li><code>-u</code>：指定用户名</li>
@@ -1770,17 +1770,17 @@ mysql -h 192.168.1.100 -P 3306 -u root -p
 <li><code>-P</code>：指定端口（默认 3306，非默认时必填）</li>
 </ul>
 <h3 id="2-退出-mysql">2. 退出 MySQL</h3>
-<pre tabindex="0"><code>exit;\-- 或 quit;
+<pre tabindex="0"><code>exit;-- 或 quit;
 </code></pre><hr />
 <h2 id="二数据库库管理">二、数据库（库）管理</h2>
 <h3 id="1-查看所有数据库">1. 查看所有数据库</h3>
 <pre tabindex="0"><code>SHOW DATABASES;
 </code></pre><h3 id="2-创建数据库">2. 创建数据库</h3>
-<pre tabindex="0"><code>\-- 基础创建（指定字符集和排序规则，避免中文乱码）
+<pre tabindex="0"><code>-- 基础创建（指定字符集和排序规则，避免中文乱码）
 
-CREATE DATABASE IF NOT EXISTS test\_db&amp;#x20;
-DEFAULT CHARACTER SET utf8mb4&amp;#x20;
-DEFAULT COLLATE utf8mb4\_unicode\_ci;
+CREATE DATABASE IF NOT EXISTS test_db
+DEFAULT CHARACTER SET utf8mb4
+DEFAULT COLLATE utf8mb4_unicode_ci;
 </code></pre><ul>
 <li>
 <p><code>IF NOT EXISTS</code>：避免重复创建报错</p>
@@ -1790,9 +1790,9 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 </li>
 </ul>
 <h3 id="3-切换数据库">3. 切换数据库</h3>
-<pre tabindex="0"><code>USE test\_db;
+<pre tabindex="0"><code>USE test_db;
 </code></pre><h3 id="4-删除数据库谨慎">4. 删除数据库（谨慎！）</h3>
-<pre tabindex="0"><code>DROP DATABASE IF EXISTS test\_db;
+<pre tabindex="0"><code>DROP DATABASE IF EXISTS test_db;
 </code></pre><h3 id="5-查看当前数据库">5. 查看当前数据库</h3>
 <pre tabindex="0"><code>SELECT DATABASE();
 </code></pre><hr />
@@ -1802,12 +1802,12 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 </code></pre><h3 id="2-创建表示例用户表">2. 创建表（示例：用户表）</h3>
 <pre tabindex="0"><code>CREATE TABLE IF NOT EXISTS user (
 
-&amp;#x20;   id INT PRIMARY KEY AUTO\_INCREMENT COMMENT &#39;主键ID&#39;,
-&amp;#x20;   username VARCHAR(50) NOT NULL UNIQUE COMMENT &#39;用户名&#39;,
-&amp;#x20;   password VARCHAR(100) NOT NULL COMMENT &#39;密码（建议加密存储）&#39;,
-&amp;#x20;   age TINYINT UNSIGNED DEFAULT 0 COMMENT &#39;年龄&#39;,
-&amp;#x20;   create\_time DATETIME DEFAULT CURRENT\_TIMESTAMP COMMENT &#39;创建时间&#39;,
-&amp;#x20;   update\_time DATETIME DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP COMMENT &#39;更新时间&#39;
+   id INT PRIMARY KEY AUTO_INCREMENT COMMENT &#39;主键ID&#39;,
+   username VARCHAR(50) NOT NULL UNIQUE COMMENT &#39;用户名&#39;,
+   password VARCHAR(100) NOT NULL COMMENT &#39;密码（建议加密存储）&#39;,
+   age TINYINT UNSIGNED DEFAULT 0 COMMENT &#39;年龄&#39;,
+   create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT &#39;创建时间&#39;,
+   update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT &#39;更新时间&#39;
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&#39;用户表&#39;;
 </code></pre><ul>
@@ -1817,74 +1817,74 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 <li><code>ON UPDATE CURRENT_TIMESTAMP</code>：更新时自动刷新时间</li>
 </ul>
 <h3 id="3-查看表结构">3. 查看表结构</h3>
-<pre tabindex="0"><code>\-- 方式1：简易版
+<pre tabindex="0"><code>-- 方式1：简易版
 DESC user;
-\-- 方式2：详细版（含注释）
+-- 方式2：详细版（含注释）
 SHOW CREATE TABLE user;
 </code></pre><h3 id="4-修改表常用">4. 修改表（常用）</h3>
-<pre tabindex="0"><code>\-- 1. 添加字段
+<pre tabindex="0"><code>-- 1. 添加字段
 ALTER TABLE user ADD COLUMN email VARCHAR(100) DEFAULT NULL COMMENT &#39;邮箱&#39; AFTER age;
 
-\-- 2. 修改字段类型/属性
+-- 2. 修改字段类型/属性
 ALTER TABLE user MODIFY COLUMN email VARCHAR(150) NOT NULL COMMENT &#39;邮箱（非空）&#39;;
 
-\-- 3. 重命名字段
-ALTER TABLE user CHANGE COLUMN email user\_email VARCHAR(150) DEFAULT NULL COMMENT &#39;用户邮箱&#39;;
+-- 3. 重命名字段
+ALTER TABLE user CHANGE COLUMN email user_email VARCHAR(150) DEFAULT NULL COMMENT &#39;用户邮箱&#39;;
 
-\-- 4. 删除字段
-ALTER TABLE user DROP COLUMN user\_email;
+-- 4. 删除字段
+ALTER TABLE user DROP COLUMN user_email;
 
-\-- 5. 重命名表
-ALTER TABLE user RENAME TO sys\_user;
+-- 5. 重命名表
+ALTER TABLE user RENAME TO sys_user;
 </code></pre><h3 id="5-删除表谨慎">5. 删除表（谨慎！）</h3>
 <pre tabindex="0"><code>DROP TABLE IF EXISTS user;
 </code></pre><hr />
 <h2 id="四数据增删改查crud">四、数据增删改查（CRUD）</h2>
 <h3 id="1-新增数据insert">1. 新增数据（INSERT）</h3>
-<pre tabindex="0"><code>\-- 方式1：指定字段（推荐，字段顺序可调整）
-INSERT INTO user (username, password, age)&amp;#x20;
+<pre tabindex="0"><code>-- 方式1：指定字段（推荐，字段顺序可调整）
+INSERT INTO user (username, password, age)
 VALUES (&#39;zhangsan&#39;, &#39;123456&#39;, 20), (&#39;lisi&#39;, &#39;654321&#39;, 25);
 
-\-- 方式2：不指定字段（需按表字段顺序）
+-- 方式2：不指定字段（需按表字段顺序）
 INSERT INTO user VALUES (NULL, &#39;wangwu&#39;, &#39;888888&#39;, 30, NOW(), NOW());
 </code></pre><ul>
 <li>自增主键可填<code>NULL</code>，会自动生成</li>
 </ul>
 <h3 id="2-查询数据select">2. 查询数据（SELECT）</h3>
-<pre tabindex="0"><code>\-- 1. 查询所有字段（生产环境避免\*，指定字段）
-SELECT \* FROM user;
+<pre tabindex="0"><code>-- 1. 查询所有字段（生产环境避免*，指定字段）
+SELECT * FROM user;
 
-\-- 2. 指定字段查询
+-- 2. 指定字段查询
 SELECT id, username, age FROM user;
 
-\-- 3. 条件查询
-SELECT \* FROM user WHERE age &gt; 20 AND username LIKE &#39;z%&#39;;
+-- 3. 条件查询
+SELECT * FROM user WHERE age &gt; 20 AND username LIKE &#39;z%&#39;;
 
-\-- 4. 排序
-SELECT \* FROM user ORDER BY age DESC, create\_time ASC;
+-- 4. 排序
+SELECT * FROM user ORDER BY age DESC, create_time ASC;
 
-\-- 5. 分页（MySQL特有，LIMIT 起始位置, 条数）
-SELECT \* FROM user LIMIT 0, 10; -- 第1页，每页10条
-SELECT \* FROM user LIMIT 10, 10; -- 第2页
+-- 5. 分页（MySQL特有，LIMIT 起始位置, 条数）
+SELECT * FROM user LIMIT 0, 10; -- 第1页，每页10条
+SELECT * FROM user LIMIT 10, 10; -- 第2页
 
-\-- 6. 去重
+-- 6. 去重
 SELECT DISTINCT age FROM user;
 
-\-- 7. 聚合查询
-SELECT COUNT(\*) AS total, MAX(age) AS max\_age, AVG(age) AS avg\_age FROM user;
-</code></pre><pre tabindex="0"><code>\-- 条件修改（必须加WHERE，否则全表更新！）
+-- 7. 聚合查询
+SELECT COUNT(*) AS total, MAX(age) AS max_age, AVG(age) AS avg_age FROM user;
+</code></pre><pre tabindex="0"><code>-- 条件修改（必须加WHERE，否则全表更新！）
 UPDATE user SET password = &#39;999999&#39;, age = 22 WHERE id = 1;
 
-\-- 全表更新（谨慎！）
-UPDATE user SET update\_time = NOW();
+-- 全表更新（谨慎！）
+UPDATE user SET update_time = NOW();
 </code></pre><h3 id="4-删除数据delete">4. 删除数据（DELETE）</h3>
-<pre tabindex="0"><code>\-- 条件删除（必须加WHERE，否则全表删除！）
+<pre tabindex="0"><code>-- 条件删除（必须加WHERE，否则全表删除！）
 DELETE FROM user WHERE id = 3;
 
-\-- 全表删除（清空表，自增主键不重置）
+-- 全表删除（清空表，自增主键不重置）
 DELETE FROM user;
 
-\-- 清空表（自增主键重置，速度更快）
+-- 清空表（自增主键重置，速度更快）
 TRUNCATE TABLE user;
 </code></pre><ul>
 <li><code>DELETE</code>：可回滚，自增主键不重置</li>
@@ -1973,105 +1973,105 @@ TRUNCATE TABLE user;
 <h3 id="6战-sql-示例直接套用">6.战 SQL 示例（直接套用）</h3>
 <p>假设存在 <code>orders</code> 表，含字段 <code>order_id</code>(订单 ID)、<code>create_time</code>(创建时间，datetime 类型)、<code>pay_time</code>(支付时间)。</p>
 <h4 id="1-基础查询格式化时间">1. 基础查询：格式化时间</h4>
-<pre tabindex="0"><code>\-- 将创建时间格式化为「2026年03月09日 15:30」
+<pre tabindex="0"><code>-- 将创建时间格式化为「2026年03月09日 15:30」
 
-SELECT order\_id, DATE\_FORMAT(create\_time, &#39;%Y年%m月%d日 %H:%i&#39;) AS create\_time&amp;#x20;
+SELECT order_id, DATE_FORMAT(create_time, &#39;%Y年%m月%d日 %H:%i&#39;) AS create_time
 
 FROM orders;
 
-\-- 将字符串「2026-03-09」转为日期类型
+-- 将字符串「2026-03-09」转为日期类型
 
-SELECT STR\_TO\_DATE(&#39;2026-03-09&#39;, &#39;%Y-%m-%d&#39;) AS date;
+SELECT STR_TO_DATE(&#39;2026-03-09&#39;, &#39;%Y-%m-%d&#39;) AS date;
 </code></pre><h4 id="2-时间范围查询高频">2. 时间范围查询（高频）</h4>
-<pre tabindex="0"><code>\-- 查询今天创建的订单
+<pre tabindex="0"><code>-- 查询今天创建的订单
 
-SELECT \* FROM orders WHERE DATE(create\_time) = CURDATE();
+SELECT * FROM orders WHERE DATE(create_time) = CURDATE();
 
-\-- 查询近7天（含今天）的订单
+-- 查询近7天（含今天）的订单
 
-SELECT \* FROM orders WHERE create\_time &gt;= DATE\_SUB(CURDATE(), INTERVAL 6 DAY);
+SELECT * FROM orders WHERE create_time &gt;= DATE_SUB(CURDATE(), INTERVAL 6 DAY);
 
-\-- 查询2026年3月的订单
+-- 查询2026年3月的订单
 
-SELECT \* FROM orders WHERE YEAR(create\_time)=2026 AND MONTH(create\_time)=3;
+SELECT * FROM orders WHERE YEAR(create_time)=2026 AND MONTH(create_time)=3;
 
-\-- 查询昨天00:00到23:59的订单
+-- 查询昨天00:00到23:59的订单
 
-SELECT \* FROM orders&amp;#x20;
+SELECT * FROM orders
 
-WHERE create\_time BETWEEN DATE\_SUB(CURDATE(), INTERVAL 1 DAY) AND CURDATE() - INTERVAL 1 SECOND;
+WHERE create_time BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND CURDATE() - INTERVAL 1 SECOND;
 </code></pre><hr />
 <h2 id="五索引管理优化查询">五、索引管理（优化查询）</h2>
 <h3 id="1-创建索引">1. 创建索引</h3>
-<pre tabindex="0"><code>\-- 1. 普通索引（最常用）
-CREATE INDEX idx\_user\_username ON user(username);
+<pre tabindex="0"><code>-- 1. 普通索引（最常用）
+CREATE INDEX idx_user_username ON user(username);
 
-\-- 2. 唯一索引（字段值唯一）
-CREATE UNIQUE INDEX idx\_user\_email ON user(email);
+-- 2. 唯一索引（字段值唯一）
+CREATE UNIQUE INDEX idx_user_email ON user(email);
 
-\-- 3. 联合索引（多个字段）
-CREATE INDEX idx\_user\_age\_create\_time ON user(age, create\_time);
+-- 3. 联合索引（多个字段）
+CREATE INDEX idx_user_age_create_time ON user(age, create_time);
 </code></pre><h3 id="2-查看索引">2. 查看索引</h3>
 <pre tabindex="0"><code>SHOW INDEX FROM user;
 </code></pre><h3 id="3-删除索引">3. 删除索引</h3>
-<pre tabindex="0"><code>DROP INDEX idx\_user\_username ON user;
+<pre tabindex="0"><code>DROP INDEX idx_user_username ON user;
 </code></pre><hr />
 <h2 id="六权限与用户管理">六、权限与用户管理</h2>
 <h3 id="1-创建用户">1. 创建用户</h3>
-<pre tabindex="0"><code>\-- 创建用户（允许本地连接）
-CREATE USER &#39;test\_user&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;
+<pre tabindex="0"><code>-- 创建用户（允许本地连接）
+CREATE USER &#39;test_user&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;
 
-\-- 允许远程连接（% 表示所有主机）
-CREATE USER &#39;test\_user&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
+-- 允许远程连接（% 表示所有主机）
+CREATE USER &#39;test_user&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
 </code></pre><h3 id="2-授权">2. 授权</h3>
-<pre tabindex="0"><code>\-- 授予test\_db库所有权限给test\_user（远程连接）
-GRANT ALL PRIVILEGES ON test\_db.\* TO &#39;test\_user&#39;@&#39;%&#39;;
+<pre tabindex="0"><code>-- 授予test_db库所有权限给test_user（远程连接）
+GRANT ALL PRIVILEGES ON test_db.* TO &#39;test_user&#39;@&#39;%&#39;;
 
-\-- 仅授予查询/插入权限
-GRANT SELECT, INSERT ON test\_db.user TO &#39;test\_user&#39;@&#39;%&#39;;
+-- 仅授予查询/插入权限
+GRANT SELECT, INSERT ON test_db.user TO &#39;test_user&#39;@&#39;%&#39;;
 
-\-- 刷新权限（授权后必须执行）
+-- 刷新权限（授权后必须执行）
 FLUSH PRIVILEGES;
 </code></pre><h3 id="3-撤销权限">3. 撤销权限</h3>
-<pre tabindex="0"><code>REVOKE INSERT ON test\_db.user FROM &#39;test\_user&#39;@&#39;%&#39;;
+<pre tabindex="0"><code>REVOKE INSERT ON test_db.user FROM &#39;test_user&#39;@&#39;%&#39;;
 FLUSH PRIVILEGES;
 </code></pre><h3 id="4-修改密码">4. 修改密码</h3>
-<pre tabindex="0"><code>ALTER USER &#39;test\_user&#39;@&#39;%&#39; IDENTIFIED BY &#39;new\_password&#39;;
+<pre tabindex="0"><code>ALTER USER &#39;test_user&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;
 FLUSH PRIVILEGES;
 </code></pre><h3 id="5-删除用户">5. 删除用户</h3>
-<pre tabindex="0"><code>DROP USER &#39;test\_user&#39;@&#39;%&#39;;
+<pre tabindex="0"><code>DROP USER &#39;test_user&#39;@&#39;%&#39;;
 </code></pre><hr />
 <h2 id="七常用运维操作">七、常用运维操作</h2>
 <h3 id="1-查看运行状态">1. 查看运行状态</h3>
-<pre tabindex="0"><code>\-- 查看MySQL版本
+<pre tabindex="0"><code>-- 查看MySQL版本
 SELECT VERSION();
 
-\-- 查看当前连接数
-SHOW STATUS LIKE &#39;Threads\_connected&#39;;
+-- 查看当前连接数
+SHOW STATUS LIKE &#39;Threads_connected&#39;;
 
-\-- 查看慢查询配置
-SHOW VARIABLES LIKE &#39;slow\_query%&#39;;
+-- 查看慢查询配置
+SHOW VARIABLES LIKE &#39;slow_query%&#39;;
 </code></pre><h3 id="2-导入--导出数据">2. 导入 / 导出数据</h3>
-<pre tabindex="0"><code>\# 导出整个数据库（终端执行）
-mysqldump -u root -p test\_db &gt; test\_db\_backup.sql
+<pre tabindex="0"><code># 导出整个数据库（终端执行）
+mysqldump -u root -p test_db &gt; test_db_backup.sql
 
-\# 导出指定表
-mysqldump -u root -p test\_db user &gt; user\_backup.sql
+# 导出指定表
+mysqldump -u root -p test_db user &gt; user_backup.sql
 
-\# 导入数据（先创建空库）
-mysql -u root -p test\_db &lt; test\_db\_backup.sql
+# 导入数据（先创建空库）
+mysql -u root -p test_db &lt; test_db_backup.sql
 </code></pre><h3 id="3-事务操作">3. 事务操作</h3>
-<pre tabindex="0"><code>\-- 开启事务
+<pre tabindex="0"><code>-- 开启事务
 START TRANSACTION;
 
-\-- 执行操作
+-- 执行操作
 UPDATE user SET age = 21 WHERE id = 1;
 INSERT INTO user (username, password) VALUES (&#39;zhaoliu&#39;, &#39;777777&#39;);
 
-\-- 提交事务
+-- 提交事务
 COMMIT;
 
-\-- 回滚（出错时）
+-- 回滚（出错时）
 ROLLBACK;
 </code></pre><hr />
 <hr />

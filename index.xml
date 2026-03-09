@@ -151,10 +151,10 @@ http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin&lt;/p&gt;
         <description>&lt;hr /&gt;
 &lt;h2 id=&#34;一基础连接操作&#34;&gt;一、基础连接操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-本地连接-mysql&#34;&gt;1. 本地连接 MySQL&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\# 基础连接（默认端口3306）
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 基础连接（默认端口3306）
 mysql -u root -p
 
-\# 指定端口/主机连接（远程连接）
+# 指定端口/主机连接（远程连接）
 mysql -h 192.168.1.100 -P 3306 -u root -p
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;-u&lt;/code&gt;：指定用户名&lt;/li&gt;
@@ -163,17 +163,17 @@ mysql -h 192.168.1.100 -P 3306 -u root -p
 &lt;li&gt;&lt;code&gt;-P&lt;/code&gt;：指定端口（默认 3306，非默认时必填）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;2-退出-mysql&#34;&gt;2. 退出 MySQL&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;\-- 或 quit;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exit;-- 或 quit;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
 &lt;h2 id=&#34;二数据库库管理&#34;&gt;二、数据库（库）管理&lt;/h2&gt;
 &lt;h3 id=&#34;1-查看所有数据库&#34;&gt;1. 查看所有数据库&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SHOW DATABASES;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建数据库&#34;&gt;2. 创建数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 基础创建（指定字符集和排序规则，避免中文乱码）
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 基础创建（指定字符集和排序规则，避免中文乱码）
 
-CREATE DATABASE IF NOT EXISTS test\_db&amp;amp;#x20;
-DEFAULT CHARACTER SET utf8mb4&amp;amp;#x20;
-DEFAULT COLLATE utf8mb4\_unicode\_ci;
+CREATE DATABASE IF NOT EXISTS test_db
+DEFAULT CHARACTER SET utf8mb4
+DEFAULT COLLATE utf8mb4_unicode_ci;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;IF NOT EXISTS&lt;/code&gt;：避免重复创建报错&lt;/p&gt;
@@ -183,9 +183,9 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;3-切换数据库&#34;&gt;3. 切换数据库&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USE test\_db;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USE test_db;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据库谨慎&#34;&gt;4. 删除数据库（谨慎！）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP DATABASE IF EXISTS test\_db;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP DATABASE IF EXISTS test_db;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-查看当前数据库&#34;&gt;5. 查看当前数据库&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT DATABASE();
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
@@ -195,12 +195,12 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-创建表示例用户表&#34;&gt;2. 创建表（示例：用户表）&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CREATE TABLE IF NOT EXISTS user (
 
-&amp;amp;#x20;   id INT PRIMARY KEY AUTO\_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
-&amp;amp;#x20;   username VARCHAR(50) NOT NULL UNIQUE COMMENT &amp;#39;用户名&amp;#39;,
-&amp;amp;#x20;   password VARCHAR(100) NOT NULL COMMENT &amp;#39;密码（建议加密存储）&amp;#39;,
-&amp;amp;#x20;   age TINYINT UNSIGNED DEFAULT 0 COMMENT &amp;#39;年龄&amp;#39;,
-&amp;amp;#x20;   create\_time DATETIME DEFAULT CURRENT\_TIMESTAMP COMMENT &amp;#39;创建时间&amp;#39;,
-&amp;amp;#x20;   update\_time DATETIME DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP COMMENT &amp;#39;更新时间&amp;#39;
+   id INT PRIMARY KEY AUTO_INCREMENT COMMENT &amp;#39;主键ID&amp;#39;,
+   username VARCHAR(50) NOT NULL UNIQUE COMMENT &amp;#39;用户名&amp;#39;,
+   password VARCHAR(100) NOT NULL COMMENT &amp;#39;密码（建议加密存储）&amp;#39;,
+   age TINYINT UNSIGNED DEFAULT 0 COMMENT &amp;#39;年龄&amp;#39;,
+   create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT &amp;#39;创建时间&amp;#39;,
+   update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT &amp;#39;更新时间&amp;#39;
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&amp;#39;用户表&amp;#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
@@ -210,74 +210,74 @@ DEFAULT COLLATE utf8mb4\_unicode\_ci;
 &lt;li&gt;&lt;code&gt;ON UPDATE CURRENT_TIMESTAMP&lt;/code&gt;：更新时自动刷新时间&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;3-查看表结构&#34;&gt;3. 查看表结构&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 方式1：简易版
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：简易版
 DESC user;
-\-- 方式2：详细版（含注释）
+-- 方式2：详细版（含注释）
 SHOW CREATE TABLE user;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-修改表常用&#34;&gt;4. 修改表（常用）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 添加字段
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 1. 添加字段
 ALTER TABLE user ADD COLUMN email VARCHAR(100) DEFAULT NULL COMMENT &amp;#39;邮箱&amp;#39; AFTER age;
 
-\-- 2. 修改字段类型/属性
+-- 2. 修改字段类型/属性
 ALTER TABLE user MODIFY COLUMN email VARCHAR(150) NOT NULL COMMENT &amp;#39;邮箱（非空）&amp;#39;;
 
-\-- 3. 重命名字段
-ALTER TABLE user CHANGE COLUMN email user\_email VARCHAR(150) DEFAULT NULL COMMENT &amp;#39;用户邮箱&amp;#39;;
+-- 3. 重命名字段
+ALTER TABLE user CHANGE COLUMN email user_email VARCHAR(150) DEFAULT NULL COMMENT &amp;#39;用户邮箱&amp;#39;;
 
-\-- 4. 删除字段
-ALTER TABLE user DROP COLUMN user\_email;
+-- 4. 删除字段
+ALTER TABLE user DROP COLUMN user_email;
 
-\-- 5. 重命名表
-ALTER TABLE user RENAME TO sys\_user;
+-- 5. 重命名表
+ALTER TABLE user RENAME TO sys_user;
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;5-删除表谨慎&#34;&gt;5. 删除表（谨慎！）&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DROP TABLE IF EXISTS user;
 &lt;/code&gt;&lt;/pre&gt;&lt;hr /&gt;
 &lt;h2 id=&#34;四数据增删改查crud&#34;&gt;四、数据增删改查（CRUD）&lt;/h2&gt;
 &lt;h3 id=&#34;1-新增数据insert&#34;&gt;1. 新增数据（INSERT）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 方式1：指定字段（推荐，字段顺序可调整）
-INSERT INTO user (username, password, age)&amp;amp;#x20;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 方式1：指定字段（推荐，字段顺序可调整）
+INSERT INTO user (username, password, age)
 VALUES (&amp;#39;zhangsan&amp;#39;, &amp;#39;123456&amp;#39;, 20), (&amp;#39;lisi&amp;#39;, &amp;#39;654321&amp;#39;, 25);
 
-\-- 方式2：不指定字段（需按表字段顺序）
+-- 方式2：不指定字段（需按表字段顺序）
 INSERT INTO user VALUES (NULL, &amp;#39;wangwu&amp;#39;, &amp;#39;888888&amp;#39;, 30, NOW(), NOW());
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;自增主键可填&lt;code&gt;NULL&lt;/code&gt;，会自动生成&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;2-查询数据select&#34;&gt;2. 查询数据（SELECT）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 1. 查询所有字段（生产环境避免\*，指定字段）
-SELECT \* FROM user;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 1. 查询所有字段（生产环境避免*，指定字段）
+SELECT * FROM user;
 
-\-- 2. 指定字段查询
+-- 2. 指定字段查询
 SELECT id, username, age FROM user;
 
-\-- 3. 条件查询
-SELECT \* FROM user WHERE age &amp;gt; 20 AND username LIKE &amp;#39;z%&amp;#39;;
+-- 3. 条件查询
+SELECT * FROM user WHERE age &amp;gt; 20 AND username LIKE &amp;#39;z%&amp;#39;;
 
-\-- 4. 排序
-SELECT \* FROM user ORDER BY age DESC, create\_time ASC;
+-- 4. 排序
+SELECT * FROM user ORDER BY age DESC, create_time ASC;
 
-\-- 5. 分页（MySQL特有，LIMIT 起始位置, 条数）
-SELECT \* FROM user LIMIT 0, 10; -- 第1页，每页10条
-SELECT \* FROM user LIMIT 10, 10; -- 第2页
+-- 5. 分页（MySQL特有，LIMIT 起始位置, 条数）
+SELECT * FROM user LIMIT 0, 10; -- 第1页，每页10条
+SELECT * FROM user LIMIT 10, 10; -- 第2页
 
-\-- 6. 去重
+-- 6. 去重
 SELECT DISTINCT age FROM user;
 
-\-- 7. 聚合查询
-SELECT COUNT(\*) AS total, MAX(age) AS max\_age, AVG(age) AS avg\_age FROM user;
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 条件修改（必须加WHERE，否则全表更新！）
+-- 7. 聚合查询
+SELECT COUNT(*) AS total, MAX(age) AS max_age, AVG(age) AS avg_age FROM user;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 条件修改（必须加WHERE，否则全表更新！）
 UPDATE user SET password = &amp;#39;999999&amp;#39;, age = 22 WHERE id = 1;
 
-\-- 全表更新（谨慎！）
-UPDATE user SET update\_time = NOW();
+-- 全表更新（谨慎！）
+UPDATE user SET update_time = NOW();
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-删除数据delete&#34;&gt;4. 删除数据（DELETE）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\-- 条件删除（必须加WHERE，否则全表删除！）
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 条件删除（必须加WHERE，否则全表删除！）
 DELETE FROM user WHERE id = 3;
 
-\-- 全表删除（清空表，自增主键不重置）
+-- 全表删除（清空表，自增主键不重置）
 DELETE FROM user;
 
-\-- 清空表（自增主键重置，速度更快）
+-- 清空表（自增主键重置，速度更快）
 TRUNCATE TABLE user;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;DELETE&lt;/code&gt;：可回滚，自增主键不重置&lt;/li&gt;
