@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jhmks on huangchaolong</title>
+    <link>https://huangchaolong.github.io/jhmk/</link>
+    <description>Recent content in Jhmks on huangchaolong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 20 Oct 2020 15:12:15 +0900</lastBuildDate>
+    
+        <atom:link href="https://huangchaolong.github.io/jhmk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>HDR-数据中心常规操作</title>
+        <link>https://huangchaolong.github.io/jhmk/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/jhmk/hdr-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;h6 id=&#34;抽数&#34;&gt;抽数&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;su hdfs
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看定时任务是否执行&#34;&gt;查看定时任务是否执行&lt;/h6&gt;
+&lt;p&gt;通过命令查看：grep “查询的名称”  查询路径&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;grep &amp;#34;test.txt&amp;#34; /var/log/cron
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看tomcat版本&#34;&gt;查看tomcat版本&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;bin下执行./version.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;定时任务设置&#34;&gt;定时任务设置&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;设置定时任务时间以及每天导出日志文件到homesparklogs文件下&#34;&gt;设置定时任务时间以及每天导出日志文件到home/spark/logs文件下&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;00 17 * * * /home/spark/sparkToSqlserverIncrement_crontab.sh &amp;gt;&amp;gt;/home/spark/logs/$(date +\%Y\%m\%d).log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;定时任务查看&#34;&gt;定时任务查看&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;crontab -l
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看进程--kill进程&#34;&gt;查看进程  kill进程&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ps -ef|grep 8083        kill -9 进程
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看sh文件格式&#34;&gt;查看sh文件格式&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;:set ff
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;修改sh文件格式&#34;&gt;修改sh文件格式&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;:set ff=unix
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;统一视图单点登录配置路径&#34;&gt;统一视图单点登录配置路径&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/usr/local/tomcats/tomcat-8086/webappsrcivcurity/singlelogin.jsp
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;统一视图就诊视图-医嘱-执行记录操作列是否显示配置01&#34;&gt;统一视图：就诊视图-》医嘱-》执行记录：操作列，是否显示配置（0/1）&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CIV_CATEGARY_ORDER_SHOW_CONFIG
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;solr清空语句&#34;&gt;solr清空语句&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;delete&amp;gt;&amp;lt;query&amp;gt;*:*&amp;lt;/query&amp;gt;&amp;lt;/delete&amp;gt;
+&amp;lt;commit/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;定时任务抽取v5的患者主索引到数据中心并导出根据日期生成的log日志&#34;&gt;定时任务：抽取V5的患者主索引到数据中心，并导出根据日期生成的log日志&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;00 14 * * * /root/hdr/importDataToHbase/run-v5.sh&amp;gt;&amp;gt;/root/hdr/V5logs/$(date +\%Y\%m\%d).log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一、登录hbase：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hbase shell
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;二、hbase表的使用&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;查看表： list
+禁用表：disable &amp;#39;HDR_EMR_CONTENT&amp;#39;
+删除表：（需要先禁用）:drop &amp;#39;HDR_EMR_CONTENT&amp;#39;
+建表语句：create &amp;#39;HDR_EMR_CONTENT&amp;#39;,{NAME =&amp;gt; &amp;#39;cf&amp;#39;,COMPRESSION =&amp;gt; &amp;#39;snappy&amp;#39;},{SPLITS =&amp;gt;[&amp;#39;0588&amp;#39;,&amp;#39;1176&amp;#39;,&amp;#39;1764&amp;#39;,&amp;#39;2352&amp;#39;,&amp;#39;2940&amp;#39;,&amp;#39;3528&amp;#39;,&amp;#39;4116&amp;#39;,&amp;#39;4704&amp;#39;,&amp;#39;5292&amp;#39;,&amp;#39;5880&amp;#39;,&amp;#39;6468&amp;#39;,&amp;#39;7056&amp;#39;,&amp;#39;7644&amp;#39;,&amp;#39;8232&amp;#39;,&amp;#39;8820&amp;#39;,&amp;#39;9408&amp;#39;]}
+启用表: enable &amp;#39;HDR_EMR_CONTENT&amp;#39;
+统计表中数据条数： count &amp;#39;HDR_EMR_CONTENT&amp;#39;
+删除表中某条数据：deleteall &amp;#39;表名&amp;#39;,&amp;#39;rowkey&amp;#39;
+deleteall &amp;#39;HDR_ALLERGY&amp;#39;,&amp;#39;5196|418205134|2116915|1|1351064|101|418205134.HIS&amp;#39;
+deleteall &amp;#39;HDR_ALLERGY&amp;#39;,&amp;#39;5196|418205134|2116915|1|1351064|600013734|418205134.HIS
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;三、退出 hbase 运行 exit 指令&lt;br /&gt;
+四、运行 抽取数据的sqoop语句    su hdfs&lt;br /&gt;
+五、Hbase修改表名&lt;br /&gt;
+因为hbase中没有rename命令，所以更改表名比较复杂。重命名主要通过hbase的快照功能。&lt;/p&gt;</description>
+      </item>
+      
+      <item>
+        <title>TIDB-医共体数据中心常规操作</title>
+        <link>https://huangchaolong.github.io/jhmk/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Tue, 20 Oct 2020 15:12:15 +0900</pubDate>
+        
+        <guid>https://huangchaolong.github.io/jhmk/tidb-%E5%8C%BB%E5%85%B1%E4%BD%93%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;h6 id=&#34;医共体数据中心数据库地址&#34;&gt;医共体数据中心数据库地址：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 192.168.21.2:4000
+- 数据库：jhygt
+- 用户：dbadmin
+- 密码：123abc$%^
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;查看定时任务是否执行&#34;&gt;查看定时任务是否执行&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;通过命令查看：grep “查询的名称”  查询路径
+grep &amp;#34;test.txt&amp;#34; /var/log/cron
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;集群操作&#34;&gt;集群操作&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 启动集群 tiup cluster start tidb-formal      (实例名)
+- 查看集群 tiup cluster display tidb-formal    (实例名)
+- 关闭集群 tiup cluster stop tidb-formal       (实例名)
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;集群清单&#34;&gt;集群清单：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 192.168.21.2（对外：数据库）
+- 192.168.21.3
+- 192.168.21.4
+- 192.168.21.5
+- 192.168.21.6
+- 192.168.21.7（集群中控台：在此进行集群操作）
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心主题库涉及表&#34;&gt;医共体数据中心主题库涉及表：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- ST_TABLE_THEME_INFO
+- ST_TABLE_THEME_TARGET_INFO
+在手动运行中心主题库时候新增上：update
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;任务调度中心地址&#34;&gt;任务调度中心地址：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http://192.168.21.13:8772/xxl-job-admin/toLogin  admin/admin   
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心运营分析涉及表&#34;&gt;医共体数据中心运营分析涉及表：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 指标配置表：DSV_KPI_SQL_CONFIG
+- 指标记录表-日：DSV_KPI_DATA_DAY
+- 指标记录表-月：DSV_KPI_DATA_MONTH
+- 指标记录表-年：DSV_KPI_DATA_YEAR
+
+使用文档：BI任务调度与配置V1.0-用户手册
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心对外接口地址配置表&#34;&gt;医共体数据中心对外接口地址配置表：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- DSV_NSI_MESSAGE
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;大屏部署目录&#34;&gt;大屏部署目录：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd/
+cd /home/servers/local/apache-tomcat-8.5.76/webapps/webroot/WEB-INF/reportlets/
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 新技术、新项目开展详情：（滚动图）BI_NEWPROJECT_DETAIL
+- 医共体卫生资源监测、医共体服务能力监测：BI_REPORT_DATA
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;帆软激活码&#34;&gt;帆软激活码&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;b3b7d65f-b5e976977-76b7-3c474c474975
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体数据中心双向转诊记录表配置表&#34;&gt;医共体数据中心：双向转诊记录表配置表：&lt;/h6&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DUR_REFERRAL_INFO
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;医共体全息视图&#34;&gt;医共体全息视图：&lt;/h6&gt;
+&lt;p&gt;第三方调阅的可视化配置对应存储位置表：&lt;/p&gt;</description>
+      </item>
+      
+    
+  </channel>
+</rss>
