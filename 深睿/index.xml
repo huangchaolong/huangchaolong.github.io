@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深睿s on huangchaolong</title>
+    <link>https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/</link>
+    <description>Recent content in 深睿s on huangchaolong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 06 Mar 2026 16:17:00 +0800</lastBuildDate>
+    
+        <atom:link href="https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>专病库和科研词汇</title>
+        <link>https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/%E4%B8%93%E7%97%85%E5%BA%93%E5%92%8C%E7%A7%91%E7%A0%94%E9%AB%98%E9%A2%91%E8%AF%8D%E6%B1%87/</link>
+        <pubDate>Fri, 06 Mar 2026 16:17:00 +0800</pubDate>
+        
+        <guid>https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/%E4%B8%93%E7%97%85%E5%BA%93%E5%92%8C%E7%A7%91%E7%A0%94%E9%AB%98%E9%A2%91%E8%AF%8D%E6%B1%87/</guid>
+        <description>&lt;hr /&gt;
+&lt;h4 id=&#34;一数据层相关&#34;&gt;一、数据层相关&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;原始库（生产库）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：医院正在跑业务的真实数据库，如 HIS、EMR、LIS、PACS，不能直接动、不能直接科研。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ODS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：从生产库抽过来的&lt;strong&gt;原始数据临时层&lt;/strong&gt;，基本不加工，只做汇聚，是专病库的数据来源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CDR（临床数据中心）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：全院患者数据整合中心，专病库一般从 CDR/ODS 取数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;EDW（数据仓库）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：经过高度整合、建模、用于全院分析的数仓，比 ODS 更规整。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;主题库 / 专题库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：按业务主题建库，如 “手术库”“慢病库”，专病库属于其中一种。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ETL&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：抽取→转换→加载，把数据从业务系统搬到专病库的全过程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ELT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：先抽取加载，再转换，现在大数据平台常用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;增量同步&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：只同步新增 / 修改的数据，不每次全量抽，效率更高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全量同步&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：把历史所有数据重新抽一遍，常用于初始化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;二数据标准与治理&#34;&gt;二、数据标准与治理&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ICD-10&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：国际疾病分类编码，诊断必须用它标准化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ICD-9-CM3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：手术操作分类编码，手术必须标准化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数据映射&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：把医院自己的编码对应到国家标准码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;术语标准化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：把 “高血压”“血压高”“HTN” 统一成一个标准名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;数据质控规则&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：判断数据是否合格的规则，如年龄不能 &amp;gt; 120、检验值不能为负。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺失值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：该有却没有的数据，科研大忌。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;异常值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：明显不合理的数据，如心率 1000 次 / 分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;去重&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：同一个患者多条重复记录合并成一条。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;主索引（EMPI）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：全院唯一患者识别号，保证一个人只对应一条档案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;三专病库核心业务&#34;&gt;三、专病库核心业务&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;专病入组&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：患者满足条件，自动进入专病库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;自动入组&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：系统按纳排规则自动筛选，不用医生手动加。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;手动入组&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：医生觉得符合但系统没抓到，手动加进去。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;专病模型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：这个病要收集哪些字段，表结构怎么设计。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;专病子集&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：从专病库里再筛选一批特定人群做研究。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;随访数据&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;释义：患者出院后复查、用药、结局数据，科研非常重要。&lt;/p&gt;</description>
+      </item>
+      
+    
+  </channel>
+</rss>
