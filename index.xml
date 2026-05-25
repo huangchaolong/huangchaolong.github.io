@@ -2399,6 +2399,61 @@ WHERE MONTH(hiredate) = MONTH(GETDATE()) AND YEAR(hiredate) = YEAR(GETDATE());
 &lt;p&gt;释义：患者出院后复查、用药、结局数据，科研非常重要。&lt;/p&gt;</description>
       </item>
       
+      <item>
+        <title></title>
+        <link>https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/%E5%90%84%E8%B4%9F%E8%B4%A3%E4%BA%BA%E6%B8%85%E5%8D%95/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://huangchaolong.github.io/%E6%B7%B1%E7%9D%BF/%E5%90%84%E8%B4%9F%E8%B4%A3%E4%BA%BA%E6%B8%85%E5%8D%95/</guid>
+        <description>&lt;hr /&gt;
+&lt;h2 id=&#34;draft-false---必须设为-false否则不会生成静态文件&#34;&gt;title: &amp;ldquo;各负责人清单&amp;rdquo;  #### 页面标题&lt;br /&gt;
+date: 2026-03-06T16:17:00+08:00  #### 与文件修改时间一致&lt;br /&gt;
+draft: false  #### 必须设为 false，否则不会生成静态文件&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;配合团队人员&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;产品：曾颖异、俞州
+研发：华岳军（华哥）、宁峰峰、胡耀辉（取值分布平台、三车间）；
+	  胡明波、彭鑫汝（高达）；
+	  彭诚诚、姚屠军（双子星平台）；
+	  任鑫豪（希卡）···
+工具产品：向杰（大师）
+项目经理：刘亚雄、许祖振、郑阳、曹玮、高哲、哈力、金炳军、黄超龙
+ETL（一车间）：吴玉波、蒋凯旋、周赟、孟凌轩、邓海峰、陈富义
+MD（二车间）：杜梦玲、曲婷、彭丽、孙雪、齐迎迎、杜蕊、高世琪、邵抢生、余晶、叶闽
+数据质检：付麟均
+后场PMO：李治超
+
+影像中台部署：林鸽
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;临床大数据交付&lt;/strong&gt;：邓斌、哈力、高哲、金炳军、曹玮、许祖振、郑阳、刘亚雄&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：饶立伟&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术运营工程师&lt;/strong&gt;：孟祥红、吴振业&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据治理进度负责人&lt;/strong&gt;：李治超&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ETL工程师&lt;/strong&gt;：孟凌轩【负责数据集成、清洗、归一化等数据治理】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据交付经理&lt;/strong&gt;：吴玉波【负责数据集成、清洗、归一化等数据治理】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DBA&lt;/strong&gt;：孙义欣【负责医院原始数据采集、还原、质量核查】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;产品经理&lt;/strong&gt;：俞州、曾颖异   【参与项目实施、负责产品的需求收集、原型设计】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;医学数据经理&lt;/strong&gt;：余晶、高世琪 【负责医学需求收集、标准数据集制定、数据结构化处理】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;科研合作经理&lt;/strong&gt;：黄陈翠、陈星枝【负责与临床进行科研交流、深度合作、协助科研成果产出】&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;系统架构&lt;/strong&gt;：吴睿&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;各产品负责产品&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;		多模态医学图像数据资产平台（影像中台）：于成龙
+		智能专病科研平台：曾颖异
+		资产管理平台：翁静思
+        多模态科研平台：刘伟
+        疾病数据系统(教学平台)：倪庆雯
+		癌症筛查平台：俞州
+		多学科会诊平台(MDT)：李子奇
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;签订劳动合同&lt;/strong&gt;:贾妙&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;钉钉权限、工作邮箱、内网、五险一金&lt;/strong&gt;：吴秋月&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;财务制度、发票报销&lt;/strong&gt;：王婷婷&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;办公用品（笔记本、电脑及其他办公用品）、门禁卡、电梯二维码&lt;/strong&gt;：胡美玲&lt;/p&gt;
+&lt;hr /&gt;</description>
+      </item>
+      
     
   </channel>
 </rss>
